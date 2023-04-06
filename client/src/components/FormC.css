@@ -1,0 +1,165 @@
+.main{
+  background-color: #B73E3E;
+  overflow:scroll;
+  height: 700px;
+
+}
+
+.mm{
+  border: #a0007d solid 1px;
+}
+
+  .box-container {
+
+    margin: auto;
+    width: 700px;
+    height: 525px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+      0px 3px 4px 0px rgba(173, 42, 42, 0.14);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+    background-color: white;
+    margin-bottom: 60px;
+    z-index: 1;
+    
+
+  }
+
+.center{
+  display: flex;
+  margin-right: 160px;
+}
+
+.card-body{
+  background-color: #ED8F00;
+  width: 698px;
+  height: 115px;
+  border-radius: 44px;
+  margin-top: 10px; 
+ 
+  transform: translateY(30px);
+  z-index: -1;
+  margin-right: -44px;
+  margin-left: 330PX;
+}
+
+.file-input-container label {
+  display: inline-block;
+  background-color: #00A082;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 130px;
+  height: 19pX;
+  font-size: 17px;
+  font-display:initial;
+  margin-right: 300px;
+}
+
+
+.m {
+  width: 500px;
+  margin-top: 44px;
+  border-radius: 44px;
+ display: block;
+ padding: 10px;
+}
+
+.l {
+  width: 500px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: block;
+  
+  
+}
+
+.n {
+  width: 500px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: block;
+}
+
+.btn {
+  background-color: #ED8F00;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  width: 200px;
+  margin-top: 20px;
+}
+.btnn {
+  display: inline-flex;
+  align-items: center; 
+  color: #B73E3E;
+  border:  3px solid #B73E3E;
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px ;
+  height: 35px;
+  width: 200px;
+  margin-top: 10px;
+
+}
+
+
+.file-input-container input[type="file"] {
+  display: none;
+}
+
+.file-input-container input[type="file"] + label:before {
+  content: "Parcourir";
+}
+
+.card-body img{
+  margin-left: 400px ;
+   margin-top: -85px;
+    width: 310px;
+    height: 170px;
+}
+
+.card-title {
+  margin-top: -80px;
+  margin-left: 280PX;
+  font-size: 19px;
+  color: white;
+}
+
+.card-text {
+  margin-top :-30px;
+  margin-left: 280PX;
+  font-size: 15px;
+  color: black 
+
+}
+h6{
+  margin-top: 29px;
+}
+.success-message{
+  font-size: 15px;
+  color: #1d8613;
+}
+.error-message{
+  font-size: 15px;
+  color: #ec4e4e;
+}

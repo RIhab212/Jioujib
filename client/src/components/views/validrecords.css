@@ -1,0 +1,17 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    height: 600px;
+    margin-left: 250px;
+    margin-top: 44px;
+  }
+  
+  .MuiDataGrid-columnHeaderTitle {
+    width: 1000px;
+    color: rgb(8, 8, 8);
+  }
+  .datagrid .MuiDataGrid-table {
+    border-collapse: collapse;
+  }
+  

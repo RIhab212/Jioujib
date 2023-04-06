@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+.record-details-admin{
+    background: #fff;
+    border-radius: 4px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    left: 100px;
+    top: 100px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.record-details-admin h4{
+    margin: 0 0 10px 0;
+}
+body{background-color: transparent;}
+
+.record-details-admin p {
+    margin: 0;
+    color: #212121;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.record-details-admin p:hover{
+    text-decoration: underline;
+}
+
+/* .record-details span{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: #f1f1f1;
+    padding: 6px;
+    border-radius: 50%;
+    z-index: -1;
+} */
+
+.main-page{
+  display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 100px;
+    background: rgb(255, 255, 255);
+}
+
+
+
+.location strong{
+    color: #ED8F00;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+}
+
+.location{
+    color: #212121;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.productName{
+    color: #ED8F00;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.description strong{
+    color: #ED8F00;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+}
+
+.description{
+    color: #212121;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.image{
+    width: 250px;
+}
+
+.seemore-admin{
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    background-color: #ffffff;
+}
+
+.submit-edit-admin{
+    position: relative;
+    left: 450px;
+
+    background: none;
+	color: #ED8F00;
+	border: none;
+	padding: 0;
+	font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+	cursor: pointer;
+	outline: inherit;
+    text-transform: uppercase;
+}
+
+.submit-edit-admin:hover{
+    text-decoration: underline;
+}
+
+.conf{
+    position: relative;
+    left: 250px;
+}
+
+.img-notif{
+    position: absolute;
+    width: 42px;
+    top: 40px;
+    border-radius: 44px;
+    left: 800px;
+
+}
