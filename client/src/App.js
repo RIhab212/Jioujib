@@ -14,8 +14,9 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Routes>
+
           <Route path="/Jioujib" exact element={<Login/>} />
           <Route path="/Signup" element={< Signup/>} />
           <Route path="/adminInterface" element={<AdminInterface/>}/>
@@ -25,9 +26,10 @@ function App() {
           <Route path="/Phonesignup" element={<Phonesignup/>}/>
           <Route path="/Productsadmin" element={<Productsadmin/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>
+
       </Routes>
     </BrowserRouter>
   );
-}   <Route path="/OrderA" element={<OrderA/>}/>
+}
 
 export default App;
