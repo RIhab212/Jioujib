@@ -21,7 +21,7 @@ function App() {
           <Route path="/AdminInterface" element={<AdminInterface/>}/>
           <Route path="/UserLoggedInDetails" element={<UserLoggedInDetails/>}/>
           <Route path="/Validrecords" element={<Validrecords/>}/>
-          <Route path="/Jioujib/" element={<FormC/>}/>
+          <Route path="/" element={<FormC/>}/>
           <Route path="/Phonesignup" element={<Phonesignup/>}/>
           <Route path="/Productsadmin" element={<Productsadmin/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>
