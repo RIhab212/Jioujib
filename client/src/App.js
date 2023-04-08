@@ -18,10 +18,10 @@ function App() {
       <Routes>
           <Route path="/Jioujib" exact element={<Login/>} />
           <Route path="/Signup" element={< Signup/>} />
-          <Route path="/AdminInterface" element={<AdminInterface/>}/>
+          <Route path="/adminInterface" element={<AdminInterface/>}/>
           <Route path="/UserLoggedInDetails" element={<UserLoggedInDetails/>}/>
           <Route path="/Validrecords" element={<Validrecords/>}/>
-          <Route path="/" element={<FormC/>}/>
+          <Route path="./FormC" element={<FormC/>}/>
           <Route path="/Phonesignup" element={<Phonesignup/>}/>
           <Route path="/Productsadmin" element={<Productsadmin/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>
