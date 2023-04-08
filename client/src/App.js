@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-          <Route path="/Jioujib" exact element={<Login/>} />
+          <Route path="/Jioujib/" exact element={<Login/>} />
           <Route path="/Jioujib/signup" element={< Signup/>} />
           <Route path="/Jioujib/adminInterface" element={<AdminInterface/>}/>
           <Route path="/Jioujib/userLoggedInDetails" element={<UserLoggedInDetails/>}/>
