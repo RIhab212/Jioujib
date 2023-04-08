@@ -16,17 +16,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
           <Route path="/Jioujib" exact element={<Login/>} />
           <Route path="/Signup" element={< Signup/>} />
           <Route path="/adminInterface" element={<AdminInterface/>}/>
           <Route path="/UserLoggedInDetails" element={<UserLoggedInDetails/>}/>
           <Route path="/Validrecords" element={<Validrecords/>}/>
-          <Route path="./FormC" element={<FormC/>}/>
+          <Route path="/FormC" element={<FormC/>}/>
           <Route path="/Phonesignup" element={<Phonesignup/>}/>
           <Route path="/Productsadmin" element={<Productsadmin/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>
-
       </Routes>
     </BrowserRouter>
   );
