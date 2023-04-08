@@ -36,7 +36,7 @@ const Login = () => {
 		  } else if (status === "user logged in") {
 			alert("login successful");
 			window.localStorage.setItem("token", data.data);
-			window.location.href = "/FormC";
+			window.location.href = "./FormC";
 		  } else {
 			setError("Invalid login status");
 		  }
