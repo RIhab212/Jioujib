@@ -14,9 +14,9 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-          <Route path="/Jioujib" exact element={<Login/>} />
+          <Route path="/Login" exact element={<Login/>} />
           <Route path="/Signup" element={< Signup/>} />
           <Route path="/adminInterface" element={<AdminInterface/>}/>
           <Route path="/UserLoggedInDetails" element={<UserLoggedInDetails/>}/>
