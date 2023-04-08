@@ -15,19 +15,15 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <Routes> 
-        <Route path="/Login" element={<Login />} />
-        <Route path="/signup" element={< Signup/>} />
-        <Route path="/adminespace" element={<AdminInterface/>}/>
-        <Route path="/userLoggedInDetails" element={<UserLoggedInDetails/>}/>
-         <Route path="/validrecords" element={<Validrecords/>}/>
-         <Route path="/Products"exact element={<FormC/>}/>
-         <Route path="/Phonesignup"exact element={<Phonesignup/>}/>
-         <Route path="/validrecords" element={<Validrecords/>}/>
-         <Route path="/recordList" element={<RecordList/>}/>
-         <Route path="/OrderA" element={<OrderA/>}/>
-         <Route path="/Productsadmin" element={<Productsadmin/>}/>
-          <Route path="/Terme" exact element={<Terme/>}/>
+      <Routes>
+          <Route path="/jiUjibb" exact element={<Login/>} />
+          <Route path="/jiUjibb/signup" element={< Signup/>} />
+          <Route path="/jiUjibb/adminInterface" element={<AdminInterface/>}/>
+          <Route path="/jiUjibb/userLoggedInDetails" element={<UserLoggedInDetails/>}/>
+          <Route path="/jiUjibb/validrecords" element={<Validrecords/>}/>
+          <Route path="/jiujib/FormC" element={<FormC/>}/>
+          <Route path="/jiUjibb/Phonesignup" element={<Phonesignup/>}/>
+          <Route path="/jiUjibb/recordList" element={<RecordList/>}/>
       </Routes>
     </BrowserRouter>
   );
