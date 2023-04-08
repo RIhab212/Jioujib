@@ -16,18 +16,19 @@ function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-          <Route path="/Login" exact element={<Login/>} />
-          <Route path="/Signup" element={< Signup/>} />
-          <Route path="/adminInterface" element={<AdminInterface/>}/>
-          <Route path="/UserLoggedInDetails" element={<UserLoggedInDetails/>}/>
-          <Route path="/Validrecords" element={<Validrecords/>}/>
-          <Route path="./FormC" element={<FormC/>}/>
-          <Route path="/Phonesignup" element={<Phonesignup/>}/>
-          <Route path="/Productsadmin" element={<Productsadmin/>}/>
+          <Route path="/jiUjibb" exact element={<Login/>} />
+          <Route path="/jiUjibb/signup" element={< Signup/>} />
+          <Route path="/jiUjibb/adminInterface" element={<AdminInterface/>}/>
+          <Route path="/jiUjibb/userLoggedInDetails" element={<UserLoggedInDetails/>}/>
+          <Route path="/jiUjibb/validrecords" element={<Validrecords/>}/>
+          <Route path="/jiujib/FormC" element={<FormC/>}/>
+          <Route path="/jiUjibb/Phonesignup" element={<Phonesignup/>}/>
+
           <Route path="/OrderA" element={<OrderA/>}/>
+          <Route path="/jiUjibb/recordList" element={<RecordList/>}/>
       </Routes>
     </BrowserRouter>
   );
-}
+}   <Route path="/OrderA" element={<OrderA/>}/>
 
 export default App;
