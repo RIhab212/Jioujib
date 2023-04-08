@@ -32,11 +32,11 @@ const Login = () => {
 		  if (status === "admin logged in") {
 			alert("admin logged in");
 			window.localStorage.setItem("token", token);
-			window.location.href = "./adminespace";
+			window.location.href = "./AdminInterface";
 		  } else if (status === "user logged in") {
 			alert("login successful");
 			window.localStorage.setItem("token", data.data);
-			window.location.href = "./Products";
+			window.location.href = "./FormC";
 		  } else {
 			setError("Invalid login status");
 		  }
