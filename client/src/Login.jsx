@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import Img2 from './logoB2.png';
 import Google from "./g.png";
@@ -21,6 +21,7 @@ const Login = () => {
 		// Redirigez l'utilisateur vers la page de profil
 		window.location.href = "./Phonesignup";
 	  }
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -35,8 +36,7 @@ const Login = () => {
 			window.location.href = "/adminInterface";
 		  } else if (status === "user logged in") {
 			alert("login successful");
-			window.localStorage.setItem("token", data.data);
-			window.location.href = "/signup";
+			  navigate("/FormC");
 		  } else {
 			setError("Invalid login status");
 		  }
