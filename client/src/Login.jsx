@@ -32,7 +32,7 @@ const Login = () => {
 		  window.localStorage.setItem("user", JSON.stringify(user)); // <- add this line
 		  if (status === "admin logged in") {
 			alert("admin logged in");
-			  navigate("/adminInterfaces");
+			  navigate("/adminInterface");
 		  } else if (status === "user logged in") {
 			alert("login successful");
 			  navigate("/FormC");
