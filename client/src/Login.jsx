@@ -26,7 +26,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-		  const url = "http://localhost:8080/login-user";
+		  const url = "http://localhost:10000/login-user";
 		  const { data: { data: token, gender, status } } = await axios.post(url, { email: data.email, password: data.password });
 		  const user = { email: data.email, gender };
 		  window.localStorage.setItem("user", JSON.stringify(user)); // <- add this line
