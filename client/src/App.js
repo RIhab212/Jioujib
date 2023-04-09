@@ -5,7 +5,7 @@ import AdminInterface from './components/adminInterface'
 import UserLoggedInDetails from './components/userLoggedInDetails'
 import Validrecords from './components/views/validrecords'
 import OrderA from './components/views/OrderA'
-import  FormC from "./components/FormC";
+import  FormC from "./FormC";
 import Phonesignup from "./Phonesignup";
 import RecordList from "./components/views/recordList"
 import Productsadmin from './components/views/productsadmin'
