@@ -100,8 +100,9 @@ const FormC = () => {
   };
 
   useEffect(() => {
-    const socket = io.connect('http://localhost:3001');
+    const socket = io.connect('https://jiuujib-qigr.onrender.com');
     socket.on('receive_message', data => {
+      alert(data.message);
       setNotifications([...notifications, { id: notifications.length, message: data.message }]);
     });
   }, []);
