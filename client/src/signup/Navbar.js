@@ -15,7 +15,7 @@ class Navbar extends Component {
     
     
     componentDidMount(){
-      fetch('http://localhost:8000/userData',{
+      fetch('https://jiuujib-qigr.onrender.com/userData',{
             method:"POST",
             crossDomain:true,
             headers:{

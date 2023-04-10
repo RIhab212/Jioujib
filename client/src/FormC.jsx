@@ -64,7 +64,7 @@ const FormC = () => {
       formData.append('status', "ORDER_PLACED");
 
 
-      const url = "http://localhost:8080/api/form";
+      const url = "https://jiuujib-qigr.onrender.com/api/form";
       const { data: res } = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',

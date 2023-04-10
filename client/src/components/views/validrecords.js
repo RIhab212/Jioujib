@@ -15,7 +15,7 @@ const Validrecords = () => {
     
     const handleToPickUp = async (row) => {
         const response = await fetch(
-          "http://localhost:8080/api/getproducts/pickUp",
+          "https://jiuujib-qigr.onrender.com/pickUp",
           {
             method: "PUT",
             headers: {

@@ -13,7 +13,7 @@ const RecordList = ({ record }) => {
   const [records, setData] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
-      const data = await fetch("http:/localhost:8080/api/getproducts/");
+      const data = await fetch("https://jiuujib-qigr.onrender.com/api/getproducts/");
       const json = await data.json();
 
       if (data.ok) {
@@ -24,7 +24,7 @@ const RecordList = ({ record }) => {
   });
   const handleSubmit = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/getproducts/confirm",
+      "https://jiuujib-qigr.onrender.com/confirm",
       {
         method: "PUT",
         headers: {
@@ -47,7 +47,7 @@ const RecordList = ({ record }) => {
   
     const removeNotif = async () => {
       const response = await fetch(
-        "http://localhost:8080/api/getproducts/update_notif",
+        "https://jiuujib-qigr.onrender.com/update_notif",
         {
           method: "PUT",
           headers: {

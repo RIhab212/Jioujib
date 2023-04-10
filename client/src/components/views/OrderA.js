@@ -14,7 +14,7 @@ const OrderA = () => {
 
     useEffect(() => {
         const fetchdata = async () => {
-            const data = await fetch(  "http://localhost:8080/api/getproducts/getDeliveredOrders",)
+            const data = await fetch(  "https://jiuujib-qigr.onrender.com/getDeliveredOrders",)
             const json = await data.json()
 
             if (data.ok) {
@@ -27,7 +27,7 @@ const OrderA = () => {
     },[])
     const handleOrderPlaced = async (row) => {
         const response = await fetch(
-          "http://localhost:8080/api/getproducts/deliver",
+          "https://jiuujib-qigr.onrender.com/deliver",
           {
             method: "PUT",
             headers: {
