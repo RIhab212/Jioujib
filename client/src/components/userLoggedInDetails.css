@@ -5,6 +5,7 @@
 
 body{
     background-color: #ED8F00;
+    overflow:scroll;
 }
 .loggedin-title{
     position: absolute;
