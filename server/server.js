@@ -18,7 +18,7 @@ const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984O
 const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose
-.connect(mongoUrl,{
+.connect(process.env.mongoUrl,{
     useNewUrlParser:true,
 })
 .then(()=>{
