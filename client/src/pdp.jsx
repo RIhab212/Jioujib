@@ -2,7 +2,8 @@ import { useLocation } from 'react-router-dom';
 import avatarMale from './avatar-male.png';
 import avatarFemale from './avatar.png';
 import img8 from "./logoB2.png";
-import './pdp.css'; 
+import './pdp.css';
+
 
 import { FaBell } from 'react-icons/fa';
 import { Link } from 'react-router-dom';

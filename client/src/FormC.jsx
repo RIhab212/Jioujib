@@ -3,7 +3,7 @@ import './FormC.css';
 import Img5 from './av.png';
 import  Profile from './pdp.jsx'
 import Notification from './notification'
-
+import { Link,useNavigate } from "react-router-dom";
 import FormWithMap from "./Maps.jsx"
 import io from 'socket.io-client';
 import { useEffect, useState } from "react";
@@ -100,7 +100,7 @@ const FormC = () => {
   };
 
   useEffect(() => {
-    const socket = io.connect('http://localhost:3001');
+    const socket = io.connect('http://localhost:3000');
     socket.on('receive_message', data => {
       setNotifications([...notifications, { id: notifications.length, message: data.message }]);
     });
@@ -155,7 +155,9 @@ const FormC = () => {
     {submitted && (
   <div className="success-message">Product created successfully!</div>
 )}
+      <Link to="/userLoggedInDetails">
     <button type="submit" id="btn" className='btn'>SEARCH FOR DELIVERY</button>
+      </Link>
     <button type="button" id="btn" className='btnn' onClick={handleCancel}>CANCEL ORDER</button>
 
 

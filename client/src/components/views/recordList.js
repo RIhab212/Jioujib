@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 import io from 'socket.io-client';
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("http://localhost:3000");
 const RecordList = ({ record }) => {
   const [records, setData] = useState([]);
   useEffect(() => {
