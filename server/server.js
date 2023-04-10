@@ -18,13 +18,9 @@ const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984O
 const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose
-.connect(process.env.mongoUrl,{
-    useNewUrlParser:true,
-})
-.then(()=>{
-    console.log("Connected to database");
-})
-.catch((e)=>console.log(e))
+    .connect(mongoUrl)
+    .then((e) => console.log("Connected to database"))
+    .catch((error) => console.error(error));
 
 
 require("./userDetails")
@@ -200,7 +196,7 @@ server.listen(3001, () => {
   console.log("SERVER IS RUNNING");
 });
 
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 
