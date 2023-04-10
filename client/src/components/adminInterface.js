@@ -21,7 +21,7 @@ export default class AdminInterface extends Component {
 
 
 componentDidMount(){
-  fetch('https://jiuujib-qigr.onrender.com/userData',{
+  fetch('https://jiiujjib.onrender.com/userData',{
         method:"POST",
         crossDomain:true,
         headers:{

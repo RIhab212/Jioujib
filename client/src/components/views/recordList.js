@@ -8,12 +8,12 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 import io from 'socket.io-client';
-const socket = io.connect("https://jiuujib-qigr.onrender.com");
+const socket = io.connect("https://jiiujjib.onrender.com");
 const RecordList = ({ record }) => {
   const [records, setData] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
-      const data = await fetch("https://jiuujib-qigr.onrender.com/api/getproducts");
+      const data = await fetch("https://jiiujjib.onrender.com/api/getproducts");
       const json = await data.json();
 
       if (data.ok) {
@@ -24,7 +24,7 @@ const RecordList = ({ record }) => {
   });
   const handleSubmit = async () => {
     const response = await fetch(
-      "https://jiuujib-qigr.onrender.com/api/getproducts/confirm",
+      "https://jiiujjib.onrender.com/api/getproducts/confirm",
       {
         method: "PUT",
         headers: {
@@ -47,7 +47,7 @@ const RecordList = ({ record }) => {
   
     const removeNotif = async () => {
       const response = await fetch(
-        "https://jiuujib-qigr.onrender.com/api/getproducts/update_notif",
+        "https://jiiujjib.onrender.com/api/getproducts/update_notif",
         {
           method: "PUT",
           headers: {

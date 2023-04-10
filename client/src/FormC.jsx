@@ -64,7 +64,7 @@ const FormC = () => {
       formData.append('status', "ORDER_PLACED");
 
 
-      const url = "https://jiuujib-qigr.onrender.com/api/form";
+      const url = "https://jiiujjib.onrender.com/api/form";
       const { data: res } = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -100,7 +100,7 @@ const FormC = () => {
   };
 
   useEffect(() => {
-    const socket = io.connect('https://jiuujib-qigr.onrender.com');
+    const socket = io.connect('https://jiiujjib.onrender.com');
     socket.on('receive_message', data => {
       alert(data.message);
       setNotifications([...notifications, { id: notifications.length, message: data.message }]);

@@ -15,7 +15,7 @@ const Validrecords = () => {
     
     const handleToPickUp = async (row) => {
         const response = await fetch(
-          "https://jiuujib-qigr.onrender.com/api/getproducts/pickUp",
+          "https://jiiujjib.onrender.com/api/getproducts/pickUp",
           {
             method: "PUT",
             headers: {
@@ -37,7 +37,7 @@ const Validrecords = () => {
       
     useEffect(() => {
         const fetchdata = async () => {
-            const data = await fetch(  "https://jiuujib-qigr.onrender.com/api/getproducts/getPlacedOrders",)
+            const data = await fetch(  "https://jiiujjib.onrender.com/api/getproducts/getPlacedOrders",)
             const json = await data.json()
 
             if (data.ok) {
