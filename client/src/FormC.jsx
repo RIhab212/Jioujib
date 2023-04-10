@@ -100,7 +100,7 @@ const FormC = () => {
   };
 
   useEffect(() => {
-    const socket = io.connect('http://localhost:3000');
+    const socket = io.connect('http://localhost:3001');
     socket.on('receive_message', data => {
       setNotifications([...notifications, { id: notifications.length, message: data.message }]);
     });

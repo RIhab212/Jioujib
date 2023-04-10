@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import avatarMale from './avatar-male.png';
 import avatarFemale from './avatar.png';
+import img8 from "./logoB2.png";
 import './pdp.css'; 
 
 import { FaBell } from 'react-icons/fa';
@@ -63,7 +64,7 @@ const Profile = ({ notifications }) => {
         </div>
       )}
     </div>
-        <img src="logoB2.png" alt="" className='jiwjiblogo' />
+        <img src= {img8 }alt="" className='jiwjiblogo' />
         <img src={getDefaultAvatar()} alt="" />
     </div>
   );

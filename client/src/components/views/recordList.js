@@ -8,12 +8,12 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 import io from 'socket.io-client';
-const socket = io.connect("http://localhost:3000");
+const socket = io.connect("http://localhost:3001");
 const RecordList = ({ record }) => {
   const [records, setData] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
-      const data = await fetch("https://jiuujib-qigr.onrender.com/api/getproducts/");
+      const data = await fetch("https://jiuujib-qigr.onrender.com/api/getproducts");
       const json = await data.json();
 
       if (data.ok) {
@@ -24,7 +24,7 @@ const RecordList = ({ record }) => {
   });
   const handleSubmit = async () => {
     const response = await fetch(
-      "https://jiuujib-qigr.onrender.com/confirm",
+      "https://jiuujib-qigr.onrender.com/api/getproducts/confirm",
       {
         method: "PUT",
         headers: {
@@ -47,7 +47,7 @@ const RecordList = ({ record }) => {
   
     const removeNotif = async () => {
       const response = await fetch(
-        "https://jiuujib-qigr.onrender.com/update_notif",
+        "https://jiuujib-qigr.onrender.com/api/getproducts/update_notif",
         {
           method: "PUT",
           headers: {
@@ -72,7 +72,7 @@ const RecordList = ({ record }) => {
     return (
     
    <div className="record-details-admin">
-        {record.Notif ? <img src='https://i.imgur.com/NNFZFXR.png' className='img-notif'></img> : <></>}
+        {record.Notif ? <img src='' className='img-notif'></img> : <></>}
 
         <h4 className="productName">{record.productName}</h4>
         
