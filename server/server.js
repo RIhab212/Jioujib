@@ -192,10 +192,7 @@ io.on("connection", (socket) => {
   });
 
 });
-server.listen(3001, () => {
-  console.log("SERVER IS RUNNING");
-});
-
+server.listen(process.env.PORT || 3001, () => { console.log("SERVER IS RUNNING"); });
 const port = process.env.PORT || 10000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
