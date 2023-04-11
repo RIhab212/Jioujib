@@ -192,10 +192,11 @@ io.on("connection", (socket) => {
   });
 
 });
-server.listen(3001, () => {
-  console.log("SERVER IS RUNNING");
-});
 
+
+server.listen(443, () => {
+    console.log('Server is running on https://jiujib.onrender.com');
+});
 const port = process.env.PORT || 10000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
