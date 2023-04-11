@@ -100,7 +100,7 @@ const FormC = () => {
   };
 
   useEffect(() => {
-    const socket = io.connect('https://jiujib.onrender.com:10000');
+    const socket = io.connect('https://jiujib.onrender.com');
 
     socket.on('receive_message', data => {
       alert(data.message);
