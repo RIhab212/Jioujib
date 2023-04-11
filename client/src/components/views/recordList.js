@@ -8,7 +8,8 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 import io from 'socket.io-client';
-const socket = io.connect("https://jiujib.onrender.com");
+const socket = io.connect('https://jiujib.onrender.com:3001');
+
 const RecordList = ({ record }) => {
   const [records, setData] = useState([]);
   useEffect(() => {
