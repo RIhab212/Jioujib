@@ -46,7 +46,7 @@ componentDidMount(){
     return (
 
       <div className='main-adminint'>
-        
+          <Productsadmin/>
         <div className='sidebar-admin'>
         <Navbar/>
         </div>

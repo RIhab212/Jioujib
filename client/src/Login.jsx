@@ -31,10 +31,10 @@ const Login = () => {
 		  const user = { email: data.email, gender };
 		  window.localStorage.setItem("user", JSON.stringify(user)); // <- add this line
 		  if (status === "admin logged in") {
-			alert("admin logged in");
+
 			  navigate("/adminInterface");
 		  } else if (status === "user logged in") {
-			alert("login successful");
+
 			  navigate("/FormC");
 		  } else {
 			setError("Invalid login status");
