@@ -7,7 +7,7 @@ import { Link,useNavigate } from "react-router-dom";
 import FormWithMap from "./Maps.jsx"
 import io from 'socket.io-client';
 import { useEffect, useState } from "react";
-import { storage } from "../firebase.config";
+import { storage } from "./firebase.config";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid"
 
