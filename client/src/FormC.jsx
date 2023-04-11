@@ -7,6 +7,9 @@ import { Link,useNavigate } from "react-router-dom";
 import FormWithMap from "./Maps.jsx"
 import io from 'socket.io-client';
 import { useEffect, useState } from "react";
+import { storage } from "../firebase.config";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid"
 
 const React = require('react');
 
@@ -25,6 +28,18 @@ const FormC = () => {
   });
   const [submitted, setSubmitted] = React.useState(false);
   const [error, setError] = React.useState("");
+
+  const [imageList, setImageList] = useState([])
+  const imageListRef = ref(storage, "images/")
+
+  const [imageUpload, setImage] = useState(null)
+  const uploadImage = () => {
+    if (imageUpload == null) return
+    const imageRef = ref(storage,`images/${imageUpload.name + v4()}`)
+    uploadBytes(imageRef, imageUpload).then(() => {
+
+    })
+  }
 
 
 
@@ -60,8 +75,14 @@ const FormC = () => {
       formData.append('location', data.location);
       formData.append('productName', data.productName);
       formData.append('description', data.description);
-      formData.append('photo', data.photo);
       formData.append('status', "ORDER_PLACED");
+
+      if (imageUpload) {
+        const imageRef = ref(storage,`images/${imageUpload.name + v4()}`);
+        await uploadBytes(imageRef, imageUpload);
+        const downloadUrl = await getDownloadURL(imageRef);
+        formData.append('photo', downloadUrl);
+      }
 
 
       const url = "https://jiujib.onrender.com/api/form";
@@ -150,7 +171,9 @@ const FormC = () => {
 
     <div className="file-input-container">
       <label htmlFor="photo">Attach an Image</label>
-      <input type="file" id="photo" onChange={handleFileChange} accept="image/*" />
+      <input type="file" id="photo" onChange={(event) => {
+        setImage(event.target.files[0]);
+      }} accept="image/*" />
     </div>
     {error && <div className="error-message">{error}</div>}
 
