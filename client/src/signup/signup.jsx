@@ -44,7 +44,7 @@ const Signup = () => {
 			return;
 		}
 		try {
-			const url = "https://jiiujjib.onrender.com/register";
+			const url = "https://jiujib.onrender.com/register";
 			const { data: res } = await axios.post(url, data);
 			navigate("/Login");
 			console.log(res.message);

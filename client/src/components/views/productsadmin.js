@@ -12,7 +12,7 @@ const Productsadmin = () => {
 
     useEffect(() => {
         const fetchdata = async () => {
-            const data = await fetch('https://jiiujjib.onrender.com/api/getproducts')
+            const data = await fetch('https://jiujib.onrender.com/api/getproducts')
             const json = await data.json()
 
             if (data.ok) {

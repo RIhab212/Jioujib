@@ -14,7 +14,7 @@ const OrderA = () => {
 
     useEffect(() => {
         const fetchdata = async () => {
-            const data = await fetch(  "https://jiiujjib.onrender.com/api/getproducts/getDeliveredOrders",)
+            const data = await fetch(  "https://jiujib.onrender.com/api/getproducts/getDeliveredOrders",)
             const json = await data.json()
 
             if (data.ok) {
@@ -27,7 +27,7 @@ const OrderA = () => {
     },[])
     const handleOrderPlaced = async (row) => {
         const response = await fetch(
-          "https://jiiujjib.onrender.com/api/getproducts/deliver",
+          "https://jiujib.onrender.com/api/getproducts/deliver",
           {
             method: "PUT",
             headers: {
