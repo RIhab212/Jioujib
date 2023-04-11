@@ -42,8 +42,8 @@ class userLoggedInDetails extends Component {
         };
 
         Promise.all([
-            fetch('https://jiiujjib.onrender.com/userData', userDataRequest),
-            fetch('https://jiiujjib.onrender.com/userProducts', userProductsRequest),
+            fetch('https://jiujib.onrender.com/userData', userDataRequest),
+            fetch('https://jiujib.onrender.com/userProducts', userProductsRequest),
         ])
             .then((responses) => {
                 const userDataResponse = responses[0].json();
