@@ -176,31 +176,20 @@ app.post("/userProducts", async (req, res) => {
 
 
 const server = http.createServer(app);
-
 const io = new Server(server, {
-  cors: {
-    origin: "https://rihab212.github.io",
-    methods: ["GET", "POST"],
-  },
+    cors: {
+        origin: "https://rihab212.github.io",
+        methods: ["GET", "POST"],
+    },
 });
 
-io.on("connection", (socket) => {
-  console.log(`User Connected: ${socket.id}`);
+io.on('connection', (socket) => {
+    console.log(`User Connected: ${socket.id}`);
 
-  socket.on("send_message", (data) => {
-    socket.broadcast.emit("receive_message",data);
-  });
-
+    socket.on('send_message', (data) => {
+        socket.broadcast.emit('receive_message', data);
+    });
 });
 
-
-server.listen(10000, () => {
-    console.log('Server is running on https://jiujib.onrender.com');
-});
 const port = process.env.PORT || 10000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
-
-
-
-
-
+server.listen(port, () => console.log(`Server listening on port ${port}`));
