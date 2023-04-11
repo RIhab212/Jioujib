@@ -95,7 +95,6 @@ class userLoggedInDetails extends Component {
                                 <h1 className='product-name'>{product.productName}
                                 </h1><h2 className='Localisation'>LOCALISATION:{product.location} </h2>
                                 <h2 className='Description'>Description:{product.description} </h2>
-                                <h2 className='photo'>{product.photo} </h2>
                                 <h1 className='product-date'>date</h1>
                                 <h1 className='delivery-state'>delivery state...</h1>
                                 <AccordionHeader className='seemore'>
