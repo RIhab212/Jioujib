@@ -197,7 +197,8 @@ button {
 		margin: 5px 0;
 		font-size: 14px;
 		background-color: #f34646;
-		color: white;
+		color: white
+
 		border-radius: 5px;
 		text-align: center;
 	}
@@ -292,6 +293,9 @@ button {
 }
 @media  (max-width: 1000px) {
 
+	body{
+		overflow: hidden;
+	}
 
 	.right {
 		flex: 1;
