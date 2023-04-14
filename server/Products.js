@@ -10,16 +10,17 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+const User = mongoose.model("UserInfo");
 const userSchema = new mongoose.Schema({
 	location: { type: String, required: true },
 	productName: { type: String, required: true },
 	description: { type: String, required: true },
 	photo: { type: String, required: true },
 	isConfirmed: { type: Boolean, default: false },
-	email : { type: String, default: null},
 	Notif : { type: Boolean, default: true },
-	status : { type: String, default: null}
+	status : { type: String, default: null},
+	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+
 });
 
 userSchema.methods.generateAuthToken = function () {
