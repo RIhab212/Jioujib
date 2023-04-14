@@ -175,3 +175,126 @@ button {
 	height: 45px; 
    
   }
+
+@media only screen and (max-width: 1123px) {
+	.login_container {
+		position: relative;
+		margin: 0;
+		width: 200vw;
+		height: 100vh;
+	}
+
+
+	.input {
+		outline: none;
+		border: none;
+		width: 240px;
+		padding: 15px;
+		border-radius: 10px;
+		background-color: #edf5f3;
+
+		font-size: 14px;
+		margin-right: 59px;
+
+	}
+
+	.white_btn,
+	.green_btn {
+		border: none;
+		outline: none;
+		padding: 12px 0;
+		background-color: white;
+		border-radius: 20px;
+		width: 180px;
+		font-weight: bold;
+		font-size: 14px;
+		cursor: pointer;
+
+	}
+
+	.green_btn {
+		background-color: #ED8F00;
+		color: white;
+		margin-right: 20%;
+
+	}
+
+
+	.form_container h1 {
+		font-size: 40px;
+		margin-top: 0;
+		margin-right: 55px;
+	}
+	.button_container{
+		right: 50px;
+	}
+	.button_container h2 {
+		margin-right: 55px;
+		font-size: 14px;
+		color: gray;
+		text-align: center;
+		margin-top: 15px;
+	}
+
+
+	.facebook {
+		background-color: #247df1;
+		border: none;
+		border-radius: 50%;
+		margin-top: 10px;
+		width: 45px;
+		height: 45px;
+
+	}
+
+	.Google {
+		border-color: #B73E3E;
+		background-color: transparent;
+		border-width: 1px;
+		border-radius: 50%;
+		width: 45px;
+		height: 45px;
+
+
+
+
+
+
+	}
+
+	.tel {
+		background-color: rgb(202, 202, 202);
+		border-radius: 50%;
+		margin-top: 33px;
+		width: 45px;
+		height: 45px;
+		margin-right: 66px;
+
+	}
+
+
+}
+@media  (max-width: 1000px) {
+
+
+	.right {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		background-color: #B73E3E;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	.right h1 {
+		margin-top: 18%;
+		color: white;
+		font-size: 20px;
+		align-self: center;
+	}
+	.white_btn{
+		width:150px ;
+		margin-top: 15px;
+	}
+
+}
