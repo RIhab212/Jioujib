@@ -228,3 +228,149 @@ button {
 	}
 
 	
+
+   
+  
+@media only screen and (max-width: 1123px) {
+	.login_container {
+		position: relative;
+		margin: 0;
+		width: 200vw;
+
+	}
+
+	.login_form_container {
+		width: 1000px;
+		height: 800px;
+		display: flex;
+		border-radius: 10px;
+		box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+		0px 3px 4px 0px rgba(173, 42, 42, 0.14), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+	}
+	.error_msg {
+		width: 200px;
+		padding: 15px;
+		margin: 5px 0;
+		font-size: 14px;
+		background-color: #f34646;
+		color: white;
+
+		border-radius: 5px;
+		text-align: center;
+	}
+	.input {
+		outline: none;
+		border: none;
+		width: 240px;
+		padding: 15px;
+		border-radius: 10px;
+		background-color: #edf5f3;
+
+		font-size: 14px;
+		margin-right: 59px;
+
+	}
+
+	.white_btn,
+	.green_btn {
+		border: none;
+		outline: none;
+		padding: 12px 0;
+		background-color: white;
+		border-radius: 20px;
+		width: 180px;
+		font-weight: bold;
+		font-size: 14px;
+		cursor: pointer;
+
+	}
+
+	.green_btn {
+		background-color: #ED8F00;
+		color: white;
+		margin-right: 20%;
+
+	}
+
+
+	.form_container h1 {
+		font-size: 40px;
+		margin-top: 0;
+		margin-right: 55px;
+	}
+	.button_container{
+		right: 50px;
+	}
+	.button_container h2 {
+		margin-right: 55px;
+		font-size: 14px;
+		color: gray;
+		text-align: center;
+		margin-top: 15px;
+	}
+
+
+	.facebook {
+		background-color: #247df1;
+		border: none;
+		border-radius: 50%;
+		margin-top: 10px;
+		width: 45px;
+		height: 45px;
+
+	}
+
+	.Google {
+		border-color: #B73E3E;
+		background-color: transparent;
+		border-width: 1px;
+		border-radius: 50%;
+		width: 45px;
+		height: 45px;
+
+
+
+
+
+
+	}
+
+	.tel {
+		background-color: rgb(202, 202, 202);
+		border-radius: 50%;
+		margin-top: 33px;
+		width: 45px;
+		height: 45px;
+		margin-right: 66px;
+
+	}
+
+
+}
+@media  (max-width: 1000px) {
+
+	body{
+		overflow: hidden;
+	}
+
+	.right {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		background-color: #B73E3E;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	.right h1 {
+		margin-top: 18%;
+		color: white;
+		font-size: 20px;
+		align-self: center;
+	}
+	.white_btn{
+		width:150px ;
+		margin-top: 15px;
+	}
+
+}
