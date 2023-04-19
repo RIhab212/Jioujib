@@ -65,18 +65,18 @@ const Signup = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
-				<img src={Img2} alt=''/>
+				<img src='https://i.imgur.com/b2fceUJ.png' alt='' className={styles.img2}/>
 					<h1>Welcome Back</h1>
 					<Link to="/Login">
 						<button type="button" className={styles.white_btn}>
-							Sign in
+							SIGN IN
 						</button>
 					</Link>
 				</div>
 				<div className={styles.right}>
                 
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Sign Up</h1>
+						<h1>SIGN UP</h1>
 						<input
 							type="text"
 							placeholder="First Name"
@@ -121,6 +121,7 @@ const Signup = () => {
   name="genderInput"
   value="male"
   checked={gender === 'male'}
+  className={styles.genderradio}
   onChange={handleGenderChange}
 />
       </label>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './userLoggedInDetails.css';
+import './userLoggedInDetails.module.css';
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 
 
