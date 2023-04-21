@@ -98,9 +98,10 @@ class userLoggedInDetails extends Component {
                                 <h1 className='product-date'>date</h1>
                                 <h1 className='delivery-state'>delivery state...</h1>
                                 <AccordionHeader className='seemore'>
-                                    <h1 className='product-viewitem'>view item</h1>
+                                    <h1 className='product-viewitem' onClick={() => this.setState({selectedItem: product._id})}>view item</h1>
                                     <br></br>
                                 </AccordionHeader>
+
                                 <AccordionBody>
                                     <br></br>
                                     <div className={`order-delvired`} style={{opacity: product.status === 'ORDER_DELIVERED' ? 1 : 0.5}}>
