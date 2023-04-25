@@ -197,11 +197,11 @@ button {
   }
 
   .img2{
-	position: absolute;
-	bottom: 115px;
-	height: 700px;
-	width: 300px;
-	object-fit: contain;
+	  position: absolute;
+	  bottom: 115px;
+	  height: 700px;
+	  width: 300px;
+	  object-fit: contain;
 	}
 
 	.newhere{

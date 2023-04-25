@@ -138,7 +138,7 @@ const Login = () => {
                     backgroundColor: 'white'
                   }
                 }} style={{'width': '100%', 'top' : '-380px'}}/> */}
-				<img src='logo' alt='' className={styles.img2}/>
+				<img src={logo} alt='' className={styles.img2}/>
 					<h1 className={styles.newhere}>NEW HERE?</h1>
 					<Link to="/signup">
 						<button type="button" className={styles.white_btn}>

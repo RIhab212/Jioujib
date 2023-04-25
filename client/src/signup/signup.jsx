@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import Img2 from './logoB2.png';
-
+import logo from "./logo.png"
 
 const React = require('react');
 const { useState } = React;
@@ -65,7 +65,7 @@ const Signup = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
-				<img src='https://i.imgur.com/b2fceUJ.png' alt='' className={styles.img2}/>
+				<img src={logo} alt='' className={styles.img2}/>
 					<h1>Welcome Back</h1>
 					<Link to="/Login">
 						<button type="button" className={styles.white_btn}>
