@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './userLoggedInDetails.css';
+import './userLoggedInDetails.module.css';
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 
 
@@ -43,7 +43,7 @@ class userLoggedInDetails extends Component {
 
         Promise.all([
             fetch('https://jiujib.onrender.com/userData', userDataRequest),
-            fetch('https://jiujib.onrender.com/userProducts', userProductsRequest),
+            fetch('https://jiujib.onrender.com/userProducts', userProductsRequest)
         ])
             .then((responses) => {
                 const userDataResponse = responses[0].json();
@@ -77,7 +77,7 @@ class userLoggedInDetails extends Component {
         return (
 
 
-                <div className='main-pagee'>
+            <div className='main-pagee'>
                 <div className='page-loggedin'>
                     {/* <h1 className='loggedin-title'>Welcome</h1>
                 <h1 className='fname-logged'> Name : {this.state.userData.fname} </h1>
@@ -98,10 +98,9 @@ class userLoggedInDetails extends Component {
                                 <h1 className='product-date'>date</h1>
                                 <h1 className='delivery-state'>delivery state...</h1>
                                 <AccordionHeader className='seemore'>
-                                    <h1 className='product-viewitem' onClick={() => this.setState({selectedItem: product._id})}>view item</h1>
+                                    <h1 className='product-viewitem'>view item</h1>
                                     <br></br>
                                 </AccordionHeader>
-
                                 <AccordionBody>
                                     <br></br>
                                     <div className={`order-delvired`} style={{opacity: product.status === 'ORDER_DELIVERED' ? 1 : 0.5}}>

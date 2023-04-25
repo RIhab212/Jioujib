@@ -5,14 +5,21 @@ import Img2 from './logoB2.png';
 import Google from "./g.png";
 import Facebook from "./if.png"
 import tel from "./tel.png"
+import logo from "./logo.png"
 import Phonesignup from './Phonesignup.js'
+import { Helmet } from "react-helmet"
+import { useForm } from 'react-hook-form'
+import CircularProgress from '@mui/material/CircularProgress'
+import LinearProgress from '@mui/material/LinearProgress';
 
 const React = require('react');
 const { useState } = React;
 
+
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
+	const [isLoading, setIsLoading] = useState(false); 
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -25,11 +32,12 @@ const Login = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setIsLoading(true);
 		try {
 		  const url = "https://jiujib.onrender.com/Login-user";
 		  const { data: { data: token, gender, status } } = await axios.post(url, { email: data.email, password: data.password });
 		  const user = { email: data.email, gender };
-		  window.localStorage.setItem("user", JSON.stringify(user)); // <- add this line
+		  window.localStorage.setItem("user", JSON.stringify(user)); 
 		  if (status === "admin logged in") {
 
 			  navigate("/adminInterface");
@@ -48,7 +56,8 @@ const Login = () => {
 			setError(error.response.data.message);
 		  }
 		}
-	  };
+		setIsLoading(false);
+	};
 	  
 	const google = () => {
 		window.open("http://localhost:5000/auth/google", "_self");
@@ -63,11 +72,17 @@ const Login = () => {
 	  
 
 	return (
-		<div className={styles.login_container}>
+
+		<div className={styles.login_background}>
+
+			<div className={styles.login_container}>
+				
+			
 			<div className={styles.login_form_container}>
+				
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Sign In</h1>
+						<h1>SIGN IN</h1>
 						<input
 							type="email"
 							placeholder="Email"
@@ -88,11 +103,10 @@ const Login = () => {
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
-							Sign In
+							{isLoading ? <CircularProgress size="0.8rem" style={{'color': 'white', 'transition': '0.3s'}}/> : 'SIGN IN'}
 						</button>
 					
 						<div className={styles.button_container}>
-						<h2>---OR---</h2>
 			<button className={styles.facebook} onClick={facebook} >
             <img src={Facebook} alt="" className="icon" />
              </button>
@@ -118,17 +132,27 @@ const Login = () => {
         
 				</div>
 				<div className={styles.right}>
-				<img src={Img2} alt=''/>
-					<h1>New Here ?</h1>
+				{/* <LinearProgress sx={{
+                  backgroundColor: '#B73E3E',
+                  '& .MuiLinearProgress-bar': {
+                    backgroundColor: 'white'
+                  }
+                }} style={{'width': '100%', 'top' : '-380px'}}/> */}
+				<img src='logo' alt='' className={styles.img2}/>
+					<h1 className={styles.newhere}>NEW HERE?</h1>
 					<Link to="/signup">
 						<button type="button" className={styles.white_btn}>
-							Sign Up
+							SIGN UP
 						</button>
 					</Link>
 					
 			</div>
 		</div>
 		</div>
+
+
+		</div>
+		
 	);
 };
 

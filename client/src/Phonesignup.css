@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities; */
 
-.html{
+/* .html{
     background-color: #B73E3E;
 }
 
@@ -13,7 +13,7 @@ body{
     height: 762px;
     margin: 0;
     background-color: #B73E3E;
-}
+} */
 
 .Form-phonesignup{
     position: absolute;
