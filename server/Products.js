@@ -4,6 +4,7 @@ const Joi = require("joi");
 const multer = require('multer');
 const express = require('express');
 const app = express();
+const moment = require('moment');
 
 
 const bodyParser = require('body-parser');
@@ -11,6 +12,8 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const User = mongoose.model("UserInfo");
+
+
 const userSchema = new mongoose.Schema({
 	location: { type: String, required: true },
 	productName: { type: String, required: true },
@@ -19,7 +22,17 @@ const userSchema = new mongoose.Schema({
 	isConfirmed: { type: Boolean, default: false },
 	Notif : { type: Boolean, default: true },
 	status : { type: String, default: null},
-	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+	createdAt: {
+		type: Date,
+		default: Date.now,
+		get: function(v) {
+			return moment(v).format('DD-MMM-YYYY, h A');
+		}
+	},
+
+	confirmedAt: { type: Date },
+	pickupDate: { type: Date },
+	DelivredDate :{ type: Date },
 
 });
 

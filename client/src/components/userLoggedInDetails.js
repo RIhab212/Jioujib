@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import './userLoggedInDetails.module.css';
+import './UserP.css';
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
+import Img1 from './circle.png';
+import Img2 from './line.png';
+import Img3 from './sym.png';
+import {Link} from "react-router-dom";
+import moment from 'moment';
+
 
 
 class userLoggedInDetails extends Component {
@@ -67,8 +73,6 @@ class userLoggedInDetails extends Component {
 
 
     }
-
-
     render() {
 
 
@@ -83,57 +87,60 @@ class userLoggedInDetails extends Component {
                 <h1 className='fname-logged'> Name : {this.state.userData.fname} </h1>
                 <h1 className='femail-logged'> E-MAIL : {this.state.userData.email} </h1> */}
 
-                    <img className='goback-icon' src='https://i.imgur.com/BabBHSN.png'
-                    ></img>
-
+                    <Link to="/Products">
+                        <img className='goback-icon' src={Img3} alt="Retour" />
+                    </Link>
                     <h1 className='tracking-de'>Tracking delivery</h1>
 
                     {this.state.userProducts.map((product) => (
                         <div className='record-details-products' key={product._id}>
 
                             <AccordionItem >
-                                <h1 className='product-name'>{product.productName}
-                                </h1><h2 className='Localisation'>LOCALISATION:{product.location} </h2>
-                                <h2 className='Description'>Description:{product.description} </h2>
-                                <h1 className='product-date'>date</h1>
-                                <h1 className='delivery-state'>delivery state...</h1>
+                                <h1 className='product-name'>{product.productName} </h1>
+                                <h1 className='product-date'>{moment(product.createdAt).format('DD-MMM-YYYY, HH:mm A').replace('PM', 'pm')}</h1>
+                                <h1 className='delivery-state'>
+                                    {product.DelivredDate ? 'Order Delivered' :
+                                        product.pickupDate ? 'Delivery In Progress...' :
+                                            product.confirmedAt ? 'Searching for Product...' :
+                                                'Ordering...'}
+                                </h1>
                                 <AccordionHeader className='seemore'>
                                     <h1 className='product-viewitem'>view item</h1>
                                     <br></br>
                                 </AccordionHeader>
                                 <AccordionBody>
                                     <br></br>
-                                    <div className={`order-delvired`} style={{opacity: product.status === 'ORDER_DELIVERED' ? 1 : 0.5}}>
-                                        <img className='circle' src='https://i.imgur.com/vdf7gCq.png'></img>
+                                    <div className={`order-delvired`}>
+                                        <img className='circle status-circle' src={Img1} style={{opacity: product.status === 'ORDER_DELIVERED' ? 1 : 0.5}}></img>
                                         <br></br>
-                                        <img className='vertical-line' src='https://i.imgur.com/9I7Z57N.png'></img>
-                                        <h1 className='order-delivred' style={{opacity: product.status === 'ORDER_DELIVERED' ? 1 : 0.5}}>Order Delivered</h1>
-                                        <h1 className='datee'>date</h1>
+                                        <img className='vertical-line' src={Img2}></img>
+                                        <h1 className='order-5' >Order Delivered</h1>
+                                        <h1 className='datee'>{product.DelivredDate ? moment(product.DelivredDate).format('DD-MMM-YYYY, HH:mm A').replace('PM', 'pm') : "\n" +
+                                            "in progress..."}</h1>
                                     </div>
-                                    <div className={`pickup-order `} style={{opacity: product.status === 'ORDER_PICKUP' ? 1 : 0.5}}>
-                                        <img className='circle' src='https://i.imgur.com/vdf7gCq.png'></img>
+                                    <div className={`pickup-order `}>
+                                        <img className='circle-5 status-circle' src={Img1} style={{opacity: product.status === 'ORDER_PICKUP' ? 1 : 0.5}}></img>
                                         <br></br>
-                                        <img className='vertical-line' src='https://i.imgur.com/9I7Z57N.png'></img>
-                                        <h1 className='order-delivred' style={{opacity: product.status === 'ORDER_PICKUP' ? 1 : 0.5}}>PickUp Order </h1>
-                                        <h1 className='datee'>date</h1>
-                                    </div>
-                                    <div className={`order-accepted `} style={{opacity: product.status === 'ORDER_ACCEPTED' ? 1 : 0.5}}>
-                                        <img className='circle' src='https://i.imgur.com/vdf7gCq.png'></img>
-                                        <br></br>
-                                        <img className='vertical-line' src='https://i.imgur.com/9I7Z57N.png'></img>
-                                        <h1 className='order-delivred' style={{opacity: product.status === 'ORDER_ACCEPTED' ? 1 : 0.5}}>Order Accepted</h1>
-                                        <h1 className='datee'>date</h1>
-                                    </div>
+                                        <img className='vertical-line' src={Img2}></img>
+                                        <h1 className='order-4' >PickUp Order </h1>
+                                        <h1 className='datee'>{product.pickupDate ? moment(product.pickupDate).format('DD-MMM-YYYY, HH:mm A').replace('PM', 'pm') : "in progress..."}</h1>
 
-
-                                    <div className={`order-placed `} style={{opacity: product.status === 'ORDER_PLACED' ? 1 : 0.5}}>
-                                        <img className='circle' src='https://i.imgur.com/vdf7gCq.png'></img>
-                                        <br></br>
-                                        <img className='vertical-line' src='https://i.imgur.com/9I7Z57N.png'></img>
-                                        <h1 className='order-delivred' style={{opacity: product.status === 'ORDER_PLACED' ? 1 : 0.5}}>ORDER PLACED</h1>
-                                        <h1 className='datee'>date</h1>
                                     </div>
+                                    <div className={`order-3`}>
+                                        <img className='circle-6 status-circle' src={Img1} style={{opacity: product.status === 'ORDER_ACCEPTED' ? 1 : 0.5}}></img>
+                                        <br></br>
+                                        <img className='vertical-line'  src={Img2}></img>
+                                        <h1 className='order-2' >Order Accepted</h1>
+                                        <h1 className='datee'>{product.confirmedAt ? moment(product.confirmedAt).format('DD-MMM-YYYY, HH:mm A').replace('PM', 'pm') : "in progress..."}</h1>
 
+                                    </div>
+                                    <div className={`order-placed `}>
+                                        <img className='circle status-circle' src={Img1} style={{opacity: product.status === 'ORDER_PLACED' ? 1 : 0.5}}></img>
+                                        <br></br>
+                                        <h1 className='order-1' >ORDER PLACED</h1>
+                                        <h1 className='datee'>{product.createdAt ? moment(product.createdAt).format('DD-MMM-YYYY, HH:mm A').replace('PM', 'pm') : " in progress..."}</h1>
+
+                                    </div>
 
 
                                 </AccordionBody>
@@ -148,6 +155,7 @@ class userLoggedInDetails extends Component {
         );
 
     }
+
 }
 
 export default userLoggedInDetails;
