@@ -1,10 +1,11 @@
 import axios from "axios";
 import './FormC.css';
 import Img5 from './av.png';
+import Img6 from './Rectangle 32.png';
+
 import  Profile from './pdp.jsx'
 import Notification from './notification'
 import { Link,useNavigate } from "react-router-dom";
-import FormWithMap from "./Maps.jsx"
 import io from 'socket.io-client';
 import { useEffect, useState } from "react";
 import { storage } from "./firebase.config";
@@ -155,18 +156,25 @@ const FormC = () => {
 
     <form className="box-container" action="/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
     <h6>What Are You looking For ?</h6>
-    <div >
+      <div>
+        <input
+            type="text"
+            id="location"
+            placeholder="Localisation"
+            value={data.location}
+            onChange={handleChange}
+            required
+            className="l with-icon"
+        />
+      </div>
 
+      <div>
+        <input type="texte" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className='n'  />
+      </div>
 
-      <input type="text" id="location" placeholder="Localisation" value={data.location} onChange={handleChange} required className='l' />
-    </div>
+      <input type="hidden" value="" />
     <div>
-      <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className='n'/>
-
-    </div>
-    <input type="hidden" value="" />
-    <div>
-      <textarea id="description" placeholder="Description" onChange={handleChange} value={data.description} required className='m' />
+      <textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className='m' />
     </div>
 
     <div className="file-input-container">

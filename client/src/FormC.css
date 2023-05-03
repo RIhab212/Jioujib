@@ -1,7 +1,6 @@
 .main{
   background-color: #B73E3E;
-  overflow:scroll;
-  height: 700px;
+  overflow(y):scroll;
 
 }
 
@@ -13,7 +12,7 @@
 
     margin: auto;
     width: 700px;
-    height: 525px;
+    height: 555px;
     border-radius: 10px;
     box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
       0px 3px 4px 0px rgba(173, 42, 42, 0.14);
@@ -24,6 +23,7 @@
     background-color: white;
     margin-bottom: 60px;
     z-index: 1;
+    margin-left: 247px;
     
 
   }
@@ -38,12 +38,11 @@
   width: 698px;
   height: 115px;
   border-radius: 44px;
-  margin-top: 10px; 
- 
+  margin-top: 10px;
   transform: translateY(30px);
   z-index: -1;
   margin-right: -44px;
-  margin-left: 330PX;
+  margin-left: 250PX;
 }
 
 .file-input-container label {
@@ -51,49 +50,79 @@
   background-color: #00A082;
   color: white;
   padding: 8px 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
-  width: 130px;
-  height: 19pX;
+  width: 160px;
+  height: 13pX;
   font-size: 17px;
-  font-display:initial;
+  text-align: center;
   margin-right: 300px;
+  margin-left: 15px;
+  line-height: 1;
 }
+
 
 
 .m {
-  width: 500px;
-  margin-top: 44px;
-  border-radius: 44px;
+  width: 490px;
+  height: 100px;
+  margin-top: 14px;
+  border-radius: 14px;
  display: block;
  padding: 10px;
+  font-weight: bold;
+}
+
+.la {
+  width: 450px;
+  height: 8px;
+  border: none;
+  outline: none;
+  background-color: #E9E2E2;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  display: block;
+  border-radius: 55px;
+}
+
+.icon{
+  width: 22px;
+  height: 22px;
+}
+.with-icon {
+  padding-left: 30px; /* pour laisser de l'espace pour l'icône */
+  background-image: url('Rectangle 32.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 436px ;
+
 }
 
 .l {
-  width: 500px;
-  border-radius: 20px;
+  width: 450px;
+  height: 8px;
   border: none;
   outline: none;
-  background-color: #f2f2f2;
+  background-color: #E9E2E2;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 16px;
   display: block;
-  
-  
+  border-radius: 55px;
+}
+.n {
+  border: none;
+  border-bottom: 2px solid gray;
+  width: 300px;
 }
 
-.n {
-  width: 500px;
-  border-radius: 20px;
-  border: none;
+.n:focus {
   outline: none;
-  background-color: #f2f2f2;
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  display: block;
+  box-shadow: none;
+  border-color: gray;
 }
+
 
 .btn {
   background-color: #ED8F00;
@@ -132,14 +161,14 @@
 }
 
 .card-body img{
-  margin-left: 400px ;
-   margin-top: -85px;
-    width: 310px;
+  margin-left: 415px ;
+   margin-top: -60px;
+    width: 290px;
     height: 170px;
 }
 
 .card-title {
-  margin-top: -80px;
+  margin-top: -90px;
   margin-left: 280PX;
   font-size: 19px;
   color: white;
