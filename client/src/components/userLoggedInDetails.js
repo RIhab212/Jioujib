@@ -87,7 +87,7 @@ class userLoggedInDetails extends Component {
                 <h1 className='fname-logged'> Name : {this.state.userData.fname} </h1>
                 <h1 className='femail-logged'> E-MAIL : {this.state.userData.email} </h1> */}
 
-                    <Link to="/Products">
+                    <Link to="/FormC">
                         <img className='goback-icon' src={Img3} alt="Retour" />
                     </Link>
                     <h1 className='tracking-de'>Tracking delivery</h1>

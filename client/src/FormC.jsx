@@ -2,7 +2,7 @@ import axios from "axios";
 import './FormC.css';
 import Img5 from './av.png';
 import Img6 from './Rectangle 32.png';
-
+import CircularProgress from '@mui/material/CircularProgress'
 import  Profile from './pdp.jsx'
 import Notification from './notification'
 import { Link,useNavigate } from "react-router-dom";
@@ -15,8 +15,9 @@ import { v4 } from "uuid"
 const React = require('react');
 
 const FormC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [notifications, setNotifications] = useState([]);
-
+  const [success, setSuccess] = useState(false)
   const [data, setData] = React.useState({
     location: "",
     productName: "",
@@ -65,7 +66,7 @@ const FormC = () => {
     });
   };
   const [userID, setUserId] = useState('default-user-id');
-
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -85,21 +86,20 @@ const FormC = () => {
         formData.append('photo', downloadUrl);
       }
 
-
       const url = "https://jiujib.onrender.com/api/form";
       const { data: res } = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           "Authorization": `Bearer ${token}`
-
         }
       });
 
-
       console.log(res.message);
-
       setSubmitted(true);
-
+      setSuccess(true); // mettre le state de succès à true
+      setTimeout(() => {
+        navigate('/UserLoggedInDetails');
+      }, 2000); // rediriger l'utilisateur après 2 secondes
       setData({
         location: "",
         productName: "",
@@ -109,7 +109,6 @@ const FormC = () => {
         Notif: true,
         Delivred: false,
       }); // Clear the input fields after submission
-
     } catch (error) {
       if (
           error.response &&
@@ -120,6 +119,7 @@ const FormC = () => {
       }
     }
   };
+
 
   useEffect(() => {
     const socket = io.connect('https://jiujib.onrender.com');
@@ -189,7 +189,9 @@ const FormC = () => {
   <div className="success-message">Product created successfully!</div>
 )}
 
-    <button type="submit" id="btn" className='btn'>SEARCH FOR DELIVERY</button>
+      <button type="submit" id="btn" className='btn' disabled={isLoading}>
+        {isLoading ? <CircularProgress size="0.8rem" style={{'color': 'white', 'transition': '0.3s'}}/> : 'SEARCH FOR PRODUCT'}
+      </button>
 
     <button type="button" id="btn" className='btnn' onClick={handleCancel}>CANCEL ORDER</button>
 
