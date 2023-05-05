@@ -167,17 +167,12 @@ const FormC = () => {
             className="l with-icon"
         />
       </div>
-
-      <div>
-        <input type="texte" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className='n'  />
+      <div className="product-container">
+        <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
       </div>
 
-      <input type="hidden" value="" />
-    <div>
-      <textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className='m' />
-    </div>
 
-    <div className="file-input-container">
+      <div className="file-input-container">
       <label htmlFor="photo">Attach an Image</label>
       <input type="file" id="photo" onChange={(event) => {
         setImage(event.target.files[0]);
