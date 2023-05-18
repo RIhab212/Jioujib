@@ -1,0 +1,90 @@
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.l{
+    text-align: center; /* Centrer le texte horizontalement */
+    line-height: 8px;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 700px;
+    height: 650px;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: #FFFFFF;
+
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #B73E3E;
+}
+
+
+.red-button {
+    background-color: #ED8F00;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    width: 175px;
+    margin-top: 90px;
+}
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 600px;
+    margin-left: 50px;
+    margin-top: 44px;
+
+
+}
+map-icon{
+    margin-top: 50Px;
+}
+h4{
+    font-size: 30px;
+    margin-left: 190px;
+    margin-bottom: 80px;
+    color: #ED8F00;
+}
+
+img{
+width: 26px;
+    height: 26px;
+    margin-top: 40px;
+}
+.input-with-icon {
+    position: relative;
+}
+
+.icone {
+    position: absolute;
+    top: 0%;
+    right: 430px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.location{
+    width: 44Px;
+}

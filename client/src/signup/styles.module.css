@@ -1,4 +1,4 @@
-/* body {
+v/* body {
 	overflow: hidden;
   } */
 .signup_container {
@@ -16,7 +16,7 @@
 	display: flex;
 	border-radius: 10px;
 	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
-		0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+	0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
 }
 
 .left {
@@ -70,13 +70,13 @@
 	font-size: 14px;
 }
 
-  
+
 .right img {
 	width: 80px; /* ajustez la taille du logo selon vos besoins */
-	margin-left: 490px; 
+	margin-left: 490px;
 
-  }
-  
+}
+
 .error_msg {
 	width: 370px;
 	padding: 15px;
@@ -138,9 +138,76 @@ Link{
 	height: 700px;
 	width: 300px;
 	object-fit: contain;
-	}
+}
 
 .genderradio{
 	margin-top:20px;
 	margin-bottom: 20px;
+}
+
+.topbox{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 90px;
+	overflow: hidden;
+	background-color: #B73E3E;
+}
+
+.topboxradius{
+	position: fixed;
+	top: 50px;
+	width: 100%;
+	height: 50px;
+	border-radius: 40px 40px 0 0;
+	z-index: 1;
+	background-color: white;
+}
+
+h1{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.checkbox{
+	font-family: 'Montserrat', sans-serif;
+}
+
+h3{
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+}
+h3 span{
+	color: #ED8F00;
+}
+
+h3 span:hover{
+	color: #ED8F00;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+label{
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+}
+
+label span a{
+	color: #ED8F00;
+}
+
+label a{
+	font-weight: bold;
+	color: #ED8F00;
+}
+
+label a:link{
+	text-decoration: none;
+}
+
+label a:hover{
+	text-decoration: underline;
+}
+
+.alrtitle h3 a{
+	color: #ED8F00;
 }

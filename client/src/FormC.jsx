@@ -4,6 +4,7 @@ import Img5 from './av.png';
 import Img6 from './Rectangle 32.png';
 import CircularProgress from '@mui/material/CircularProgress'
 import  Profile from './pdp.jsx'
+import MapButton from './LocationInput.jsx'
 import Notification from './notification'
 import { Link,useNavigate } from "react-router-dom";
 import io from 'socket.io-client';
@@ -156,17 +157,7 @@ const FormC = () => {
 
     <form className="box-container" action="/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
     <h6>What Are You looking For ?</h6>
-      <div>
-        <input
-            type="text"
-            id="location"
-            placeholder="Localisation"
-            value={data.location}
-            onChange={handleChange}
-            required
-            className="l with-icon"
-        />
-      </div>
+      <MapButton/>
       <div className="product-container">
         <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
       </div>
