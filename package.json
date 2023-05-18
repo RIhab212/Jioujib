@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "body-parser": "^1.20.2",
+    "bootstrap": "^5.2.3",
+    "react-bootstrap": "^2.7.4",
+    "react-geocode": "^0.2.3",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.43.9",
     "uuid": "^9.0.0",
