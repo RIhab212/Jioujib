@@ -1,6 +1,6 @@
 .main{
   background-color: #B73E3E;
-  overflow(y):scroll;
+  overflow-y:scroll;
 
 }
 
@@ -117,10 +117,10 @@
 
 }
 
-.icon{
+/* .icon{
   width: 22px;
   height: 22px;
-}
+} */
 .with-icon {
   padding-left: 30px; /* pour laisser de l'espace pour l'icône */
   background-image: url('Rectangle 32.png');

@@ -176,8 +176,7 @@ const Signup = () => {
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={6} className={styles.left}>
 							<img src='https://i.imgur.com/b2fceUJ.png' alt='' className={styles.img2}/>
-							<h1>Welcome Back</h1>
-							<Link to="/Login">
+							<Link to="/Login" className={styles.asignin}>
 								<button type="button" className={styles.white_btn}>
 									SIGN IN
 								</button>

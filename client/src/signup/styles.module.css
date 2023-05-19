@@ -1,4 +1,4 @@
-v/* body {
+/* body {
 	overflow: hidden;
   } */
 .signup_container {
@@ -210,4 +210,9 @@ label a:hover{
 
 .alrtitle h3 a{
 	color: #ED8F00;
+}
+
+.asignin{
+	margin-top: 500px;
+	z-index: 1;
 }
