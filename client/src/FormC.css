@@ -1,11 +1,59 @@
-.main{
-  background-color: #B73E3E;
-  overflow-y:scroll;
 
-}
 
 .mm{
-  border: #a0007d solid 1px;
+  height: 1000px;
+  background-color: #B73E3E;
+}
+
+.topbarprofile{
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  background-color: #B73E3E;
+}
+
+.topbarprofile img{
+  margin-top: 50px;
+}
+
+.bodyformc{
+  height: 170px;
+  width: 70%;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #ED8F00;
+  border-radius: 40px 40px 0 0;
+  flex-wrap: wrap;
+}
+
+.bodyformcwatu{
+  height: 140px;
+  width: 70%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 40px 40px 0 0;
+  flex-wrap: wrap;
+  margin-top: -38px;
+}
+
+.bodyformcinputs{
+  height: auto;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -31px;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 1;
 }
 
   .box-container {
@@ -77,17 +125,22 @@
   background-color: #F0F0F0;
   font-family: "Poppins", sans-serif;
   margin: 0px;
+  padding: 5px;
 }
-.productt-input {
-  border: none;
-  border-bottom: none;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-family: inherit;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #F0F0F0;
+
+#productName::placeholder {
+  width: 80%;
+  font-weight: 500;
+  color: rgb(57, 57, 57);
+}
+
+#productName{
+  padding-left: 15px;
+}
+
+#description {
+  padding-left: 15px;
+  height: 100px;
 }
 
 
@@ -223,3 +276,106 @@ h6{
   font-size: 15px;
   color: #ec4e4e;
 }
+
+.topbarformc{
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  background-color: #B73E3E;
+}
+
+.jijibimgtopbar{
+  width: auto;
+  height: 120px;
+  margin-top: 30px;
+}
+
+.trackbarformc{
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  background-color: #ED8F00;
+  border-radius: 40px 40px 0 0;
+  flex-wrap: wrap;
+  margin-top: -38px;
+}
+
+.trackdeltxt{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: white;
+  margin-top: 40px;
+  font-weight: 600;
+  margin-left: -50px;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.inprogtxt{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: white;
+  margin-top: -65px;
+  margin-left: -100px;
+  opacity: 70%;
+}
+
+
+
+.whatulook{
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 40px 40px 0 0;
+  flex-wrap: wrap;
+  margin-top: -38px;
+}
+
+.watulook{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.lookingfor{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: -50px;
+}
+
+.imgtrackbarformc{
+  height: 150px;
+  width: auto; 
+}
+
+
+
+.inputsformc {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  margin-top: -20px;
+  z-index: 1;
+}
+
+#productName::placeholder{
+  font-family: 'Montserrat', sans-serif;
+}
+
+#description::placeholder{
+  font-family: 'Montserrat', sans-serif;
+}
+
+#description{
+  resize: none;
+}
+
