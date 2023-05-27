@@ -121,12 +121,10 @@
 	border: solid white;
 	color: white;
 	transition: 0.5s;
-	margin-top: 05px;
-	margin-right:02px;
+	margin-top: 15px;
+	margin-right:05px;
 }
-.welcome{
-	margin-left: 44px;
-}
+
 
 .white_btn:hover{
 	background-color: white;

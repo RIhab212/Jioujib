@@ -23,7 +23,6 @@ const Signup = () => {
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const [showPhoneDiv, setShowPhoneDiv] = useState(window.innerWidth < 800);
 
-
 	useEffect(() => {
 		const handleResize = () => {
 			setWindowWidth(window.innerWidth);
@@ -36,7 +35,6 @@ const Signup = () => {
 
 	const handleGenderChange = (event) => {
 		setGender(event.target.value);
-		setData({ ...data, gender: event.target.value });
 	};
 
 	const [data, setData] = useState({
@@ -53,7 +51,6 @@ const Signup = () => {
 		setChecked(event.target.checked);
 	};
 
-
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
 	};
@@ -69,7 +66,6 @@ const Signup = () => {
 			const { data: res } = await axios.post(url, data);
 			navigate("/Login");
 			console.log(res.message);
-
 		} catch (error) {
 			if (
 				error.response &&
@@ -81,6 +77,21 @@ const Signup = () => {
 		}
 	};
 
+	const loadButtonState = () => {
+		const storedButtonState = localStorage.getItem('buttonState');
+		if (storedButtonState) {
+			return JSON.parse(storedButtonState);
+		}
+		return false;
+	};
+
+	useEffect(() => {
+		setChecked(loadButtonState());
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('buttonState', JSON.stringify(checked));
+	}, [checked]);
 
 	return (
 		<div className={styles.signup_container}>
