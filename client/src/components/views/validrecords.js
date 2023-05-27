@@ -47,7 +47,7 @@ const Validrecords = () => {
         }
         fetchdata()
         
-    },[])
+    },[record])
 
     const handleOrderPlaced = (id) => {
         // action à effectuer lorsqu'on clique sur le bouton "Order Placed" pour une ligne donnée

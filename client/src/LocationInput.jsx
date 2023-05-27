@@ -5,6 +5,7 @@ import map from './icone map.png';
 
 
 class MapButton extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -12,11 +13,11 @@ class MapButton extends Component {
             map: null,
             isIconClicked: false,
             isMapOpen: false,
-            inputText: '',
-            showModal: false
+            showModal: false,
         };
         this.mapRef = React.createRef();
     }
+
 
     componentDidMount() {
         const googleMapsScript = document.createElement('script');
@@ -86,11 +87,17 @@ class MapButton extends Component {
                     const suggestedLocations = filteredLocations.map(prediction => prediction.description);
                     console.log(suggestedLocations);
                     // Faites quelque chose avec les suggestions de localisation filtrées
+
+                    // Si vous avez besoin de mettre à jour la valeur de l'input avec la première suggestion
+                    if (suggestedLocations.length > 0) {
+                        const selectedLocation = suggestedLocations[0];
+                        this.setState({ location: selectedLocation });
+                    }
                 }
             }
         );
-
     };
+
     reverseGeocode = (lat, lng) => {
         const geocoder = new window.google.maps.Geocoder();
         geocoder.geocode({ location: { lat, lng } }, (results, status) => {
@@ -117,12 +124,13 @@ class MapButton extends Component {
         const location = new window.google.maps.LatLng(latitude, longitude);
 
         geocoder.geocode({ location }, (results, status) => {
-            if (status ==='OK' && results[0]) {
+            if (status === 'OK' && results[0]) {
                 this.setState({ location: results[0].formatted_address });
             } else {
-                alert("Impossible de trouver l'adresse correspondante à cette localisation. ");
+                alert("Impossible de trouver l'adresse correspondante à cette localisation.");
             }
         });
+
         const map = this.state.map;
         if (map) {
             map.setCenter({ lat: latitude, lng: longitude });
@@ -133,6 +141,7 @@ class MapButton extends Component {
         }
         this.setState({ isMapOpen: false });
     }
+
     toggleModal = () => {
         this.setState(prevState => ({ showModal: !prevState.showModal }), () => {
             if (this.state.showModal) {
@@ -153,6 +162,7 @@ class MapButton extends Component {
                         placeholder="Localisation"
                         value={this.state.inputText}
                         value={this.state.location}
+
                         required
                         className="l"
                     />

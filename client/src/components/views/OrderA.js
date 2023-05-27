@@ -24,7 +24,7 @@ const OrderA = () => {
         }
         fetchdata()
         
-    },[])
+    },[records])
     const handleOrderPlaced = async (row) => {
         const response = await fetch(
           "https://jiujib.onrender.com/api/getproducts/deliver",

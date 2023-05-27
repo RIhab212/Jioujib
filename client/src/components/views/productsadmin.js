@@ -23,7 +23,7 @@ const Productsadmin = () => {
         }
         fetchdata()
         
-        },[])
+        },[records])
 
 
 
