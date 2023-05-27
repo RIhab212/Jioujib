@@ -121,8 +121,11 @@
 	border: solid white;
 	color: white;
 	transition: 0.5s;
-	margin-top: 5px;
-	margin-right:20px;
+	margin-top: 05px;
+	margin-right:02px;
+}
+.welcome{
+	margin-left: 44px;
 }
 
 .white_btn:hover{

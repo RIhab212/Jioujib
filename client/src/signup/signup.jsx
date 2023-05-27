@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/alt-text */
 
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -176,7 +175,7 @@ const Signup = () => {
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={6} className={styles.left}>
 							<img src='https://i.imgur.com/b2fceUJ.png' alt='' className={styles.img2}/>
-								<h1 className='welcome'>Welcome Back</h1>
+							<h1 className='welcome'>Welcome Back</h1>
 							<Link to="/Login">
 								<button type="button" className={styles.white_btn}>
 									SIGN IN

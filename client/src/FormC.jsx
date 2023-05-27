@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { storage } from "./firebase.config";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid"
+import { Grid } from "@mui/material";
+
 
 const React = require('react');
 
@@ -19,6 +21,20 @@ const FormC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [success, setSuccess] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+	const [showPhoneDiv, setShowPhoneDiv] = useState(window.innerWidth < 800);
+
+  useEffect(() => {
+		const handleResize = () => {
+			setWindowWidth(window.innerWidth);
+			setShowPhoneDiv(window.innerWidth < 800);
+		};
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+
   const [data, setData] = React.useState({
     location: "",
     productName: "",
@@ -135,57 +151,154 @@ const FormC = () => {
   return (
 
     <div className='main'>
-    <div className="mm">
-    <Profile notifications={notifications} />
+    
+      {showPhoneDiv ? (
+         <form action="/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+         <Grid container spacing={2}>
+           <Grid item xs={12} md={6}>
+             <div className="topbarformc">
+               <img src="https://i.imgur.com/RyN8kuI.png" className="jijibimgtopbar" alt="logo" />
+             </div>
+             <div className="trackbarformc">
+               <div className="trackdeltxt">Tracking Delivery</div>
+               <div className="break" />
+               <div className="inprogtxt">In Progress...</div>
+               {/* <img src={Img5} alt="progress" className="imgtrackbarformc" /> */}
+             </div>
+             <div className="whatulook">
+               <div className="watulook">What Are You</div>
+               <div className="break"></div>
+               <div className="lookingfor">Looking For ?</div>
+             </div>
+             <div className="inputsformc">
+                <div className="locmap">
+                  <MapButton/>
+                </div>
+                <div className="break"></div>
+                <div className="product-container">
+                  <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
+                </div>
+                <div className="file-input-container">
+                  <label htmlFor="photo">Attach an Image</label>
+                  <input type="file" id="photo" onChange={(event) => {
+                    setImage(event.target.files[0]);
+                  }} accept="image/*" />
+                </div>
+                {error && <div className="error-message">{error}</div>}
+                {submitted && (
+              <div className="success-message">Product created successfully!</div>
+            )}
+
+                  <button type="submit" id="btn" className='btn' disabled={isLoading}>
+                    {isLoading ? <CircularProgress size="0.8rem" style={{'color': 'white', 'transition': '0.3s'}}/> : 'SEARCH FOR PRODUCT'}
+                  </button>
+
+                <button type="button" id="btn" className='btnn' onClick={handleCancel}>CANCEL ORDER</button>
 
 
-    <div className="hover"  >
 
-<div className="hover-body"  >
-</div>
+             </div>
+           </Grid>
+         </Grid>
+       </form>
+         
+         ) : (     
+        <Grid item xs={12} md={6}>
 
-     <div className="card"  >
+          <div className="mm">
+              <div className="topbarprofile">
+                <img src="https://i.imgur.com/RyN8kuI.png" className="jijibimgtopbar" alt="logo" />
+              </div>
+              <div className="bodyformc">
+                <div className="trackdeltxt">Tracking Delivery</div>
+                <div className="break" />
+                <div className="inprogtxt">In Progress...</div>
+              </div>
+              <div className="bodyformcwatu">
+              <div className="watulook">What Are You</div>
+                <div className="break"></div>
+                <div className="lookingfor">Looking For ?</div>
+              </div>
+              <div className="bodyformcinputs">
+              <div className="locmap">
+                  <MapButton/>
+                </div>
+                <div className="break"></div>
+                <div className="product-container">
+                  <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
+                </div>
+                <div className="file-input-container">
+                  <label htmlFor="photo">Attach an Image</label>
+                  <input type="file" id="photo" onChange={(event) => {
+                    setImage(event.target.files[0]);
+                  }} accept="image/*" />
+                </div>
+                {error && <div className="error-message">{error}</div>}
+                {submitted && (
+                  <div className="success-message">Product created successfully!</div>
+                  )}
 
-<div className="card-body"  >
-<img src={Img5} alt=''/>
-  <h5 class="card-title">Tracking Delivery </h5>
-  <p class="card-text">In Progress....</p>
-</div>
-</div>
-<div className="center">
+                  <button type="submit" id="btn" className='btn' disabled={isLoading}>
+                    {isLoading ? <CircularProgress size="0.8rem" style={{'color': 'white', 'transition': '0.3s'}}/> : 'SEARCH FOR PRODUCT'}
+                  </button>
+
+                <button type="button" id="btn" className='btnn' onClick={handleCancel}>CANCEL ORDER</button>
 
 
-    <form className="box-container" action="/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
-    <h6>What Are You looking For ?</h6>
-      <MapButton/>
-      <div className="product-container">
-        <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
+              </div>
+          </div>
+
+{/* 
+
+          <div className="hover"  >
+
+      <div className="hover-body"  >
       </div>
 
+          <div className="card"  >
 
-      <div className="file-input-container">
-      <label htmlFor="photo">Attach an Image</label>
-      <input type="file" id="photo" onChange={(event) => {
-        setImage(event.target.files[0]);
-      }} accept="image/*" />
-    </div>
-    {error && <div className="error-message">{error}</div>}
-
-    {submitted && (
-  <div className="success-message">Product created successfully!</div>
-)}
-
-      <button type="submit" id="btn" className='btn' disabled={isLoading}>
-        {isLoading ? <CircularProgress size="0.8rem" style={{'color': 'white', 'transition': '0.3s'}}/> : 'SEARCH FOR PRODUCT'}
-      </button>
-
-    <button type="button" id="btn" className='btnn' onClick={handleCancel}>CANCEL ORDER</button>
+      <div className="card-body"  >
+      <img src={Img5} alt=''/>
+        <h5 class="card-title">Tracking Delivery </h5>
+        <p class="card-text">In Progress....</p>
+      </div>
+      </div>
+      <div className="center">
 
 
-  </form>
-  </div>
-  </div>
-   </div>
+          <form className="box-container" action="/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+          <h6>What Are You looking For ?</h6>
+            <MapButton/>
+            <div className="product-container">
+              <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
+            </div>
+
+
+            <div className="file-input-container">
+            <label htmlFor="photo">Attach an Image</label>
+            <input type="file" id="photo" onChange={(event) => {
+              setImage(event.target.files[0]);
+            }} accept="image/*" />
+          </div>
+          {error && <div className="error-message">{error}</div>}
+
+          {submitted && (
+        <div className="success-message">Product created successfully!</div>
+      )}
+
+            <button type="submit" id="btn" className='btn' disabled={isLoading}>
+              {isLoading ? <CircularProgress size="0.8rem" style={{'color': 'white', 'transition': '0.3s'}}/> : 'SEARCH FOR PRODUCT'}
+            </button>
+
+          <button type="button" id="btn" className='btnn' onClick={handleCancel}>CANCEL ORDER</button>
+
+
+        </form>
+        </div>
+        </div> */}
+        </Grid>
+ )}
+   
    </div>
 
 );

@@ -69,8 +69,8 @@ h4{
     color: #ED8F00;
 }
 
-img{
-width: 26px;
+.imgLoc{
+    width: 26px;
     height: 26px;
     margin-top: 40px;
 }

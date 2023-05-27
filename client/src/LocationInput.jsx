@@ -160,14 +160,13 @@ class MapButton extends Component {
                         type="text"
                         id="location"
                         placeholder="Localisation"
-                        value={this.state.inputText}
                         value={this.state.location}
 
                         required
                         className="l"
                     />
                     <span className="icone">
-                         <img src={map} alt="Icone"onClick={this.handleIconClick} />
+                         <img src={map} className='imgLoc' alt="Icone"onClick={this.handleIconClick} />
   </span>
                 </div>
                 {/* ... */}
