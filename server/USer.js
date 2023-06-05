@@ -5,28 +5,13 @@ const bcrypt = require("bcryptjs");
 
 const User = mongoose.model("UserInfo");
 
-
 router.get("/", async (req, res) => {
-    const { fname, lname, email, password, gender } = req.body;
-
-    const encryptedPassword = await bcrypt.hash(password, 10);
     try {
-        const user = await User.findOne({ email: req.body.email });
-        if (user) {
-            return res.status(400).json({ error: "User already exists" });
-        }
-        await User.create({
-            fname,
-            lname,
-            email,
-            password: encryptedPassword,
-            gender,
-        });
+        const users = await User.find();
         userCount++;
-        res.status(200).json({ message: "User created successfully" });
+        res.status(200).json({ users });
     } catch (error) {
-        res.status(500).json({ error: "An error occurred while creating user" });
+        res.status(500).json({ error: "Une erreur s'est produite lors de la récupération des utilisateurs" });
     }
-
 });
 module.exports = router;
