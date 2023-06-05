@@ -1,9 +1,31 @@
-const express = require("express");
-const router = express.Router();
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const express = require("express")
+const app = express()
+const mongoose = require("mongoose")
+const router = express.Router()
+const Joi = require("joi");
+const passwordComplexity = require("joi-password-complexity");
+const http = require("http");
+const { Server } = require("socket.io");
+app.use(express.json())
+const cors = require("cors")
+app.use(cors())
+const bcrypt = require("bcryptjs")
 
-const User = mongoose.model("UserInfo");
+const jwt = require("jsonwebtoken")
+
+const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J"
+
+const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority"
+
+mongoose
+    .connect(mongoUrl)
+    .then((e) => console.log("Connected to database"))
+    .catch((error) => console.error(error));
+
+
+require("./userDetails")
+require("./Products")
+
 
 router.get("/", async (req, res) => {
     try {
