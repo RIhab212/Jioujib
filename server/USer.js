@@ -10,7 +10,7 @@ const  JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984
 
 router.get("/", async (req, res) => {
     try {
-        const users = await User.find();
+        const users = await User.find({ isAdmin: false }); // Filtrer les utilisateurs avec isAdmin à false
         const userCount = users.length;
         res.status(200).json({ users, count: userCount });
     } catch (error) {
@@ -18,3 +18,4 @@ router.get("/", async (req, res) => {
     }
 });
 module.exports = router;
+
