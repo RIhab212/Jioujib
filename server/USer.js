@@ -25,7 +25,7 @@ mongoose
 
 require("./userDetails")
 require("./Products")
-
+const User = mongoose.model("UserInfo");
 
 router.get("/", async (req, res) => {
     try {
