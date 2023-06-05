@@ -26,13 +26,12 @@ mongoose
 require("./userDetails")
 require("./Products")
 const User = mongoose.model("UserInfo");
-
 router.get("/", async (req, res) => {
     try {
         const users = await User.find();
-        res.status(200).json({ users });
+        const userCount = users.length;
+        res.status(200).json({ users, count: userCount });
     } catch (error) {
         res.status(500).json({ error: "Une erreur s'est produite lors de la récupération des utilisateurs" });
     }
 });
-module.exports = router;
