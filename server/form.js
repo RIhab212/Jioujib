@@ -78,37 +78,40 @@ router.get("/userData", async (req, res) => {
   }
 
 })
-router.post("/", upload.single('photo'), async (req, res) => {
-  try {
-    const { error } = validate(req.body);
-    if (error) {
-      return res.status(400).json({ message: error.details[0].message });
-    }
+ router.post("/", upload.single('photo'), async (req, res) => {
+   try {
+     const { error } = validate(req.body);
+     if (error) {
+       return res.status(400).json({ message: error.details[0].message });
+     }
 
-    const { location, productName, description , photo, status,email} = req.body;
+     const { location, productName, description, photo, status, email } = req.body;
 
-    const newProduct = new Product({
-      location,
-      productName,
-      description,
-      status,
-      photo,
-      email,
-    });
+     const newProduct = new Product({
+       location,
+       productName,
+       description,
+       status,
+       photo,
+       email,
+     });
 
-    await newProduct.save();
+     await newProduct.save();
+     commandeCount++;
+     res.status(201).json({
+       message: 'Product created successfully',
+       data: newProduct,
+     });
+   } catch (error) {
+     console.log(error);
+     res.status(500).json({
+       message: 'Failed to create product',
+     });
+   }
+ });
 
-    res.status(201).json({
-      message: 'Product created successfully',
-      data: newProduct
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: 'Failed to create product'
-    });
-  }
-});
+
+
 router.get('/', (req, res) => {
   Product.find()
       .exec()

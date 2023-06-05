@@ -28,10 +28,13 @@ require("./Products")
 
 
 
-const getProducts = require('./getProducts') 
+const getProducts = require('./getProducts')
 app.use('/api/getproducts', getProducts)
-const form = require('./form') 
+const form = require('./form')
 app.use('/api/form', form)
+
+const USer = require('./USer');
+app.use('/api/users', USer);
 
 app.use('/uploads', express.static('./form'));
 
@@ -40,26 +43,29 @@ const User = mongoose.model("UserInfo");
 const Product =  mongoose.model("product")
 
 app.post("/register", async (req, res) => {
-  const { fname, lname, email, password, gender } = req.body;
+    const { fname, lname, email, password, gender } = req.body;
 
-  const encryptedPassword = await bcrypt.hash(password, 10);
-  try {
-    const user = await User.findOne({ email: req.body.email });
-    if (user) {
-      return res.status(400).json({ error: "User already exists" });
+    const encryptedPassword = await bcrypt.hash(password, 10);
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        if (user) {
+            return res.status(400).json({ error: "User already exists" });
+        }
+        await User.create({
+            fname,
+            lname,
+            email,
+            password: encryptedPassword,
+            gender,
+        });
+        res.status(200).json({ message: "User created successfully" });
+    } catch (error) {
+        res.status(500).json({ error: "An error occurred while creating user" });
     }
-    await User.create({
-      fname,
-      lname,
-      email,
-      password: encryptedPassword,
-      gender,
-    });
-    res.status(200).json({ message: "User created successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "An error occurred while creating user" });
-  }
+
 });
+
+
 router.put("server/api/update", async(req ,res) => {
   try {
       const confirmed = await Product.findByIdAndUpdate({_id: req.body._id}, { isConfirmed: true } )
@@ -69,41 +75,20 @@ router.put("server/api/update", async(req ,res) => {
       res.send('Product confirmed')
   } catch (error) {
       console.log(error)
-      return res.status(500).send('Error updating document')        
+      return res.status(500).send('Error updating document')
   }
-  
+
 })
 
 
-app.post("/signup", async (req, res) => {
-    const {fname, lname, email, password,gender} = req.body;
-	try {
-		const { error } = validate(req.body);
-		if (error)
-			return res.status(400).send({ message: error.details[0].message });
 
-		const user = await User.findOne({ email: req.body.email });
-		if (user)
-			return res
-				.status(409)
-				.send({ message: "User with given email already Exist!" });
-
-		const salt = await bcrypt.genSalt(Number(process.env.SALT));
-		const hashPassword = await bcrypt.hash(req.body.password, salt);
-
-		await new User({ ...req.body, password: hashPassword }).save();
-		res.status(201).send({ message: "User created successfully" });
-	} catch (error) {
-		res.status(500).send({ message: "Internal Server Error" });
-	}
-});
 
 app.post("/login-user", async(req,res)=>{
     const { email, password } = req.body
 
     const user = await User.findOne({email})
     const admin = await User.findOne({email, isAdmin : true})
-    
+
 
     if (admin) {
         if(await bcrypt.compare(password, admin.password)){
@@ -135,6 +120,7 @@ app.post("/login-user", async(req,res)=>{
           }
     }
     }
+
     res.json({status : "error",error: "Invalid Password"})
 })
 app.post("/userData", async (req, res) => {
@@ -150,7 +136,7 @@ app.post("/userData", async (req, res) => {
             res.send({status: "error", data: error})
         })
     } catch (error) {
-        
+
     }
 
 })
