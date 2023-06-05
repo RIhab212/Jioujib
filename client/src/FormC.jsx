@@ -103,7 +103,7 @@ const FormC = () => {
         formData.append('photo', downloadUrl);
       }
 
-      const url = "https://jiujib.onrender.com/api/form";
+      const url = 'https://jiujib.onrender.com/api/form';
       const { data: res } = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',

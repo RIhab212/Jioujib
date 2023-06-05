@@ -9,7 +9,8 @@ import  FormC from "./FormC";
 import Phonesignup from "./Phonesignup";
 import RecordList from "./components/views/recordList"
 import Productsadmin from './components/views/productsadmin'
-import Terme  from './signup/Terme';
+import Terme  from './signup/Terme'
+import Home from './components/views/Home'
 import "./App.css";
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
           <Route path="/Phonesignup" element={<Phonesignup/>}/>
           <Route path="/Productsadmin" element={<Productsadmin/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>
+          <Route path="/Home" element={<Home/>}/>
+
       </Routes>
     </BrowserRouter>
   );

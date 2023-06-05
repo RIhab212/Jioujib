@@ -95,7 +95,7 @@
     width: 267px;
     height: 58px;
     left: 0px;
-    top: 5px;
+    top :100px;
     background-color: #B73E3E;
 
   
@@ -115,7 +115,6 @@
     left: 0px;
     top: 200px;
     background-color: #a52929;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -132,7 +131,7 @@
     width: 267px;
     height: 58px;
     left: 0px;
-    top: 68px;
+    top: 150px;
     background-color: #B73E3E;
 
     font-family: 'Inter';
@@ -150,7 +149,7 @@
     width: 267px;
     height: 58px;
     left: 0px;
-    margin-top: 125px;
+    margin-top: 200px;
     color: rgb(222, 222, 222);
   
 
@@ -221,3 +220,17 @@
     
 }
 
+.button-home{
+    position: absolute;
+    width: 267px;
+    height: 58px;
+    left: 0px;
+    top: 30px;
+    background-color: #B73E3E;
+    color: rgb(222, 222, 222);
+}
+.button-home:hover{
+    cursor: pointer;
+    background-color: #a52929;
+
+}

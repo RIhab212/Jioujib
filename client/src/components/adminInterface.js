@@ -5,6 +5,7 @@ import Validrecords from './views/validrecords'
 import OrderA from './views/OrderA'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Navbar from './views/Navbar'
+import Home from "./views/Home";
 
 
 export default class AdminInterface extends Component {
@@ -52,6 +53,7 @@ componentDidMount(){
         </div>
         <div>
           <Routes>
+              <Route path="/Home" element={<Home/>}/>
           <Route path="/Productsadmin" element={<Productsadmin/>}/>
           <Route path="/validrecords" element={<Validrecords/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>

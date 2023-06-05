@@ -120,9 +120,7 @@
 	color: white;
 	transition: 0.5s;
 
-
 }
-
 
 .white_btn:hover{
 	background-color: white;
@@ -136,7 +134,7 @@ Link{
 .img2{
 	position: absolute;
 	bottom: 115px;
-	height: 650px;
+	height: 700px;
 	width: 300px;
 	object-fit: contain;
 }
