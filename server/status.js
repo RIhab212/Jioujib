@@ -10,12 +10,27 @@ const User = mongoose.model("UserInfo","product");
 router.get("/", async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     try {
-        const products = await Product.find(); // Récupère tous les produits sans filtre de statut
-        return res.json(products);
+        const orderPlacedCount = await Product.countDocuments({ status: "Order Placed" });
+        const orderAcceptedCount = await Product.countDocuments({ status: "Order Accepted" });
+        const pickupOrderCount = await Product.countDocuments({ status: "Pickup Order" });
+        const orderDeliveredCount = await Product.countDocuments({ status: "Order Delivered" });
+
+        const totalCount = await Product.countDocuments(); // Nombre total de commandes
+
+        return res.json({
+            count: {
+                orderPlacedCount,
+                orderAcceptedCount,
+                pickupOrderCount,
+                orderDeliveredCount,
+                totalCount // Ajout du nombre total de commandes
+            }
+        });
     } catch (error) {
         return res.status(400).json({ message: error });
     }
 });
+
 
 
 module.exports = router;
