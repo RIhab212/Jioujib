@@ -36,7 +36,10 @@ router.put("/confirm", async(req ,res) => {
         if (!confirmed) {
             return res.status(404).send('Product not found');
         }
+        orderPlacedCount--;
+        orderAcceptedCount++;
         res.send('Product confirmed');
+
     } catch (error) {
         console.log(error);
         return res.status(500).send('Error updating document');
@@ -52,7 +55,8 @@ router.put("/pickUp", async(req ,res) => {
             return res.status(404).send('User not found')
         }
 
-
+        orderAcceptedCount--;
+        pickupOrderCount++;
 
         res.send('Product to be picked up')
     } catch (error) {
@@ -71,7 +75,8 @@ router.put("/deliver", async(req ,res) => {
         }
 
 
-
+        pickupOrderCount--;
+        orderDeliveredCount++;
         res.send('Product delivered')
     } catch (error) {
         console.log(error)
@@ -161,6 +166,21 @@ router.get("/getToPickUpOrders", async(req, res) => {
     }
 
 })
+router.get("/getOrderPlacedCount", (req, res) => {
+    return res.json({ count: orderPlacedCount });
+});
+
+router.get("/getOrderAcceptedCount", (req, res) => {
+    return res.json({ count: orderAcceptedCount });
+});
+
+router.get("/getPickupOrderCount", (req, res) => {
+    return res.json({ count: pickupOrderCount });
+});
+
+router.get("/getOrderDeliveredCount", (req, res) => {
+    return res.json({ count: orderDeliveredCount });
+});
 
 router.get("/getDeliveredOrders", async(req, res) => {
     try {
