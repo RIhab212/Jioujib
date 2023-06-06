@@ -9,6 +9,10 @@ const User = mongoose.model("UserInfo","product");
 
 
 app.use(express.json());
+let orderPlacedCount = 0;
+let orderAcceptedCount = 0;
+let pickupOrderCount = 0;
+let orderDeliveredCount = 0;
 
 router.get("/", async(req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
