@@ -10,10 +10,10 @@ const User = mongoose.model("UserInfo","product");
 router.get("/", async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     try {
-        const orderPlacedCount = await Product.countDocuments({ status: "Order Placed" });
-        const orderAcceptedCount = await Product.countDocuments({ status: "Order Accepted" });
-        const pickupOrderCount = await Product.countDocuments({ status: "Pickup Order" });
-        const orderDeliveredCount = await Product.countDocuments({ status: "Order Delivered" });
+        const orderPlacedCount = await Product.countDocuments({ status: "ORDER_PLACED" });
+        const orderAcceptedCount = await Product.countDocuments({ status: "ORDER_ACCEPTED" });
+        const pickupOrderCount = await Product.countDocuments({ status: "ORDER_PICKUP" });
+        const orderDeliveredCount = await Product.countDocuments({ status: "ORDER_DELIVERED" });
 
         const totalCount = await Product.countDocuments(); // Nombre total de commandes
 
