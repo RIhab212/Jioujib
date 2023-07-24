@@ -6,12 +6,76 @@
     margin-left: 250px;
     margin-top: 44px;
   }
-  
-  .MuiDataGrid-columnHeaderTitle {
+
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 640px;
+    height: 600px;
+    margin-left: 490px;
+    margin-top: 80px;
+}
+
+.MuiDataGrid-root {
+    flex: 1;
+    border: 1px solid #ccc;
+}
+
+
+
+.MuiDataGrid-row {
+    cursor: pointer;
+}
+
+.MuiDataGrid-row:hover {
+    background-color: rgba(213, 144, 22, 0.91);
+}
+
+.MuiDataGrid-columnHeader {
+    font-weight: bold;
+    background-color: #ED8F00;
+}
+
+.MuiDataGrid-footer {
+    background-color: rgba(243, 205, 136, 0.91);
+    border-top: 1px solid #ccc;
+}
+
+.MuiDataGrid-columnHeaderTitle {
     width: 1000px;
-    color: rgb(8, 8, 8);
-  }
-  .datagrid .MuiDataGrid-table {
-    border-collapse: collapse;
-  }
-  
+    color: rgb(255, 255, 255);
+}
+.pickup-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pickup-button:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 768px) {
+    .table-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto 0;
+    }
+
+    .table-container .MuiDataGrid-root {
+        max-width: 63%;
+        right: 47px;
+        top: 74px
+    }
+
+    .MuiDataGrid-columnHeaderTitle {
+        width: auto;
+    }
+
+
+}

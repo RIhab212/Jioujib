@@ -33,7 +33,6 @@ const Productsadmin = () => {
         <><div className='sidebar-admin'>
             <Navbar />
         </div><div className='main-page'>
-                <img className='logo-admin' src='https://i.imgur.com/v10SbL4.png'></img>
                 <div className='productsdata'>
                     {records && records.map((record) => (
                         <RecordList key={record._id} record={record} />

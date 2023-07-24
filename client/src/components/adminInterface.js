@@ -6,12 +6,13 @@ import OrderA from './views/OrderA'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Navbar from './views/Navbar'
 import Home from "./views/Home";
+import usertable from "./views/Usertable";
 
 
 export default class AdminInterface extends Component {
-  
 
-  
+
+
 
   constructor(props) {
     super(props)
@@ -41,7 +42,7 @@ componentDidMount(){
 }
 
 
-       
+
 
   render() {
     return (
@@ -58,11 +59,11 @@ componentDidMount(){
           <Route path="/validrecords" element={<Validrecords/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>
           </Routes>
-                   
+
         </div>
       </div>
 
-      
+
     )
   }
 }

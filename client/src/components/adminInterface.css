@@ -2,235 +2,282 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap');
 
 /* body{background-color: transparent;} */
-.admin-title{
-    position: absolute;
-    width: 421px;
-    height: 57px;
-    left: 304px;
-    top: 68px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 36px;
-    line-height: 44px;
-    
-    color: #ED8F00;
-    text-transform: uppercase;
-}
 
 .main-page{
-    position: absolute;
     width: 1250px;
     height: 770px;
-    left: 266px;
-    top: -7px;
-
+    left: 70px; /* Ajustez cette valeur en fonction de vos besoins */
+    top: 0;
     background: rgb(255, 255, 255);
 }
 
 .sidebar-admin{
     position: fixed;
-    width: 267px;
+    width: 70px;
     height: 770px;
     left: 0px;
     top: -7px;
     background: #B73E3E;
-    box-shadow: 150px ;
+    box-shadow: #131111;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: #B73E3E;
+    z-index: 1000;
+
 }
 
-.fname-admin{
-    position: absolute;
-    width: 267px;
-    height: 48px;
-    left: 0px;
-    top: 50px;
+.icone-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 44px;
-    text-transform: uppercase;
+.icone-css {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 33px;
+    margin-top:100px;
+    margin-left: 16px;
+    transition: transform 0.3s ease;
+}
+
+
+.icone-texte {
+    position: absolute;
+    top: 105px;
+    left: 200%;
+    transform: translateX(-50%);
+    opacity: 0;
+    background-color: rgba(243, 205, 136, 0.91);
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
     text-align: center;
-
-    color: rgb(222, 222, 222);
+    white-space: nowrap;
+    color:white;
 }
 
-.lname-admin{
+.icone-wrapper:hover .icone-css {
+    transform: scale(1.2);
+}
+
+.icone-wrapper:hover .icone-texte {
+    opacity: 1;
+}
+
+
+.icone-logo{
+    width: 40px;
+    height: 63px;
+    margin-top: 49px;
+    margin-left: 15px;
+}
+.icone-css1 {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    margin-left: 16px;
+}
+
+.icone-texte-valid {
     position: absolute;
-    width: 267px;
-    height: 48px;
-    left: 0px;
-    top: 80px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 44px;
-    text-transform: uppercase;
-    text-align: center;
-
-    color: rgb(222, 222, 222);
-}
-
-.admintitle{
-    position: absolute;
-    width: 267px;
-    height: 48px;
-    left: 0px;
-    top: 120px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 44px;
-    text-transform: uppercase;
-    text-align: center;
-    color: rgb(222, 222, 222);
-}
-
-.button-notif{
-    position: absolute;
-    width: 267px;
-    height: 58px;
-    left: 0px;
-    top :100px;
-    background-color: #B73E3E;
-
-  
-
-    color: rgb(222, 222, 222);
-}
-
-.button-notif:hover{
-    background-color: #a52929;
-    cursor: pointer;
-}
-
-.buttons-admin{
-    position: absolute;
-    width: 267px;
-    height: 131px;
-    left: 0px;
-    top: 200px;
-    background-color: #a52929;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 58px;
-    text-transform: uppercase;
-    text-align: center;
-
-}
-
-
-.button-prod{
-    position: absolute;
-    width: 267px;
-    height: 58px;
-    left: 0px;
-    top: 150px;
-    background-color: #B73E3E;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 58px;
-    text-transform: uppercase;
-    text-align: center;
-
-    color: rgb(222, 222, 222);
-}
-.buttonOrder{
-    position: absolute;
-    width: 267px;
-    height: 58px;
-    left: 0px;
-    margin-top: 200px;
-    color: rgb(222, 222, 222);
-  
-
-}
-.buttonOrder:hover{
-    cursor: pointer;
-    background-color: #a52929;
- 
-}
-.button-prod:hover{
-    background-color: #a52929;
-    cursor: pointer;
-}
-
-.button-logout{
-    position: absolute;
-    width: 267px;
-    height: 58px;
-    left: 0px;
     top: 5px;
-    background-color: #B73E3E;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 58px;
-    text-transform: uppercase;
+    left: 170%;
+    transform: translateX(-50%);
+    opacity: 0;
+    background-color: rgba(243, 205, 136, 0.91);
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
     text-align: center;
-
-    color: rgb(222, 222, 222);
+    white-space: nowrap;
+    color:white;
 }
 
+.icone-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
 
-.logout-btn{
+.icone-wrapper:hover .icone-css1 {
+    transform: scale(1.2);
+}
+
+.icone-wrapper:hover .icone-texte-valid {
+    opacity: 1;
+}
+.icone-texte-products {
     position: absolute;
-    width: 267px;
-    height: 68px;
-    left: 0px;
-    top: 702px;
-    background-color: #a52929;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 58px;
-    text-transform: uppercase;
+    top: 39px;
+    left: 220%;
+    transform: translateX(-50%);
+    opacity: 0;
+    background-color: rgba(243, 205, 136, 0.91);
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
     text-align: center;
+    white-space: nowrap;
+    color:white;
 }
-
-.button-logout:hover{
-    background-color: #a52929;
-    cursor: pointer;
+.icone-css2 {
+    width: 39px;
+    height: 39px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    margin-left: 16px;
+    margin-top: 30px;
 }
-
-.logo-admin{
+.icone-wrapper:hover .icone-css2 {
+    transform: scale(1.2);
+}
+.icone-wrapper:hover .icone-texte-products {
+    opacity: 1;
+}
+.icone-texte-deliv {
     position: absolute;
-    width: 146px;
-    height: 167px;
-    left: 1080px;
-    top: 25px;
-    z-index: 2;
+    top: 39px;
+    left: 220%;
+    transform: translateX(-50%);
+    opacity: 0;
+    background-color: rgba(243, 205, 136, 0.91);
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    color:white;
 }
-
-.main-admin{
-    background-color:      rgb(255, 255, 255);
-    
+.icone-css3 {
+    width: 39px;
+    height: 39px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    margin-left: 16px;
+    margin-top: 30px;
 }
-
-.button-home{
+.icone-wrapper:hover .icone-css3 {
+    transform: scale(1.2);
+}
+.icone-wrapper:hover .icone-texte-deliv {
+    opacity: 1;
+}
+.icone-css4 {
+    width: 29px;
+    height: 29px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    margin-left: 19px;
+    margin-top: 200px;
+}
+.icone-wrapper:hover .icone-css4 {
+    transform: scale(1.2);
+}
+.icone-wrapper:hover .icone-texte-logout {
+    opacity: 1;
+}
+.icone-texte-logout {
     position: absolute;
-    width: 267px;
-    height: 58px;
-    left: 0px;
-    top: 30px;
-    background-color: #B73E3E;
-    color: rgb(222, 222, 222);
+    top: 199px;
+    left: 190%;
+    transform: translateX(-50%);
+    opacity: 0;
+    background-color: rgba(243, 205, 136, 0.91);
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    color:white;
 }
-.button-home:hover{
+.hamburger-icon {
+    display: none; /* Hide the icon on non-mobile screens */
     cursor: pointer;
-    background-color: #a52929;
+    /* Add styles for your hamburger icon here */
+    position: absolute; /* Position the icon */
+    top: 50px; /* Adjust the top position as needed */
+    right: 19px; /* Adjust the right position as needed */
+    font-size: 24px; /* Adjust the icon size as needed */
+    color: #601414; /* Adjust the icon color as needed */
+    z-index: 100;
+    width: 34px;
+    height: 34px;
+    /* Set a higher z-index to make sure it's on top of other elements */
+}
+.hamburger-icon.active {
+    color: white; /* Change the color when the sidebar is open */
+}
+
+@media screen and (max-width: 768px) {
+
+
+    .hamburger-icon {
+        display: block; /* Show the icon on mobile screens */
+
+    }
+    .hamburger-icon.active {
+        color: white; /* Change the color when the sidebar is open */
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -70%; /* Start the sidebar off-screen on mobile */
+        width: 13%;
+        height: 100vh;
+        background: #B73E3E;
+        box-shadow: #131111;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border: #B73E3E;
+        transition: left 0.3s ease; /* Add a smooth transition */
+        padding-top: 80px; /* Add padding at the top to keep content below */
+
+    }
+
+    /* Styles for the opened sidebar on mobile */
+    .sidebar-open {
+        left: 0; /* Slide the sidebar in from the left on mobile */
+    }
+    .icone-css4{
+        margin-bottom: 90%;
+    }
+    .sidebar-admin{
+        position: fixed;
+        width: 70px;
+        height: 770px;
+        left: 0px;
+        top: -7px;
+        background: #ffffff;
+        box-shadow: #131111;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border: #ffffff;
+
+    }
+
 
 }

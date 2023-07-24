@@ -99,7 +99,6 @@ const Validrecords = () => {
                     columns={columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
-                    className="datagrid"
                 />
             </div>
         </div>

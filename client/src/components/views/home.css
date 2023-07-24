@@ -1,0 +1,339 @@
+.chart-container {
+    height: 80vh; /* Ajustez la hauteur selon vos besoins */
+}
+
+.chart-title {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 35px;
+    margin-left: 650px;
+    color:#ED8F00 ;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+;
+
+}
+.chartData{
+    width: 44px;
+}
+.chart {
+    background-color: rgba(245, 245, 245, 0.85);
+    border-radius: 15px;
+    padding: 10px;
+    height: 310px;
+    width: 1000px;
+    margin-left: 130px;
+    margin-top:390px
+}
+.link-no-underline {
+    text-decoration: none;
+}
+
+.big-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 270px;
+    background-color: #ED8F00;
+    opacity: 0.7;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: -490px;
+    margin-left: 260px;
+
+}
+.big-button2{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 270px;
+    background-color: #ED8F00;
+    opacity: 0.7;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: -126px;
+    margin-left: 590px;
+
+}
+.icon {
+    font-family: 'Font Awesome 5 Free';
+}
+.big-button:hover {
+    background-color: #FFC34D; /* Couleur correspondante pour l'effet hover */
+    opacity: 1; /* Opacité à 1 pour l'effet hover */
+}
+
+.big-button2:hover {
+    background-color: #FFC34D; /* Couleur correspondante pour l'effet hover */
+    opacity: 1; /* Opacité à 1 pour l'effet hover */
+}
+.icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 34px;
+}
+
+.status-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #B73E3E;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: -960px;
+    margin-left: 1250px;
+    width: 220px;
+    height: 670px;
+}
+
+.status-item {
+    margin-bottom: 10px;
+}
+
+.status-label {
+    font-weight: bold;
+    color: #FFF;
+}
+
+.status-details {
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+    font-size: 12px;
+}
+
+.status-count {
+    font-weight: bold;
+    margin-left: 80px;
+}
+
+.status-rate {
+    font-style: italic;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.status-label {
+    font-weight: bold;
+}
+
+.status-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.status-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status-details {
+    display: flex;
+    align-items: center;
+}
+
+
+.status-chart {
+    width: 60px;
+    height: 60px;
+}
+.status-item {
+    position: relative;
+}
+
+.status-count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.user-box {
+    position: absolute;
+    top: 50px;
+    left: 260px;
+    padding: 10px;
+    background-color: #ED8F00;
+    opacity: 0.7;
+    color: white;
+    font-size: 16px;
+    width: 800px;
+    height: 119px;
+    border-radius: 16px 16px 0 0;
+}
+.avatar {
+    width: 200px;
+    height: 180px;
+    position: absolute; /* Position absolue par rapport à son conteneur */
+    top: 10px; /* Ajustez la valeur selon vos besoins */
+    left: 879px;
+
+}
+.fnamee-admin{
+    margin-top: 44px;
+}
+@media screen and (max-width: 768px) {
+
+   body{
+       overflow-y: scroll;
+   }
+
+    .user-box {
+        position: fixed;
+        top: 94px; /* Adjust this value to position the box vertically */
+        left: -1px;
+        left:45px;/* Adjust this value to position the box horizontally */
+        width:83%;
+        height: 18%;
+        border-radius: 10px;
+    }
+    .avatar {
+        position: fixed;
+        width: 139px;
+        height: 150px;
+        top: 92px;
+        left: 343px;
+    }
+    .fnamee-admin{
+        position: relative;
+        margin-top: 20px;
+        font-size: 28px;
+        margin-left : 20px;
+    }
+    .big-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 180px;
+        background-color: #ED8F00;
+        opacity: 0.7;
+        height: 120px;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: -400px;
+        margin-left: -10px;
+
+    }
+    .big-button2{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 180px;
+        background-color: #ED8F00;
+        opacity: 0.7;
+        height: 120px;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: -122px;
+        margin-left: 200px;
+
+    }
+    .chart-container {
+        height: 20vh; /* Ajustez la hauteur selon vos besoins */
+    }
+
+    .chart-title {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 35px;
+        margin-left: 650px;
+        color:#ED8F00 ;
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+    }
+    .chartData{
+        width: 44px;
+    }
+    .chart {
+        position: fixed;
+        background-color: rgba(245, 245, 245, 0.85);
+        border-radius: 15px;
+        padding: 10px;
+        height: 210px;
+        width: 390px;
+        margin-left: 70px;
+        margin-top:440px
+    }
+    .link-no-underline {
+        text-decoration: none;
+    }
+    .status-box {
+        position: fixed;
+      margin-top: 700px; /* Adjust the vertical position of the status boxes */
+        margin-left: 90px; /* Adjust the horizontal position of the status boxes */
+        width: 340px; /* Adjust the width of the status boxes to fit the screen */
+        height: 340px; /* Allow the height of the status boxes to be determined by content */
+    }
+
+    .status-item {
+        width: 100%; /* Make the status items take the full width of the container */
+    }
+
+    .status-chart {
+        width: 30%; /* Adjust the width of the status charts to fit the screen */
+        height: auto; /* Allow the height of the status charts to be determined by content */
+    }
+
+    .status-count {
+        width: 10px; /* Adjust the width of the status count boxes */
+        height: 10px; /* Adjust the height of the status count boxes */
+        font-size: 14px; /* Adjust the font size of the status count */
+    }
+    .status-details{
+        display: flex;
+        justify-content: space-between;
+        color: #FFF;
+        font-size: 12px;
+
+    }
+
+    .status-chart {
+        width: 60px;
+        height: 60px;
+        margin-right: 60px;
+        margin-top: 14px;
+    }
+
+}

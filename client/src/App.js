@@ -11,6 +11,9 @@ import RecordList from "./components/views/recordList"
 import Productsadmin from './components/views/productsadmin'
 import Terme  from './signup/Terme'
 import Home from './components/views/Home'
+import Usertable from './components/views/Usertable'
+import OrdersTab from './components/views/OrdersTab'
+
 import "./App.css";
 
 function App() {
@@ -28,6 +31,8 @@ function App() {
           <Route path="/Productsadmin" element={<Productsadmin/>}/>
           <Route path="/OrderA" element={<OrderA/>}/>
           <Route path="/Home" element={<Home/>}/>
+          <Route path="/Usertable" element={<Usertable/>}/>
+          <Route path="/OrdersTab" element={<OrdersTab/>}/>
 
       </Routes>
     </BrowserRouter>
