@@ -224,6 +224,10 @@ body {
     }
 
 
+    .sidebar-admin{
+        background-color: transparent;
+    }
+
     .mobile-wrapper {
         display: flex;
         flex-direction: column;
