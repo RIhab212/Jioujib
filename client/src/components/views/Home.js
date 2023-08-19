@@ -157,6 +157,7 @@ const Home = () => {
                 <div className="chart-container">
                     <div className="chart">
                         <Bar data={chartData} options={chartOptions } className="custom-chart" />
+                        <div className={"mobile-wrapper"}>
                         <Link to="/Usertable" className="link-no-underline" >
                             <button className="big-button">
                                 <span className="icon"><i className="fas fa-user"></i></span>
@@ -164,24 +165,29 @@ const Home = () => {
                             </button>
                         </Link>
                         <Link to="/OrdersTab" className="link-no-underline" >
-                            <button className="big-button2">
+                            <button className="big-button big-button2 second-big-button">
                                 <span className="icon">&#xf09d;</span>
                                 Orders Details
                             </button>
                         </Link>
+                        </div>
                     </div>
                 </div>
-                <div className="status-box">
-                    {[
-                        { label: 'Order Placed', count: orderPlacedCount, rate: orderPlacedRate },
-                        { label: 'Order Accepted', count: orderAcceptedCount, rate: orderAcceptedRate },
-                        { label: 'Pickup Order', count: pickupOrderCount, rate: pickupOrderRate },
-                        { label: 'Order Delivered', count: orderDeliveredCount, rate: orderDeliveredRate }
-                    ].map((item, index) => (
-                        <div className="status-item" key={index}>
-                            <div className="status-label">{item.label}</div>
-                            <div className="status-details">
-                                <div className="status-chart">
+                <div className='user'>
+                    <Userbox/>
+                </div>
+            </div>
+            <div className="status-box">
+                {[
+                    { label: 'Order Placed', count: orderPlacedCount, rate: orderPlacedRate },
+                    { label: 'Order Accepted', count: orderAcceptedCount, rate: orderAcceptedRate },
+                    { label: 'Pickup Order', count: pickupOrderCount, rate: pickupOrderRate },
+                    { label: 'Order Delivered', count: orderDeliveredCount, rate: orderDeliveredRate }
+                ].map((item, index) => (
+                    <div className="status-item" key={index}>
+                        <div className="status-label">{item.label}</div>
+                        <div className="status-details">
+                            <div className="status-chart">
                                     <Doughnut data={{
                                         labels: [''],
                                         datasets: [{
@@ -200,16 +206,12 @@ const Home = () => {
                                                 enabled: false
                                             }
                                         }
-                                    }} />
+                                    }}/>
                                     <div className="status-count">{item.count}</div>
-                                </div>
                             </div>
                         </div>
-                    ))}
-                </div>
-                <div className='user'>
-                    <Userbox/>
-                </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

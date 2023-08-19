@@ -3,7 +3,7 @@
 
 /* body{background-color: transparent;} */
 
-.main-page{
+.main-page {
     width: 1250px;
     height: 770px;
     left: 70px; /* Ajustez cette valeur en fonction de vos besoins */
@@ -11,7 +11,8 @@
     background: rgb(255, 255, 255);
 }
 
-.sidebar-admin{
+
+.sidebar-admin {
     position: fixed;
     width: 70px;
     height: 770px;
@@ -30,13 +31,14 @@
     display: inline-flex;
     align-items: center;
     position: relative;
+    width: 4vw;
 }
 
 .icone-css {
     width: 34px;
     height: 34px;
     margin-bottom: 33px;
-    margin-top:100px;
+    margin-top: 100px;
     margin-left: 16px;
     transition: transform 0.3s ease;
 }
@@ -58,7 +60,7 @@
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
-    color:white;
+    color: white;
 }
 
 .icone-wrapper:hover .icone-css {
@@ -70,12 +72,13 @@
 }
 
 
-.icone-logo{
+.icone-logo {
     width: 40px;
     height: 63px;
     margin-top: 49px;
     margin-left: 15px;
 }
+
 .icone-css1 {
     width: 36px;
     height: 36px;
@@ -100,7 +103,7 @@
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
-    color:white;
+    color: white;
 }
 
 .icone-wrapper {
@@ -116,6 +119,7 @@
 .icone-wrapper:hover .icone-texte-valid {
     opacity: 1;
 }
+
 .icone-texte-products {
     position: absolute;
     top: 39px;
@@ -132,8 +136,9 @@
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
-    color:white;
+    color: white;
 }
+
 .icone-css2 {
     width: 39px;
     height: 39px;
@@ -142,12 +147,15 @@
     margin-left: 16px;
     margin-top: 30px;
 }
+
 .icone-wrapper:hover .icone-css2 {
     transform: scale(1.2);
 }
+
 .icone-wrapper:hover .icone-texte-products {
     opacity: 1;
 }
+
 .icone-texte-deliv {
     position: absolute;
     top: 39px;
@@ -164,8 +172,9 @@
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
-    color:white;
+    color: white;
 }
+
 .icone-css3 {
     width: 39px;
     height: 39px;
@@ -174,12 +183,15 @@
     margin-left: 16px;
     margin-top: 30px;
 }
+
 .icone-wrapper:hover .icone-css3 {
     transform: scale(1.2);
 }
+
 .icone-wrapper:hover .icone-texte-deliv {
     opacity: 1;
 }
+
 .icone-css4 {
     width: 29px;
     height: 29px;
@@ -188,12 +200,15 @@
     margin-left: 19px;
     margin-top: 200px;
 }
+
 .icone-wrapper:hover .icone-css4 {
     transform: scale(1.2);
 }
+
 .icone-wrapper:hover .icone-texte-logout {
     opacity: 1;
 }
+
 .icone-texte-logout {
     position: absolute;
     top: 199px;
@@ -210,8 +225,9 @@
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
-    color:white;
+    color: white;
 }
+
 .hamburger-icon {
     display: none; /* Hide the icon on non-mobile screens */
     cursor: pointer;
@@ -226,6 +242,7 @@
     height: 34px;
     /* Set a higher z-index to make sure it's on top of other elements */
 }
+
 .hamburger-icon.active {
     color: white; /* Change the color when the sidebar is open */
 }
@@ -237,9 +254,11 @@
         display: block; /* Show the icon on mobile screens */
 
     }
+
     .hamburger-icon.active {
         color: white; /* Change the color when the sidebar is open */
     }
+
     .nav-links {
         display: flex;
         flex-direction: column;
@@ -255,17 +274,19 @@
         border: #B73E3E;
         transition: left 0.3s ease; /* Add a smooth transition */
         padding-top: 80px; /* Add padding at the top to keep content below */
-
+        padding-right: 3.5vw;
     }
 
     /* Styles for the opened sidebar on mobile */
     .sidebar-open {
         left: 0; /* Slide the sidebar in from the left on mobile */
     }
-    .icone-css4{
+
+    .icone-css4 {
         margin-bottom: 90%;
     }
-    .sidebar-admin{
+
+    .sidebar-admin {
         position: fixed;
         width: 70px;
         height: 770px;
@@ -279,5 +300,8 @@
 
     }
 
+    .icone-logo {
+        display: none;
+    }
 
 }
