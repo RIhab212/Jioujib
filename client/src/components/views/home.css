@@ -317,7 +317,7 @@ body {
         flex-wrap: wrap;
         width: 45vw;
         justify-content: space-between;
-        height: 30vh;
+        height: 35vh;
         margin-top: 10vh;
 
     }
@@ -328,7 +328,7 @@ body {
     }
 
     .status-count{
-        margin-left: 10vw;
+        margin-left: 9vw;
         transform: translate(-1.5vh,-10.5vw);
     }
     .status-chart {
