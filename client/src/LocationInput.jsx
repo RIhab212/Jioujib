@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Geocode from "react-geocode";
 import "./Location.css"
 import map from './icone map.png';
 
 
 class MapButton extends Component {
+
 
     constructor(props) {
         super(props);
@@ -14,6 +15,7 @@ class MapButton extends Component {
             isIconClicked: false,
             isMapOpen: false,
             showModal: false,
+            manualLocation: '',
         };
         this.mapRef = React.createRef();
     }
@@ -28,17 +30,18 @@ class MapButton extends Component {
             this.initMap();
         });
     }
+
     initMap = () => {
         if (this.mapRef.current) { // Supprimer la condition isIconClicked
             const map = new window.google.maps.Map(this.mapRef.current, {
-                center: { lat: 31.7917, lng: -7.0926 },
+                center: {lat: 31.7917, lng: -7.0926},
                 zoom: 7
             });
             const input = document.getElementById('location');
             input.addEventListener("input", this.handleInputChange);
 
             const options = {
-                componentRestrictions: { country: "MA" },
+                componentRestrictions: {country: "MA"},
                 types: ["geocode"]
             };
 
@@ -47,38 +50,42 @@ class MapButton extends Component {
                 const place = autocomplete.getPlace();
                 if (place && place.geometry) {
                     const location = `${place.geometry.location.lat()}, ${place.geometry.location.lng()}`;
-                    this.setState({ location });
+                    this.setState({location});
                 }
                 // Mise à jour de la valeur de l'input avec la sélection de l'utilisateur
                 const selectedPlace = autocomplete.getPlace();
                 if (selectedPlace && selectedPlace.formatted_address) {
                     const selectedLocation = selectedPlace.formatted_address;
-                    this.setState({ location: selectedLocation, inputText: selectedLocation });
+                    this.setState({location: selectedLocation, inputText: selectedLocation});
                 }
             });
 
-            this.setState({ map, isMapOpen: true });
+            this.setState({map, isMapOpen: true});
         }
     };
 
     handleIconClick = () => {
         if (this.state.isMapOpen) {
-            this.setState({ isMapOpen: false, isIconClicked: false });
+            this.setState({isMapOpen: false, isIconClicked: false});
         } else {
-            this.setState({ isIconClicked: true }, () => {
+            this.setState({isIconClicked: true}, () => {
                 this.initMap();
                 this.toggleModal(); // Ouvrir le modal lorsque l'icône est cliquée
             });
         }
     };
+    handleManualInputChange = (event) => {
+        const manualLocation = event.target.value;
+        this.setState({manualLocation});
+    };
     handleInputChange = (event) => {
         const inputText = event.target.value;
-        this.setState({ inputText });
+        this.setState({inputText});
         const service = new window.google.maps.places.AutocompleteService();
         service.getPlacePredictions(
             {
                 input: inputText,
-                componentRestrictions: { country: "MA" }
+                componentRestrictions: {country: "MA"}
             },
             (predictions, status) => {
                 if (status === window.google.maps.places.PlacesServiceStatus.OK && predictions && predictions.length > 0) {
@@ -91,7 +98,7 @@ class MapButton extends Component {
                     // Si vous avez besoin de mettre à jour la valeur de l'input avec la première suggestion
                     if (suggestedLocations.length > 0) {
                         const selectedLocation = suggestedLocations[0];
-                        this.setState({ location: selectedLocation });
+                        this.setState({location: selectedLocation});
                     }
                 }
             }
@@ -100,9 +107,9 @@ class MapButton extends Component {
 
     reverseGeocode = (lat, lng) => {
         const geocoder = new window.google.maps.Geocoder();
-        geocoder.geocode({ location: { lat, lng } }, (results, status) => {
+        geocoder.geocode({location: {lat, lng}}, (results, status) => {
             if (status === 'OK' && results[0]) {
-                this.setState({ location: results[0].formatted_address, isMapOpen: false });
+                this.setState({location: results[0].formatted_address, isMapOpen: false});
             } else {
                 alert('Impossible de trouver l\'adresse correspondante à cette localisation.');
             }
@@ -123,9 +130,9 @@ class MapButton extends Component {
         const geocoder = new window.google.maps.Geocoder();
         const location = new window.google.maps.LatLng(latitude, longitude);
 
-        geocoder.geocode({ location }, (results, status) => {
+        geocoder.geocode({location}, (results, status) => {
             if (status === 'OK' && results[0]) {
-                this.setState({ location: results[0].formatted_address });
+                this.setState({location: results[0].formatted_address});
             } else {
                 alert("Impossible de trouver l'adresse correspondante à cette localisation.");
             }
@@ -133,17 +140,17 @@ class MapButton extends Component {
 
         const map = this.state.map;
         if (map) {
-            map.setCenter({ lat: latitude, lng: longitude });
+            map.setCenter({lat: latitude, lng: longitude});
             const marker = new window.google.maps.Marker({
-                position: { lat: latitude, lng: longitude },
+                position: {lat: latitude, lng: longitude},
                 map
             });
         }
-        this.setState({ isMapOpen: false });
+        this.setState({isMapOpen: false});
     }
 
     toggleModal = () => {
-        this.setState(prevState => ({ showModal: !prevState.showModal }), () => {
+        this.setState(prevState => ({showModal: !prevState.showModal}), () => {
             if (this.state.showModal) {
                 this.initMap();
             }
@@ -161,12 +168,14 @@ class MapButton extends Component {
                         id="location"
                         placeholder="Localisation"
                         value={this.state.location}
-
+                        value={this.state.manualLocation}
+                        onChange={this.handleManualInputChange}
                         required
                         className="l"
                     />
+
                     <span className="icone">
-                         <img src={map} className='imgLoc' alt="Icone"onClick={this.handleIconClick} />
+                         <img src={map} className='imgLoc' alt="Icone" onClick={this.handleIconClick}/>
   </span>
                 </div>
                 {/* ... */}
@@ -198,3 +207,5 @@ class MapButton extends Component {
 }
 
 export default MapButton;
+
+

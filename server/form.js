@@ -91,8 +91,8 @@ router.get("/userData", async (req, res) => {
        location,
        productName,
        description,
-       status,
        photo,
+       status,
        email,
      });
 
