@@ -1,5 +1,4 @@
 const express = require("express")
-const app = express()
 const mongoose = require("mongoose")
 const router = express.Router()
 const Joi = require("joi");
@@ -86,7 +85,6 @@ router.put("server/api/update", async(req ,res) => {
 
 
 
-const express = require('express');
 const session = require('express-session');
 
 const app = express();
