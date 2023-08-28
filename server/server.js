@@ -1,55 +1,40 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require("express")
+const app = express()
+const mongoose = require("mongoose")
+const router = express.Router()
 const Joi = require("joi");
 const passwordComplexity = require("joi-password-complexity");
 const http = require("http");
 const { Server } = require("socket.io");
-const cors = require("cors");
-const session = require('express-session');
-const crypto = require('crypto');
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const router = express.Router();
+app.use(express.json())
+const cors = require("cors")
+app.use(cors())
+const bcrypt = require("bcryptjs")
 
-const app = express();
-const server = http.createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: "https://rihab212.github.io",
-        methods: ["GET", "POST"],
-    },
-});
+const jwt = require("jsonwebtoken")
 
-const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J";
+const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J"
 
-const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority"
 
-
-mongoose.connect(mongoUrl)
+mongoose
+    .connect(mongoUrl)
     .then((e) => console.log("Connected to database"))
     .catch((error) => console.error(error));
 
-app.use(express.json());
-app.use(cors());
 
-require("./userDetails");
-require("./Products");
+require("./userDetails")
+require("./Products")
 
-const getProducts = require('./getProducts');
-app.use('/api/getproducts', getProducts);
+
+
+const getProducts = require('./getProducts')
+app.use('/api/getproducts', getProducts)
 const form = require('./form')
 app.use('/api/form', form)
 
-const USer = require('./USer');
-app.use('/api/users', USer);
-
 app.use('/uploads', express.static('./form'));
-const status = require('./status');
-app.use('/api/status', status);
-const Prod = require('./Prod');
-app.use('/api/Prod', Prod);
-const sess = require('./session');
-app.use('/api/session', sess);
+
 
 const User = mongoose.model("UserInfo");
 const Product =  mongoose.model("product")
@@ -74,32 +59,86 @@ app.post("/register", async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: "An error occurred while creating user" });
     }
-
 });
-
-
 router.put("server/api/update", async(req ,res) => {
-  try {
-      const confirmed = await Product.findByIdAndUpdate({_id: req.body._id}, { isConfirmed: true } )
-      if (!confirmed) {
-          return res.status(404).send('User not found')
-      }
-      res.send('Product confirmed')
-  } catch (error) {
-      console.log(error)
-      return res.status(500).send('Error updating document')
-  }
+    try {
+        const confirmed = await Product.findByIdAndUpdate({_id: req.body._id}, { isConfirmed: true } )
+        if (!confirmed) {
+            return res.status(404).send('User not found')
+        }
+        res.send('Product confirmed')
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send('Error updating document')
+    }
 
 })
 
 
+app.post("/signup", async (req, res) => {
+    const {fname, lname, email, password,gender} = req.body;
+    try {
+        const { error } = validate(req.body);
+        if (error)
+            return res.status(400).send({ message: error.details[0].message });
+
+        const user = await User.findOne({ email: req.body.email });
+        if (user)
+            return res
+                .status(409)
+                .send({ message: "User with given email already Exist!" });
+
+        const salt = await bcrypt.genSalt(Number(process.env.SALT));
+        const hashPassword = await bcrypt.hash(req.body.password, salt);
+
+        await new User({ ...req.body, password: hashPassword }).save();
+        res.status(201).send({ message: "User created successfully" });
+    } catch (error) {
+        res.status(500).send({ message: "Internal Server Error" });
+    }
+});
+
+app.post("/login-user", async(req,res)=>{
+    const { email, password } = req.body
+
+    const user = await User.findOne({email})
+    const admin = await User.findOne({email, isAdmin : true})
 
 
+    if (admin) {
+        if(await bcrypt.compare(password, admin.password)){
+            const token = jwt.sign({email: admin.email}, JWT_SECRET)
+            if(res.status(201)){
+                return res.json({status : "admin logged in", data:token})
+            } else {
+                return res.json({error : "error"})
+            }
+        }
+    } else {
+        if (!user) {
+            return res.json({error : "User Not Found"})
+        }
+        if ( await bcrypt.compare(password, user.password)){
+            const token = jwt.sign({email: user.email}, JWT_SECRET)
+            console.log(user);
 
-
-
+            if(res.status(201)){
+                let avatarUrl;
+                if(user.gender === 'male') {
+                    avatarUrl = '/male-avatar.png';
+                } else if(user.gender === 'female') {
+                    avatarUrl = '/female-avatar.png';
+                }
+                return res.json({status : "user logged in", data: token, gender: user.gender, avatar: avatarUrl})
+            } else {
+                return res.json({error : "error"})
+            }
+        }
+    }
+    res.json({status : "error",error: "Invalid Password"})
+})
 app.post("/userData", async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     const { token } = req.body
 
     try {
@@ -115,13 +154,6 @@ app.post("/userData", async (req, res) => {
     }
 
 })
-app.get('/check-session', (req, res) => {
-    if (req.session.user) {
-        res.send('User is logged in');
-    } else {
-        res.status(401).send('User is not logged in');
-    }
-});
 
 
 app.post("/userProducts", async (req, res) => {
@@ -143,7 +175,13 @@ app.post("/userProducts", async (req, res) => {
 
 
 
-
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: "https://rihab212.github.io",
+        methods: ["GET", "POST"],
+    },
+});
 
 io.on('connection', (socket) => {
     console.log(`User Connected: ${socket.id}`);
@@ -152,7 +190,6 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('receive_message', data);
     });
 });
-module.exports = router;
 
 const port = process.env.PORT || 10000;
 server.listen(port, () => console.log(`Server listening on port ${port}`));
