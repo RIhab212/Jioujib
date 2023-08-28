@@ -54,8 +54,8 @@ const status = require('./status');
 app.use('/api/status', status);
 const Prod = require('./Prod');
 app.use('/api/Prod', Prod);
-const session = require('./session');
-app.use('/api/session', session);
+const sess = require('./session');
+app.use('/api/session', sess);
 
 const User = mongoose.model("UserInfo");
 const Product =  mongoose.model("product")
