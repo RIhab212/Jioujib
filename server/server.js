@@ -102,11 +102,6 @@ router.put("server/api/update", async(req ,res) => {
 
 
 
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true
-}));
 
 
 app.post("/userData", async (req, res) => {
