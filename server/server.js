@@ -32,12 +32,6 @@ mongoose.connect(mongoUrl)
 app.use(express.json());
 app.use(cors());
 
-app.use(session({
-    secret: secretKey,
-    resave: false,
-    saveUninitialized: true
-}));
-
 require("./userDetails");
 require("./Products");
 
