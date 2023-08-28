@@ -192,12 +192,7 @@ app.post("/userProducts", async (req, res) => {
 
 
 const server = http.createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: "https://rihab212.github.io",
-        methods: ["GET", "POST"],
-    },
-});
+
 
 io.on('connection', (socket) => {
     console.log(`User Connected: ${socket.id}`);
