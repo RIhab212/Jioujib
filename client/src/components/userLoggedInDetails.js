@@ -40,7 +40,7 @@ const UserLoggedInDetails = () => {
                 fetch('https://jiujib.onrender.com/userData', userDataRequest),
                 fetch('https://jiujib.onrender.com/userProducts', userProductsRequest)
             ])
-                .then((responses) => {
+                .then(async (responses) => {
                     const userDataResponse = responses[0].json();
                     const userProductsResponse = responses[1].json();
 

@@ -49,7 +49,7 @@ const Login = () => {
 		e.preventDefault();
 		setIsLoading(true);
 		try {
-			const url = "https://jiujib.onrender.com/api/session";
+			const url = "https://jiujib.onrender.com/Login-user";
 			const { data: { data: token, gender, status } } = await axios.post(url, { email: data.email, password: data.password });
 			const user = { email: data.email, gender };
 			window.localStorage.setItem("user", JSON.stringify(user));
@@ -57,7 +57,10 @@ const Login = () => {
 
 				navigate("/adminInterface");
 			} else if (status === "user logged in") {
-
+				const userDataResponse = await axios.get("/userData", {
+					headers: { Authorization: `Bearer ${token}` }
+				});
+				const userData = userDataResponse.data;
 				navigate("/FormC");
 			} else {
 				setError("Invalid login status");

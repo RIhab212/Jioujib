@@ -61,32 +61,31 @@ const authMiddleware = async (req, res, next) => {
     res.status(401).json({ message: 'Authorization header not found' });
   }
 };
-router.get("/userData", async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  const { token } = req.body
+ router.get("/userData", authMiddleware, async (req, res) => {
+   try {
+     const useremail = req.email; // Use the logged-in user's email
+     const userData = await User.findOne({ email: useremail });
 
-  try {
-    const user = jwt.verify(token, JWT_SECRET)
-    const useremail = user.email
-    User.findOne({email : useremail}).then((data) => {
-      res.send({ status: "ok", data: data })
-    }).catch((error) => {
-      res.send({status: "error", data: error})
-    })
-  } catch (error) {
+     if (!userData) {
+       res.send({ status: "error", data: "User not found" });
+     } else {
+       const products = await Product.find({ email: useremail });
+       res.send({ status: "ok", data: { user: userData, products: products } });
+     }
+   } catch (error) {
+     res.send({ status: "error", data: error.message });
+   }
+ });
 
-  }
-
-})
- router.post("/", upload.single('photo'), async (req, res) => {
+ router.post("/", authMiddleware , upload.single('photo'), async (req, res) => {
    try {
      const { error } = validate(req.body);
      if (error) {
        return res.status(400).json({ message: error.details[0].message });
      }
 
-     const { location, productName, description, photo, status, email } = req.body;
-
+     const { location, productName, description, photo, status } = req.body;
+     const email = req.email;
      const newProduct = new Product({
        location,
        productName,
