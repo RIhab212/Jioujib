@@ -49,7 +49,7 @@ const Login = () => {
 		e.preventDefault();
 		setIsLoading(true);
 		try {
-			const url = "https://jiujib.onrender.com/Login-user";
+			const url = "https://jiujib.onrender.com/api/session";
 			const { data: { data: token, gender, status } } = await axios.post(url, { email: data.email, password: data.password });
 			const user = { email: data.email, gender };
 			window.localStorage.setItem("user", JSON.stringify(user));
