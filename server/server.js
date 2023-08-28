@@ -100,7 +100,6 @@ router.put("server/api/update", async(req ,res) => {
 
 
 
-const app = express();
 
 app.use(session({
     secret: 'your-secret-key',
