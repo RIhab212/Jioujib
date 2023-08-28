@@ -11,7 +11,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const app = express();
-const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: "https://rihab212.github.io",
