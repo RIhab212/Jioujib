@@ -16,7 +16,7 @@ const jwt = require("jsonwebtoken")
 const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J"
 
 const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority"
-
+const secretKey = crypto.randomBytes(64).toString('hex');
 mongoose
     .connect(mongoUrl)
     .then((e) => console.log("Connected to database"))
@@ -86,47 +86,57 @@ router.put("server/api/update", async(req ,res) => {
 
 
 
+const express = require('express');
+const session = require('express-session');
 
-app.post("/login-user", async(req,res)=>{
-    const { email, password } = req.body
+const app = express();
 
-    const user = await User.findOne({email})
-    const admin = await User.findOne({email, isAdmin : true})
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
 
+
+app.post("/login-user", async (req, res) => {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+    const admin = await User.findOne({ email, isAdmin: true });
 
     if (admin) {
-        if(await bcrypt.compare(password, admin.password)){
-            const token = jwt.sign({email: admin.email}, JWT_SECRET)
-            if(res.status(201)){
-                return res.json({status : "admin logged in", data:token})
-            } else {
-                return res.json({error : "error"})
-            }
+        if (await bcrypt.compare(password, admin.password)) {
+            // Stocker les informations de l'utilisateur dans la session
+            req.session.user = { id: admin._id, email: admin.email, isAdmin: true };
+            const token = jwt.sign({ email: admin.email }, secretKey);
+            return res.json({ status: "admin logged in", data: token });
         }
     } else {
         if (!user) {
-        return res.json({error : "User Not Found"})
-    }
-    if ( await bcrypt.compare(password, user.password)){
-        const token = jwt.sign({email: user.email}, JWT_SECRET)
-        console.log(user);
-
-        if(res.status(201)){
+            return res.json({ error: "User Not Found" });
+        }
+        if (await bcrypt.compare(password, user.password)) {
+            // Stocker les informations de l'utilisateur dans la session
+            req.session.user = { id: user._id, email: user.email, isAdmin: false };
+            const token = jwt.sign({ email: user.email }, secretKey);
             let avatarUrl;
-            if(user.gender === 'male') {
-              avatarUrl = '/male-avatar.png';
-            } else if(user.gender === 'female') {
-              avatarUrl = '/female-avatar.png';
+            if (user.gender === "male") {
+                avatarUrl = "/male-avatar.png";
+            } else if (user.gender === "female") {
+                avatarUrl = "/female-avatar.png";
             }
-            return res.json({status : "user logged in", data: token, gender: user.gender, avatar: avatarUrl})
-          } else {
-            return res.json({error : "error"})
-          }
-    }
+            return res.json({
+                status: "user logged in",
+                data: token,
+                gender: user.gender,
+                avatar: avatarUrl,
+            });
+        }
     }
 
-    res.json({status : "error",error: "Invalid Password"})
-})
+    res.json({ status: "error", error: "Invalid Password" });
+});
+
 app.post("/userData", async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
     const { token } = req.body
@@ -144,6 +154,13 @@ app.post("/userData", async (req, res) => {
     }
 
 })
+app.get('/check-session', (req, res) => {
+    if (req.session.user) {
+        res.send('User is logged in');
+    } else {
+        res.status(401).send('User is not logged in');
+    }
+});
 
 
 app.post("/userProducts", async (req, res) => {

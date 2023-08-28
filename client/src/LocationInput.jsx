@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import Geocode from "react-geocode";
 import "./Location.css"
 import map from './icone map.png';
-
-
+import Modal from 'react-modal';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 class MapButton extends Component {
 
 
@@ -23,7 +24,7 @@ class MapButton extends Component {
 
     componentDidMount() {
         const googleMapsScript = document.createElement('script');
-        googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${"AIzaSyAzQNb5184qb5WduzPMHjRhqjycSmNixqE"}&libraries=places&region=MA`;
+        googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${"AIzaSyDGdSfeWBTXJBFH4_U-tQ16myTJAo_4A00"}&libraries=places&region=MA`;
 
         window.document.body.appendChild(googleMapsScript);
         googleMapsScript.addEventListener('load', () => {
@@ -107,36 +108,47 @@ class MapButton extends Component {
 
     reverseGeocode = (lat, lng) => {
         const geocoder = new window.google.maps.Geocoder();
-        geocoder.geocode({location: {lat, lng}}, (results, status) => {
+        geocoder.geocode({ location: { lat, lng } }, (results, status) => {
             if (status === 'OK' && results[0]) {
-                this.setState({location: results[0].formatted_address, isMapOpen: false});
+                const addressComponents = results[0].address_components;
+                const formattedAddress = addressComponents
+                    .filter(component => component.types.includes('route') || component.types.includes('locality') || component.types.includes('country'))
+                    .map(component => component.long_name)
+                    .join(', ');
+
+                this.props.updateLocation(formattedAddress); // Appel à la fonction du composant parent pour mettre à jour l'adresse
             } else {
-                alert('Impossible de trouver l\'adresse correspondante à cette localisation.');
+                alert("Impossible de trouver l'adresse correspondante à cette localisation.");
             }
+            this.setState({ isMapOpen: false }); // Fermez le modal ici après avoir obtenu l'adresse
         });
     };
+
 
     getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.showPosition);
         } else {
-            alert('La géolocalisation n\'est pas prise en charge par ce navigateur.');
+            alert("La géolocalisation n'est pas prise en charge par ce navigateur.");
         }
     };
+
 
     showPosition = (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+        this.reverseGeocode(latitude, longitude);
         const geocoder = new window.google.maps.Geocoder();
         const location = new window.google.maps.LatLng(latitude, longitude);
-
-        geocoder.geocode({location}, (results, status) => {
+        geocoder.geocode({ location }, (results, status) => {
             if (status === 'OK' && results[0]) {
-                this.setState({location: results[0].formatted_address});
+                const formattedAddress = results[0].formatted_address;
+                this.props.updateLocation(formattedAddress); // Appel à la fonction du composant parent pour mettre à jour l'adresse
             } else {
                 alert("Impossible de trouver l'adresse correspondante à cette localisation.");
             }
         });
+
 
         const map = this.state.map;
         if (map) {
@@ -146,7 +158,10 @@ class MapButton extends Component {
                 map
             });
         }
-        this.setState({isMapOpen: false});
+        this.toggleModal();
+        console.log("Getting position...");
+        this.setState({ isMapOpen: false });
+        console.log("Closing map...");
     }
 
     toggleModal = () => {
@@ -157,26 +172,17 @@ class MapButton extends Component {
         });
     };
 
+
+
     render() {
         return (
             <div>
 
 
                 <div className="input-with-icon">
-                    <input
-                        type="text"
-                        id="location"
-                        placeholder="Localisation"
-                        value={this.state.location}
-                        value={this.state.manualLocation}
-                        onChange={this.handleManualInputChange}
-                        required
-                        className="l"
-                    />
+                    <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" onClick={this.handleIconClick} />
 
-                    <span className="icone">
-                         <img src={map} className='imgLoc' alt="Icone" onClick={this.handleIconClick}/>
-  </span>
+
                 </div>
                 {/* ... */}
                 {this.state.showModal && (
@@ -195,6 +201,9 @@ class MapButton extends Component {
                                         display: this.state.showModal ? 'block' : 'none'
                                     }}
                                 />
+                            </div>
+                            <div className="address-display">
+                                {this.state.location}
                             </div>
                             <button onClick={this.getLocation} className="red-button">Obtenir ma position</button>
 

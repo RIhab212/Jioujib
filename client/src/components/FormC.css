@@ -163,3 +163,14 @@ h6{
   font-size: 15px;
   color: #1d8613;
 }
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 600px;
+  margin-left: 50px;
+  margin-top: 44px;
+
+
+}

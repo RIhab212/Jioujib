@@ -4,18 +4,19 @@ import Img5 from './av.png';
 import Img6 from './Rectangle 32.png';
 import CircularProgress from '@mui/material/CircularProgress'
 import  Profile from './pdp.jsx'
-import MapButton from './LocationInput.jsx'
 import Notification from './notification'
 import { Link,useNavigate } from "react-router-dom";
 import io from 'socket.io-client';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { storage } from "./firebase.config";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid"
 import { Grid } from "@mui/material";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import MapButton from "./LocationInput";
 const React = require('react');
+
 
 const FormC = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -23,16 +24,8 @@ const FormC = () => {
     const [success, setSuccess] = useState(false)
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showPhoneDiv, setShowPhoneDiv] = useState(window.innerWidth < 800);
+    const [isIconClicked, setIsIconClicked] = useState(false);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-            setShowPhoneDiv(window.innerWidth < 800);
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
 
 
     const [data, setData] = React.useState({
@@ -115,7 +108,7 @@ const FormC = () => {
             setSubmitted(true);
             setSuccess(true); // mettre le state de succès à true
             setTimeout(() => {
-                navigate('/UserLoggedInDetails');
+                navigate('/userLoggedInDetails');
             }, 2000); // rediriger l'utilisateur après 2 secondes
             setData({
                 location: "",
@@ -132,10 +125,12 @@ const FormC = () => {
                 error.response.status >= 400 &&
                 error.response.status <= 500
             ) {
+                navigate("/userLoggedInDetails");
                 setError(error.response.data.message);
             }
         }
     };
+
 
 
     useEffect(() => {
@@ -146,6 +141,12 @@ const FormC = () => {
             setNotifications([...notifications, { id: notifications.length, message: data.message }]);
         });
     }, []);
+
+    const updateLocation = (address) => {
+        // Mettre à jour l'adresse dans le state
+        const updatedData = { ...data, location: address };
+        setData(updatedData);
+    };
 
 
     return (
@@ -221,8 +222,21 @@ const FormC = () => {
                         <div className="bodyformcinputs">
 
                             <div className="break"></div>
+                            <div className="input-with-icon">
+                                <input
+                                    type="text"
+                                    id="location"
+                                    value={data.location}
+                                    onChange={handleChange}
+                                    placeholder="                        Location"
+                                    className="locationn"
+                                />
+                                <MapButton updateLocation={updateLocation} />
+                            </div>
+
+
                             <div className="product-container">
-                             <input type="text" id="location" value={data.location} onChange={handleChange}   />
+
                                 <input  type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
                             </div>
                             <div className="file-input-container">
@@ -236,7 +250,7 @@ const FormC = () => {
                                 <div className="success-message">Product created successfully!</div>
                             )}
 
-                            <button type="submit" id="btn" className='btn' disabled={isLoading} onClick={handleSubmit}>
+                            <button type="submit" id="btn" className='btn' disabled={isLoading} onClick={handleSubmit} >
                                 {isLoading ? <CircularProgress size="0.8rem" style={{'color': 'white', 'transition': '0.3s'}}/> : 'SEARCH FOR PRODUCT'}
                             </button>
 
