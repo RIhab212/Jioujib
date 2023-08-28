@@ -9,6 +9,7 @@ const session = require('express-session');
 const crypto = require('crypto');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const router = express.Router();
 
 const app = express();
 const server = http.createServer(app);
@@ -201,6 +202,7 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('receive_message', data);
     });
 });
+module.exports = router;
 
 const port = process.env.PORT || 10000;
 server.listen(port, () => console.log(`Server listening on port ${port}`));
