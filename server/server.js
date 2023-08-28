@@ -1,34 +1,48 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const router = express.Router()
+const express = require("express");
+const mongoose = require("mongoose");
 const Joi = require("joi");
 const passwordComplexity = require("joi-password-complexity");
 const http = require("http");
 const { Server } = require("socket.io");
-app.use(express.json())
-const cors = require("cors")
-app.use(cors())
-const bcrypt = require("bcryptjs")
+const cors = require("cors");
+const session = require('express-session');
+const crypto = require('crypto');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-const jwt = require("jsonwebtoken")
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: "https://rihab212.github.io",
+        methods: ["GET", "POST"],
+    },
+});
 
-const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J"
+const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J";
 
-const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority"
+const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority";
+
 const secretKey = crypto.randomBytes(64).toString('hex');
-mongoose
-    .connect(mongoUrl)
+
+mongoose.connect(mongoUrl)
     .then((e) => console.log("Connected to database"))
     .catch((error) => console.error(error));
 
+app.use(express.json());
+app.use(cors());
 
-require("./userDetails")
-require("./Products")
+app.use(session({
+    secret: secretKey,
+    resave: false,
+    saveUninitialized: true
+}));
 
+require("./userDetails");
+require("./Products");
 
-
-const getProducts = require('./getProducts')
-app.use('/api/getproducts', getProducts)
+const getProducts = require('./getProducts');
+app.use('/api/getproducts', getProducts);
 const form = require('./form')
 app.use('/api/form', form)
 
