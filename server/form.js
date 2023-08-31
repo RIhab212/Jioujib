@@ -61,7 +61,7 @@ const authMiddleware = async (req, res, next) => {
     res.status(401).json({ message: 'Authorization header not found' });
   }
 };
- router.get("/userData", authMiddleware, async (req, res) => {
+ router.get("/userData", async (req, res) => {
    try {
      const useremail = req.email; // Use the logged-in user's email
      const userData = await User.findOne({ email: useremail });
@@ -77,20 +77,21 @@ const authMiddleware = async (req, res, next) => {
    }
  });
 
- router.post("/", authMiddleware , upload.single('photo'), async (req, res) => {
+ router.post("/" , upload.single('photo'), async (req, res) => {
    try {
      const { error } = validate(req.body);
      if (error) {
        return res.status(400).json({ message: error.details[0].message });
      }
 
-     const { location, productName, description, photo, status } = req.body;
+     const { location, productName, description, photo, status , userId} = req.body;
      const newProduct = new Product({
        location,
        productName,
        description,
        photo,
        status,
+       userId,
      });
 
      await newProduct.save();
@@ -108,7 +109,16 @@ const authMiddleware = async (req, res, next) => {
  });
 
 
+router.get('/:userId',async (req,res) => {
+  const userId = req.params.userId;
+  try{
+    const products = await Product.find({userId});
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({error: 'An error occurred'});
+  }
 
+});
 router.get('/', (req, res) => {
   Product.find()
       .exec()
