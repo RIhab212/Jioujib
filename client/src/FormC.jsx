@@ -108,7 +108,6 @@ const FormC = () => {
             setSubmitted(true);
             setSuccess(true); // mettre le state de succès à true
             setTimeout(() => {
-                navigate('/userLoggedInDetails');
             }, 2000); // rediriger l'utilisateur après 2 secondes
             setData({
                 location: "",
@@ -125,7 +124,6 @@ const FormC = () => {
                 error.response.status >= 400 &&
                 error.response.status <= 500
             ) {
-                navigate("/userLoggedInDetails");
                 setError(error.response.data.message);
             }
         }

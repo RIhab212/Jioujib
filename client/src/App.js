@@ -13,8 +13,7 @@ import Terme  from './signup/Terme'
 import Home from './components/views/Home'
 import Usertable from './components/views/Usertable'
 import OrdersTab from './components/views/OrdersTab'
-
-import "./App.css";
+import TrackingPage from "./components/views/TrackingPage";
 
 function App() {
   return (
@@ -33,6 +32,8 @@ function App() {
           <Route path="/Home" element={<Home/>}/>
           <Route path="/Usertable" element={<Usertable/>}/>
           <Route path="/OrdersTab" element={<OrdersTab/>}/>
+          <Route path="/myOrders" element={<TrackingPage/>}/>
+
 
       </Routes>
     </BrowserRouter>

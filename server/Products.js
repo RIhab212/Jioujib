@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema({
 	photo: { type: String, required: true },
 	isConfirmed: { type: Boolean, default: false },
 	Notif : { type: Boolean, default: true },
-	userId : {type:Number , required: true},
 	status : { type: String, default: null},
 	createdAt: {
 		type: Date,
