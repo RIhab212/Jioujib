@@ -15,7 +15,7 @@ const jwt = require("jsonwebtoken")
 
 const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J"
 
-const mongoUrl = "mongodb+srv://rihab:rihab@cluster0.mmcouuo.mongodb.net/?retryWrites=true&w=majority"
+const mongoUrl = "mongodb+srv://Sofbt:dofy4mzVHYhdgE43@cluster0.d7u6cqi.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose
     .connect(mongoUrl)
@@ -37,7 +37,7 @@ app.use('/uploads', express.static('./form'));
 
 
 const User = mongoose.model("UserInfo");
-const Product =  mongoose.model("products")
+const Product =  mongoose.model("product")
 
 app.post("/register", async (req, res) => {
     const { fname, lname, email, password, gender } = req.body;
