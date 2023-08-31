@@ -84,15 +84,14 @@ const authMiddleware = async (req, res, next) => {
        return res.status(400).json({ message: error.details[0].message });
      }
 
-     const { location, productName, description, photo, status } = req.body;
-     const email = req.email;
+     const { location, productName, description, photo, status , userId} = req.body;
      const newProduct = new Product({
        location,
        productName,
        description,
        photo,
        status,
-       email,
+       userId,
      });
 
      await newProduct.save();
@@ -110,7 +109,16 @@ const authMiddleware = async (req, res, next) => {
  });
 
 
+router.get('/:userId',async (req,res) => {
+  const userId = req.params.userId;
+  try{
+    const products = await Product.find({userId});
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({error: 'An error occurred'});
+  }
 
+});
 router.get('/', (req, res) => {
   Product.find()
       .exec()

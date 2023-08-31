@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
 	photo: { type: String, required: true },
 	isConfirmed: { type: Boolean, default: false },
 	Notif : { type: Boolean, default: true },
+	userId : {type:Number , required: true},
 	status : { type: String, default: null},
 	createdAt: {
 		type: Date,
@@ -49,6 +50,7 @@ const validate = (data) => {
 		description: Joi.string().required().label("description"),
 		status: Joi.string().required().label("description"),
 		photo: Joi.string().optional().allow(""),
+		userId: Joi.number().required().label("user")
 
 
 

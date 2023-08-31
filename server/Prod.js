@@ -9,7 +9,7 @@ const User = mongoose.model("UserInfo","product");
 router.get("/", async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     try {
-        const products = await Product.find(); // Récupère tous les produits sans filtre de statut
+        const products = await Product.find();
         return res.json(products);
     } catch (error) {
         return res.status(400).json({ message: error });
