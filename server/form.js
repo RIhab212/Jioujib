@@ -61,7 +61,7 @@ const authMiddleware = async (req, res, next) => {
     res.status(401).json({ message: 'Authorization header not found' });
   }
 };
- router.get("/userData", authMiddleware, async (req, res) => {
+ router.get("/userData", async (req, res) => {
    try {
      const useremail = req.email; // Use the logged-in user's email
      const userData = await User.findOne({ email: useremail });
@@ -77,7 +77,7 @@ const authMiddleware = async (req, res, next) => {
    }
  });
 
- router.post("/", authMiddleware , upload.single('photo'), async (req, res) => {
+ router.post("/" , upload.single('photo'), async (req, res) => {
    try {
      const { error } = validate(req.body);
      if (error) {
