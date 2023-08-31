@@ -1,4 +1,4 @@
- const express = require("express");
+const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const multer = require("multer");
@@ -61,63 +61,53 @@ const authMiddleware = async (req, res, next) => {
     res.status(401).json({ message: 'Authorization header not found' });
   }
 };
- router.get("/userData", async (req, res) => {
-   try {
-     const useremail = req.email; // Use the logged-in user's email
-     const userData = await User.findOne({ email: useremail });
+router.get("/userData", async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  const { token } = req.body
 
-     if (!userData) {
-       res.send({ status: "error", data: "User not found" });
-     } else {
-       const products = await Product.find({ email: useremail });
-       res.send({ status: "ok", data: { user: userData, products: products } });
-     }
-   } catch (error) {
-     res.send({ status: "error", data: error.message });
-   }
- });
-
- router.post("/" , upload.single('photo'), async (req, res) => {
-   try {
-     const { error } = validate(req.body);
-     if (error) {
-       return res.status(400).json({ message: error.details[0].message });
-     }
-
-     const { location, productName, description, photo, status , userId} = req.body;
-     const newProduct = new Product({
-       location,
-       productName,
-       description,
-       photo,
-       status,
-       userId,
-     });
-
-     await newProduct.save();
-     commandeCount++;
-     res.status(201).json({
-       message: 'Product created successfully',
-       data: newProduct,
-     });
-   } catch (error) {
-     console.log(error);
-     res.status(500).json({
-       message: 'Error',
-     });
-   }
- });
-
-
-router.get('/:userId',async (req,res) => {
-  const userId = req.params.userId;
-  try{
-    const products = await Product.find({userId});
-    res.json(products);
+  try {
+    const user = jwt.verify(token, JWT_SECRET)
+    const useremail = user.email
+    User.findOne({email : useremail}).then((data) => {
+      res.send({ status: "ok", data: data })
+    }).catch((error) => {
+      res.send({status: "error", data: error})
+    })
   } catch (error) {
-    res.status(500).json({error: 'An error occurred'});
+
   }
 
+})
+router.post("/", upload.single('photo'), async (req, res) => {
+  try {
+    const { error } = validate(req.body);
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
+
+    const { location, productName, description , photo, status,email} = req.body;
+
+    const newProduct = new Product({
+      location,
+      productName,
+      description,
+      status,
+      photo,
+      email,
+    });
+
+    await newProduct.save();
+
+    res.status(201).json({
+      message: 'Product created successfully',
+      data: newProduct
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: 'Failed to create product'
+    });
+  }
 });
 router.get('/', (req, res) => {
   Product.find()
