@@ -129,7 +129,7 @@ app.post("/login-user", async(req,res)=>{
                 } else if(user.gender === 'female') {
                     avatarUrl = '/female-avatar.png';
                 }
-                return res.json({status : "user logged in", data: token, gender: user.gender, avatar: avatarUrl})
+                return res.json({status : "user logged in", data: token, gender: user.gender, avatar: avatarUrl, id: "rehab" })
             } else {
                 return res.json({error : "error"})
             }
