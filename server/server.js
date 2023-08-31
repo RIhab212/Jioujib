@@ -37,7 +37,7 @@ app.use('/uploads', express.static('./form'));
 
 
 const User = mongoose.model("UserInfo");
-const Product =  mongoose.model("product")
+const Product =  mongoose.model("products")
 
 app.post("/register", async (req, res) => {
     const { fname, lname, email, password, gender } = req.body;
