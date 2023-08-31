@@ -41,7 +41,7 @@ userSchema.methods.generateAuthToken = function () {
 	});
 	return token;
 };
-const Product =  mongoose.model("product", userSchema);
+const Product =  mongoose.model("products", userSchema);
 
 const validate = (data) => {
 	const schema = Joi.object({
