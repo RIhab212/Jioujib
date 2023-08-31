@@ -40,7 +40,6 @@ const Login = () => {
 		setData({ ...data, [input.name]: input.value });
 	};
 	function handleButtonClick() {
-		// Redirigez l'utilisateur vers la page de profil
 		window.location.href = "./Phonesignup";
 	}
 	const navigate = useNavigate();
@@ -50,17 +49,14 @@ const Login = () => {
 		setIsLoading(true);
 		try {
 			const url = "https://jiujib.onrender.com/Login-user";
-			const { data: { data: token, gender, status } } = await axios.post(url, { email: data.email, password: data.password });
-			const user = { email: data.email, gender };
+			const { data: { data: token, gender, status , id} } = await axios.post(url, { email: data.email, password: data.password,id:data.id });
+			const user = {  email: data.email, gender , id };
 			window.localStorage.setItem("user", JSON.stringify(user));
 			if (status === "admin logged in") {
 
 				navigate("/adminInterface");
 			} else if (status === "user logged in") {
-				const userDataResponse = await axios.get("/userData", {
-					headers: { Authorization: `Bearer ${token}` }
-				});
-				const userData = userDataResponse.data;
+
 				navigate("/FormC");
 			} else {
 				setError("Invalid login status");
@@ -76,7 +72,6 @@ const Login = () => {
 		}
 		setIsLoading(false);
 	};
-
 	const google = () => {
 		window.open("http://localhost:5000/auth/google", "_self");
 	};
