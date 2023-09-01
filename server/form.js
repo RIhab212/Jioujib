@@ -95,7 +95,6 @@ const authMiddleware = async (req, res, next) => {
      });
 
      await newProduct.save();
-     commandeCount++;
      res.status(201).json({
        message: 'Product created successfully',
        data: newProduct,
