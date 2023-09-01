@@ -107,8 +107,9 @@ const FormC = () => {
 
             console.log(res.message);
             setSubmitted(true);
-            setSuccess(true); 
+            setSuccess(true);
             setTimeout(() => {
+                navigate('/UserLoggedInDetails');
             }, 2000); // rediriger l'utilisateur après 2 secondes
             setData({
                 location: "",
@@ -125,6 +126,7 @@ const FormC = () => {
                 error.response.status >= 400 &&
                 error.response.status <= 500
             ) {
+                navigate('/UserLoggedInDetails');
                 setError(error.response.data.message);
             }
         }
@@ -133,7 +135,7 @@ const FormC = () => {
 
 
     useEffect(() => {
-        const socket = io.connect('https://jiujib.onrender.com');
+        const socket = io.connect('http://localhost:3000/Jioujib');
 
         socket.on('receive_message', data => {
 
@@ -142,7 +144,7 @@ const FormC = () => {
     }, []);
 
     const updateLocation = (address) => {
-        // Mettre à jour l'adresse dans le state
+
         const updatedData = { ...data, location: address };
         setData(updatedData);
     };
@@ -155,11 +157,10 @@ const FormC = () => {
             {showPhoneDiv ? (
                 <form action="/products" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} md={6}>
-                            <div className="topbarformc">
-                                <img src="https://i.imgur.com/RyN8kuI.png" className="jijibimgtopbar" alt="logo" />
-                            </div>
+                        <Grid item xs={10} md={4}>
+
                             <div className="trackbarformc">
+                                <img src={Img5} alt='' className="image1"/>
                                 <div className="trackdeltxt">Tracking Delivery</div>
                                 <div className="break" />
                                 <div className="inprogtxt">In Progress...</div>
@@ -174,7 +175,19 @@ const FormC = () => {
 
                                 <div className="break"></div>
                                 <div className="product-container">
-                                    <input type="text" id="location" value={data.location} onChange={handleChange}   />
+                                    <Grid item xs={12} md={6}>
+                                    <div className="input-with-icon">
+                                        <input
+                                            type="text"
+                                            id="location"
+                                            value={data.location}
+                                            onChange={handleChange}
+                                            placeholder="                        Location"
+                                            className="locationMobile"
+                                        />
+                                        <MapButton updateLocation={updateLocation} />
+                                    </div>
+                                    </Grid>
                                     <input type="text" id="productName" placeholder="Product Name" value={data.productName} onChange={handleChange} required className="product-input" /><textarea id="description" placeholder="Description of the product" onChange={handleChange} value={data.description} required className="product-input" />
                                 </div>
                                 <div className="file-input-container">
@@ -205,10 +218,10 @@ const FormC = () => {
                 <Grid item xs={12} md={6}>
 
                     <div className="mm">
-                        <div className="topbarprofile">
-                            <img src="https://i.imgur.com/RyN8kuI.png" className="jijibimgtopbar" alt="logo" />
-                        </div>
+                        <Profile notifications={notifications} />
+
                         <div className="bodyformc">
+                            <img src={Img5} alt='' className="image1"/>
                             <div className="trackdeltxt">Tracking Delivery</div>
                             <div className="break" />
                             <div className="inprogtxt">In Progress...</div>

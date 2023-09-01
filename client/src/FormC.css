@@ -37,9 +37,9 @@
   margin-right: auto;
   justify-content: center;
   background-color: #ffffff;
-  border-radius: 40px 40px 0 0;
+  border-radius: 10px 10px 0 0;
   flex-wrap: wrap;
-  margin-top: -38px;
+  margin-top: -50px;
 }
 
 .bodyformcinputs{
@@ -176,6 +176,9 @@ h4{
   border-radius: 33px ;
   background-color: #f0f0f0;
 
+}
+.locationMobile{
+  width: 30px;
 }
 .modal {
   position: fixed;
@@ -370,9 +373,10 @@ h6{
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   color: white;
-  margin-top: 40px;
+  margin-top: -93px;
   font-weight: 600;
   margin-left: -50px;
+
 }
 
 .break {
@@ -420,7 +424,13 @@ h6{
   width: auto;
 }
 
+.image1{
+  margin-left:696px;
+  margin-top:-69px;
+  width: 300px;
+  height: 190px;
 
+}
 
 .inputsformc {
   height: auto;

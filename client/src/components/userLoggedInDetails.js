@@ -6,58 +6,22 @@ import Img2 from './line.png';
 import Img3 from './sym.png';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
+import axios from "axios";
 
 const UserLoggedInDetails = () => {
     const [userData, setUserData] = useState('');
+    const userId = JSON.parse(localStorage.getItem("user")).id;
     const [userProducts, setUserProducts] = useState([]);
+    const token = localStorage.getItem('token');
+
 
     useEffect(() => {
-        const userDataRequest = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            body: JSON.stringify({
-                token: window.localStorage.getItem('token')
-            })
-        };
-
-        const userProductsRequest = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            body: JSON.stringify({
-                token: window.localStorage.getItem('token')
-            })
-        };
-
-            Promise.all([
-                fetch('https://jiujib.onrender.com/userData', userDataRequest),
-                fetch('https://jiujib.onrender.com/userProducts', userProductsRequest)
-            ])
-                .then( (responses) => {
-                    const userDataResponse = responses[0].json();
-                    const userProductsResponse = responses[1].json();
-
-                    return Promise.all([userDataResponse, userProductsResponse]);
-                })
-                .then((data) => {
-                    const userData = data[0].data;
-                    const userProducts = data[1].data;
-
-                    console.log(userData, 'userData');
-                    console.log(userProducts, 'userProducts');
-                    setUserData(userData);
-                    setUserProducts(userProducts);
-                })
-                .catch((error) => console.error(error));
-        }, [userProducts]);
-
+        axios.get('https://jiujib.onrender.com/api/form/'+userId)
+            .then((response) => {
+                setUserProducts(response.data);
+                console.log(response.data);
+            });
+    }, [userId]);
 
     return (
         <div className="main-pagee">
