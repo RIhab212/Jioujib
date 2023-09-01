@@ -110,7 +110,7 @@ router.post("/", upload.single('photo'), async (req, res) => {
 router.get('/:userId', async (req, res) => {
   const userId = req.params.userId;
   try {
-    const products = await Product.find({ userId });
+    const products = await Product.find({ userId: userId });
     res.json(products);
   } catch (error) {
     res.status(500).json({ error: 'An error occurred' });

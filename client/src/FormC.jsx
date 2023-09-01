@@ -107,7 +107,7 @@ const FormC = () => {
 
             console.log(res.message);
             setSubmitted(true);
-            setSuccess(true); // mettre le state de succès à true
+            setSuccess(true); 
             setTimeout(() => {
             }, 2000); // rediriger l'utilisateur après 2 secondes
             setData({
