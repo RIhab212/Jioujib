@@ -1,13 +1,13 @@
- const express = require("express");
+const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 
-const{ validate,Product } = require("./Products");
+const {validate, Product} = require("./Products");
 const jwt = require("jsonwebtoken");
 const User = mongoose.model("UserInfo");
-const  JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J"
+const JWT_SECRET = "ajz&ojozajojdoqjodijaoizjfofoqvnoqsniqosnd17187639217412984OZANOSNCOIU19287931U9DDZJ983J"
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -46,7 +46,7 @@ const authMiddleware = async (req, res, next) => {
 
     try {
       const decoded = jwt.verify(token, JWT_SECRET)
-      const user = await User.findOne({ _id: decoded.userId });
+      const user = await User.findOne({_id: decoded.userId});
 
       if (!user) {
         throw new Error('User not found');
@@ -55,69 +55,68 @@ const authMiddleware = async (req, res, next) => {
       req.email = user.email; // stocker l'email dans l'objet de requête
       next();
     } catch (err) {
-      res.status(401).json({ message: 'Invalid token' });
+      res.status(401).json({message: 'Invalid token'});
     }
   } else {
-    res.status(401).json({ message: 'Authorization header not found' });
+    res.status(401).json({message: 'Authorization header not found'});
   }
 };
- router.get("/userData", async (req, res) => {
-   try {
-     const useremail = req.email; // Use the logged-in user's email
-     const userData = await User.findOne({ email: useremail });
+router.get("/userData", authMiddleware, async (req, res) => {
+  try {
+    const useremail = req.email; // Use the logged-in user's email
+    const userData = await User.findOne({email: useremail});
 
-     if (!userData) {
-       res.send({ status: "error", data: "User not found" });
-     } else {
-       const products = await Product.find({ email: useremail });
-       res.send({ status: "ok", data: { user: userData, products: products } });
-     }
-   } catch (error) {
-     res.send({ status: "error", data: error.message });
-   }
- });
+    if (!userData) {
+      res.send({status: "error", data: "User not found"});
+    } else {
+      const products = await Product.find({email: useremail});
+      res.send({status: "ok", data: {user: userData, products: products}});
+    }
+  } catch (error) {
+    res.send({status: "error", data: error.message});
+  }
+});
 
- router.post("/" , upload.single('photo'), async (req, res) => {
-   try {
-     const { error } = validate(req.body);
-     if (error) {
-       return res.status(400).json({ message: error.details[0].message });
-     }
+router.post("/", upload.single('photo'), async (req, res) => {
+  try {
+    const {error} = validate(req.body);
+    if (error) {
+      return res.status(400).json({message: error.details[0].message});
+    }
 
-     const { location, productName, description, photo, status , userId} = req.body;
-     const newProduct = new Product({
-       location,
-       productName,
-       description,
-       photo,
-       status,
-       userId,
-     });
+    const {location, productName, description, photo, status, userId} = req.body;
+    const newProduct = new Product({
+      location,
+      productName,
+      description,
+      photo,
+      status,
+      userId,
+    });
 
-     await newProduct.save();
-     res.status(201).json({
-       message: 'Product created successfully',
-       data: newProduct,
-     });
-   } catch (error) {
-     console.log(error);
-     res.status(500).json({
-       message: 'Product created successfully',
-     });
-   }
- });
+    await newProduct.save();
+    res.status(201).json({
+      message: 'Product created successfully',
+      data: newProduct,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: error,
+    });
+  }
+});
 
-
-router.get('/:userId',async (req,res) => {
+router.get('/:userId', async (req, res) => {
   const userId = req.params.userId;
-  try{
-    const products = await Product.find({userId});
+  try {
+    const products = await Product.find({ userId });
     res.json(products);
   } catch (error) {
-    res.status(500).json({error: 'An error occurred'});
+    res.status(500).json({ error: 'An error occurred' });
   }
-
 });
+
 router.get('/', (req, res) => {
   Product.find()
       .exec()
@@ -138,10 +137,9 @@ router.get('/', (req, res) => {
       })
       .catch(err => {
         console.log(err);
-        res.status(500).json({ error: err });
+        res.status(500).json({error: err});
       });
 });
-
 
 
 module.exports = router;
