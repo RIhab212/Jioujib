@@ -50,7 +50,7 @@ const validate = (data) => {
 		description: Joi.string().required().label("description"),
 		status: Joi.string().required().label("description"),
 		photo: Joi.string().optional().allow(""),
-		userId: Joi.number().required().label("user")
+		userId: Joi.string().required().label("user")
 
 
 
