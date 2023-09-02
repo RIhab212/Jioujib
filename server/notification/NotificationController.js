@@ -1,7 +1,7 @@
 const Notification = require("../notification/Notification");
 
 const fetchNotificationsByUserId = async (req, res) =>{
-    const userId = req.body;
+    const userId = req.params.userId;
     try{
         const notifications = await Notification.find({userId: userId});
         res.json({notifications});
