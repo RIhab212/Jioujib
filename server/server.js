@@ -32,9 +32,10 @@ const getProducts = require('./getProducts')
 app.use('/api/getproducts', getProducts)
 const form = require('./form')
 app.use('/api/form', form)
-
 app.use('/uploads', express.static('./form'));
 
+const notificationRoute = require('./notification/NotificationRoutes');
+app.use("/notifications", notificationRoute);
 
 const User = mongoose.model("UserInfo");
 const Product =  mongoose.model("product")
