@@ -15,6 +15,7 @@ import { Grid } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import MapButton from "./LocationInput";
+import notification from "./notification";
 const React = require('react');
 const FormC = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -150,11 +151,8 @@ const FormC = () => {
 
         <div className='main'>
             <div className="mm">
-                <Profile notifications={notifications} />
-
-
+                <Profile/>
                 <div className="hover"  >
-
                     <div className="hover-body"  >
                     </div>
 

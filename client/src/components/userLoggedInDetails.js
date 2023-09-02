@@ -24,7 +24,7 @@ const UserLoggedInDetails = () => {
     }, [userId]);
 
     return (
-        <div className="main-pagee">
+        <div className="page-container">
             <div className="page-loggedin">
                 <Link to="/FormC">
                     <img className="goback-icon" src={Img3} alt="Retour"/>
@@ -115,7 +115,8 @@ const UserLoggedInDetails = () => {
                     </div>
                 ))}
             </div>
-        </div>
+            </div>
+
     );
 };
 

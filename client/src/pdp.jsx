@@ -3,31 +3,12 @@ import avatarMale from './avatar-male.png';
 import avatarFemale from './avatar.png';
 import img8 from "./logoB2.png";
 import './pdp.css';
+import Notification from './notification';
+import React from "react";
 
 
-import { FaBell } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from "react";
+const Profile = () => {
 
-const Profile = ({ notifications }) => {
-
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [notificationCount, setNotificationCount] = useState(notifications.length);
-  const [notificationss, setNotifications] = useState([]);
-
-  const handleNotificationClick = () => {
-    setShowNotifications(!showNotifications);
-    if (showNotifications) {
-      setNotificationCount(0);
-    }
-  };
-  useEffect(() => {
-    setNotificationCount(prevCount => prevCount + notifications.length);
-    setNotifications(prevNotifications => [...notifications, ...prevNotifications]);
-  }, [notifications]);
-  
-
-  const location = useLocation();
 
   const user = JSON.parse(window.localStorage.getItem("user"));
 
@@ -41,32 +22,9 @@ const Profile = ({ notifications }) => {
   
   return (
     <div className='row'>
-      <div className="notifications">
-      <button className="notification-button" onClick={handleNotificationClick}>
-  <FaBell />
-  {notificationCount > 0 && <span className="notification-count">{notificationCount}</span>}
-</button>
-
-      {showNotifications && (
-        <div className="notification-box">
-          <div className="notification-header">Notifications</div>
-          <ul className="notification-list">
-            {notificationss.map(notification => (
-              <li key={notification.id} className="notification-item">
-                {notification.message}
-                <div className="notification-actions">
-                <Link to="/userLoggedInDetails" className="notification-details">see more</Link>
-                </div>
-              </li>
-            ))}
-          </ul>
-      
-
-        </div>
-      )}
-    </div>
-        <img src= {img8 }alt="" className='jiwjiblogo' />
-        <img src={getDefaultAvatar()} alt="" />
+      <Notification/>
+      <img src= {img8 }alt="" className='jiwjiblogo' />
+        <img src={getDefaultAvatar()} alt=""  />
     </div>
   );
   };  
