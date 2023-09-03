@@ -25,8 +25,7 @@ const FormC = () => {
     const [showPhoneDiv, setShowPhoneDiv] = useState(window.innerWidth < 800);
     const [isIconClicked, setIsIconClicked] = useState(false);
     const userId = JSON.parse(localStorage.getItem("user")).id;
-    const emailJson = localStorage.getItem("email");
-    const email = emailJson ? JSON.parse(emailJson).email : null;
+    const email = JSON.parse(localStorage.getItem("email"));
 
     const [data, setData] = React.useState({
         location: "",

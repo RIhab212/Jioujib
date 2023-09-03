@@ -118,7 +118,7 @@ router.get('/:userId', async (req, res) => {
   }
 });
 router.get('/:email', async (req, res) => {
-  const email = req.params.userId;
+  const email = req.params.email;
   try {
     const products = await Product.find({ email: email });
     res.json(products);
