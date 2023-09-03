@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const router = express.Router();
 
 const app = express();
-const Product = mongoose.model("products");
-const User = mongoose.model("UserInfo","products");
+const Product = mongoose.model("product");
+const User = mongoose.model("UserInfo","product");
 
 router.get("/", async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
