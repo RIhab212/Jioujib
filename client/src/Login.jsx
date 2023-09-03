@@ -5,6 +5,7 @@ import Img2 from './logoB2.png';
 import Google from "./g.png";
 import Facebook from "./if.png"
 import tel from "./tel.png"
+import logo from "./logoji.jpeg"
 import Phonesignup from './Phonesignup.js'
 import { Helmet } from "react-helmet"
 import { useForm } from 'react-hook-form'
@@ -12,6 +13,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import LinearProgress from '@mui/material/LinearProgress';
 import { Grid } from "@mui/material";
 import { useEffect } from "react";
+
 
 const React = require('react');
 const { useState } = React;
@@ -106,7 +108,7 @@ const Login = () => {
 						<Grid container spacing={2}>
 							<Grid item xs={12} md={6} className={styles.left}>
 								<form className={styles.form_container} onSubmit={handleSubmit}>
-									<h1 className={styles.formlogin_title}><img src="https://i.imgur.com/cMgefXi.png" className={styles.imgphone}></img></h1>
+									<h1 className={styles.formlogin_title}><img src={logo} className={styles.imgphone}></img></h1>
 
 									<Link to="/Signup">
 										<button type="button" className={styles.phonesignupbtn}>
@@ -201,15 +203,15 @@ const Login = () => {
 
 										<div className={styles.button_container}>
 											<button className={styles.facebook} onClick={facebook}>
-												<img src={Facebook} alt="" className="icon" />
+												<img src={Facebook} alt="" className="icon1" />
 											</button>
 											<button className={styles.Google} onClick={google}>
-												<img src={Google} alt="" className="icon" />
+												<img src={Google} alt="" className="icon1" />
 											</button>
 
 											<Link to="/Phonesignup">
 												<button className={styles.tel}>
-													<img src={tel} alt="" className="icon" />
+													<img src={tel} alt="" className="icon1" />
 												</button>
 											</Link>
 											<div></div>
@@ -224,7 +226,7 @@ const Login = () => {
                     backgroundColor: 'white'
                   }
                 }} style={{'width': '100%', 'top' : '-380px'}}/> */}
-										<img src='https://i.imgur.com/b2fceUJ.png' alt='' className={styles.img2}/>
+										<img src={logo} className={styles.img2}></img>
 										<h1 className={styles.newhere}>NEW HERE?</h1>
 										<Link to="/signup">
 											<button type="button" className={styles.white_btn}>

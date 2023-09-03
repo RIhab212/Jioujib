@@ -77,7 +77,7 @@ body {
 
 }
 
-.icon {
+.icone {
     font-family: 'Font Awesome 5 Free';
 }
 
@@ -91,7 +91,7 @@ body {
     opacity: 1; /* Opacité à 1 pour l'effet hover */
 }
 
-.icon {
+.icone {
     position: absolute;
     top: 10px;
     left: 10px;

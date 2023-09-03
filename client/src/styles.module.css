@@ -195,29 +195,30 @@ button img {
 
 .img2{
 	position: absolute;
-	bottom: 175px;
-	height: 70vh;
-	width: 90%;
-	max-width: 300px;
+	bottom: 150px;
+	height: 80vh;
+	width: 300%;
 	object-fit: contain;
 	justify-content: center;
+	max-width: 500px;
 	align-items: center;
 }
 
 .newhere{
 	margin: 0;
 	position: absolute;
-	top: 54vh;
-	left: 68%;
+	top: 50vh;
+	left: 67%;
 }
 
 .white_btn{
 	margin: 0;
 	position: absolute;
-	top: 85%;
+	top: 88%;
 	left: 70%;
 	transition: 0.5s;
 }
+
 
 .white_btn:hover{
 	background-color: white;
@@ -422,7 +423,6 @@ margin-top: 15px;
 	background-color: white;
 	color: #B73E3E;
 }
-
 
 
 

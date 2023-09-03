@@ -140,6 +140,8 @@ h4{
   font-family: "Poppins", sans-serif;
   margin: 0px;
   padding: 5px;
+
+
 }
 
 #productName::placeholder {
@@ -214,14 +216,7 @@ h4{
  top: 50%;    transform: translateY(-50%);
   left: -404px;
 }
-.icon{
-  color:#ba4747;
-  width: 21px;
-  height: 21px;
-  margin-top: -50px;
-  margin-left: 10px;
-  cursor: pointer;
-}
+
 .la {
   width: 450px;
   height: 8px;

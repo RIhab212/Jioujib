@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import Img2 from './logoB2.png';
 import axios from "axios";
+import logo from "./logoji.jpeg"
 
 import { Helmet } from "react-helmet"
 import { useForm } from 'react-hook-form'
@@ -175,7 +176,8 @@ const Signup = () => {
 				) : (
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={6} className={styles.left}>
-							<img src='https://i.imgur.com/b2fceUJ.png' alt='' className={styles.img2}/>
+							<img src={logo} className={styles.img2}></img>
+							<h1 className={styles.h1left}>Welcome Back</h1>
 							<Link to="/Login" className={styles.asignin}>
 								<button type="button" className={styles.white_btn}>
 									SIGN IN

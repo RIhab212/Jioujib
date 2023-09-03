@@ -44,6 +44,7 @@
 }
 .right h1{
 	color: #ED8F00;
+	right: 30px;
 }
 
 .form_container {
@@ -70,7 +71,7 @@
 
 
 .right img {
-	width: 80px; /* ajustez la taille du logo selon vos besoins */
+	width: 100px; /* ajustez la taille du logo selon vos besoins */
 	margin-left: 490px;
 
 }
@@ -97,8 +98,12 @@
 	font-weight: bold;
 	font-size: 14px;
 	cursor: pointer;
+	margin-top:45px;
 }
-
+.h1left{
+	position: absolute;
+	bottom: 80px;
+}
 .green_btn {
 	background-color: rgba(0,0,0,0);
 	color: #ED8F00;
@@ -133,11 +138,16 @@ Link{
 
 .img2{
 	position: absolute;
-	bottom: 115px;
-	height: 700px;
-	width: 300px;
+	bottom: 150px;
+	height: 80vh;
+	width: 300%;
+	max-width: 500px;
 	object-fit: contain;
+	justify-content: center;
+	align-items: center;
 }
+
+
 
 .genderradio{
 	margin-top:20px;

@@ -15,7 +15,15 @@
     text-align: center; /* Centrer le texte horizontalement */
     line-height: 8px;
 }
-
+.icon{
+    color:#ba4747;
+    width: 21px;
+    position: absolute;
+    height: 21px;
+    top:-40px;
+    left: 10px;
+    cursor: pointer;
+}
 .modal-content {
     background-color: #fff;
     width: 700px;
