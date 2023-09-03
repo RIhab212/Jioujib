@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
 	Notif : { type: Boolean, default: true },
 	userId : {type:String , required: true},
 	status : { type: String, default: null},
-	email : {type: String, default: null},
+	email : {type: String, required: true},
 	createdAt: {
 		type: Date,
 		default: Date.now,
