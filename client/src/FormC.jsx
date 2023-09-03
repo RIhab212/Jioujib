@@ -25,6 +25,7 @@ const FormC = () => {
     const [showPhoneDiv, setShowPhoneDiv] = useState(window.innerWidth < 800);
     const [isIconClicked, setIsIconClicked] = useState(false);
     const userId = JSON.parse(localStorage.getItem("user")).id;
+    const email = JSON.parse(localStorage.getItem("email")).email;
 
 
     const [data, setData] = React.useState({
@@ -88,6 +89,7 @@ const FormC = () => {
             formData.append('description', data.description);
             formData.append('status', "ORDER_PLACED");
             formData.append('userId', userId)
+            formData.append('email', email)
 
             if (imageUpload) {
                 const imageRef = ref(storage,`images/${imageUpload.name + v4()}`);

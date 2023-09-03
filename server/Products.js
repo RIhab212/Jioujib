@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
 	Notif : { type: Boolean, default: true },
 	userId : {type:String , required: true},
 	status : { type: String, default: null},
+	email : {type: String, default: null},
 	createdAt: {
 		type: Date,
 		default: Date.now,
@@ -50,7 +51,8 @@ const validate = (data) => {
 		description: Joi.string().required().label("description"),
 		status: Joi.string().required().label("description"),
 		photo: Joi.string().optional().allow(""),
-		userId: Joi.string().required().label("user")
+		userId: Joi.string().required().label("user"),
+		email: Joi.string().required().label("email")
 
 
 

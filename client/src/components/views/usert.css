@@ -1,9 +1,8 @@
-/* Ajoutez ce code CSS à votre fichier CSS existant ou créez un nouveau fichier CSS */
 
 .table-wrapper {
-    width: 300%;
-    margin-left: 450px;
-    margin-top: 94px;
+    width: 1100%;
+    margin-left: 340px;
+    margin-top: -620px;
 
 }
 
@@ -11,6 +10,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
+   margin-bottom: 555px;
 }
 
 th,
@@ -26,7 +26,7 @@ td {
 .H{
     color: #ED8F00;
     margin-left: 305px;
-    margin-top: -38px;
+    margin-top: -228px;
 
 }
 th {
@@ -59,17 +59,14 @@ tbody::-webkit-scrollbar-thumb {
 tbody::-webkit-scrollbar-thumb:hover {
     background-color: rgb(255, 255, 255);
 }
-/* Ajoutez ce code CSS à votre fichier CSS existant ou créez un nouveau fichier CSS */
 
-/* Style de la barre de défilement */
-/* .scrollbars-custom est une classe générée par la bibliothèque */
+
 .scrollbars-custom {
     position: relative;
     overflow: hidden;
 }
 
-/* Track */
-/* Style personnalisé pour la barre de défilement */
+
 .scrollbars-custom {
     position: relative;
     overflow: hidden;
@@ -113,12 +110,12 @@ tbody::-webkit-scrollbar-thumb:hover {
     background-color: #333;
 }
 
-/* Style personnalisé pour la poignée en position verticale */
+
 .scrollbars-custom .ScrollbarsCustom-Thumb.vertical {
     width: 100%;
 }
 
-/* Style personnalisé pour la poignée en position horizontale */
+
 .scrollbars-custom .ScrollbarsCustom-Thumb.horizontal {
     height: 100%;
 }

@@ -84,7 +84,7 @@ router.post("/", upload.single('photo'), async (req, res) => {
       return res.status(400).json({message: error.details[0].message});
     }
 
-    const {location, productName, description, photo, status, userId} = req.body;
+    const {location, productName, description, photo, status, userId,email} = req.body;
     const newProduct = new Product({
       location,
       productName,
@@ -92,6 +92,7 @@ router.post("/", upload.single('photo'), async (req, res) => {
       photo,
       status,
       userId,
+      email,
     });
 
     await newProduct.save();
@@ -116,7 +117,15 @@ router.get('/:userId', async (req, res) => {
     res.status(500).json({ error: 'An error occurred' });
   }
 });
-
+router.get('/:email', async (req, res) => {
+  const email = req.params.userId;
+  try {
+    const products = await Product.find({ email: email });
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
 router.get('/', (req, res) => {
   Product.find()
       .exec()

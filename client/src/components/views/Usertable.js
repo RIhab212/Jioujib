@@ -24,6 +24,7 @@ const Usertable = () => {
 
         <div className='sidebar-admin'>
             <Navbar/>
+            <div className="table">
             <div className="table-wrapper">
                 <h1 className="H">Users List</h1>
                 <Scrollbars className="scrollbars-custom" style={{ width: '100%', height: 'calc(100vh - 150px)' }}>                    <table>
@@ -46,6 +47,7 @@ const Usertable = () => {
                 </table>
                 </Scrollbars>
             </div>
+        </div>
         </div>
     );
 };
