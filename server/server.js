@@ -39,7 +39,8 @@ const USer = require ('./USer')
 app.use('/api/users',USer)
 const status = require('./status');
 app.use('/api/status',status)
-
+const Prod = require('./Prod');
+app.use('/api/Prod',Prod)
 const User = mongoose.model("UserInfo");
 const Product =  mongoose.model("product")
 

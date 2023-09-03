@@ -13,7 +13,7 @@ const OrdersTab = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://jiujib.onrender.com/api/Prod'); // Remplacez l'URL par votre API réelle
+            const response = await axios.get('https://jiujib.onrender.com/api/Prod');
 
             const productsArray = Object.values(response.data);
 
