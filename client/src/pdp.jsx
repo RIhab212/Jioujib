@@ -24,7 +24,7 @@ const Profile = () => {
     <div className='row'>
       <Notification/>
       <img src= {img8 }alt="" className='jiwjiblogo' />
-        <img src={getDefaultAvatar()} alt=""  />
+        <img src={getDefaultAvatar() } alt=""  className='jiwjiblogo1'/>
     </div>
   );
   };  

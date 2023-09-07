@@ -9,7 +9,7 @@
     font-size: 3rem;
     position: relative;
     color: #ffffff;
-   
+
   }
   
   .notification-count {
@@ -63,3 +63,32 @@
   .notification-item:last-child {
     border-bottom: none;
   }
+@media screen and (max-width: 568px) {
+  .notification-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 240%;
+    position: relative;
+    color: #ffffff;
+    margin-top: 35px;
+    margin-left: -299px;
+
+  }
+  .notification-box {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-height: 300px;
+    overflow-y: auto;
+    position: absolute;
+    top: 3rem;
+    width: 250px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    margin-top: 38px;
+    margin-right:90px;
+  }
+}

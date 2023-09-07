@@ -38,7 +38,7 @@ class MapButton extends Component {
                 center: {lat: 31.7917, lng: -7.0926},
                 zoom: 7
             });
-            const input = document.getElementById('location');
+            const input = document.getElementById('locationn');
             input.addEventListener("input", this.handleInputChange);
 
             const options = {
@@ -216,5 +216,4 @@ class MapButton extends Component {
 }
 
 export default MapButton;
-
 

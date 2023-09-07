@@ -6,6 +6,7 @@ import Google from "./g.png";
 import Facebook from "./if.png"
 import tel from "./tel.png"
 import logo from "./logoji.jpeg"
+import logo2 from "./logotel.png"
 import Phonesignup from './Phonesignup.js'
 import { Helmet } from "react-helmet"
 import { useForm } from 'react-hook-form'
@@ -108,7 +109,7 @@ const Login = () => {
 						<Grid container spacing={2}>
 							<Grid item xs={12} md={6} className={styles.left}>
 								<form className={styles.form_container} onSubmit={handleSubmit}>
-									<h1 className={styles.formlogin_title}><img src={logo} className={styles.imgphone}></img></h1>
+									<h1 className={styles.formlogin_title}><img src={logo2} className={styles.imgphone}></img></h1>
 
 									<Link to="/Signup">
 										<button type="button" className={styles.phonesignupbtn}>
@@ -149,15 +150,15 @@ const Login = () => {
 
 									<div className={styles.button_container}>
 										<button className={styles.facebook} onClick={facebook}>
-											<img src={Facebook} alt="" className="icon" />
+											<img src={Facebook} alt="" className="icon1" />
 										</button>
 										<button className={styles.Google} onClick={google}>
-											<img src={Google} alt="" className="icon" />
+											<img src={Google} alt="" className="icon1" />
 										</button>
 
 										<Link to="/Phonesignup">
 											<button className={styles.tel}>
-												<img src={tel} alt="" className="icon" />
+												<img src={tel} alt="" className="icon1" />
 											</button>
 										</Link>
 										<div></div>

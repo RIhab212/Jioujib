@@ -37,6 +37,7 @@ const OrdersTab = () => {
                         <th>Product Name</th>
                         <th>description</th>
                         <th>Status</th>
+                        <th>email</th>
 
                     </tr>
                     </thead>
@@ -47,6 +48,7 @@ const OrdersTab = () => {
                             <td>{product.productName}</td>
                             <td>{product.description}</td>
                             <td>{product.status}</td>
+                            <td>{product.email}</td>
                         </tr>
                     ))}
                     </tbody>

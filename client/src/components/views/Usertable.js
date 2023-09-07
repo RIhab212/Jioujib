@@ -21,7 +21,7 @@ const Usertable = () => {
     };
 
     return (
-
+        <div className="table-container">
         <div className='sidebar-admin'>
             <Navbar/>
             <div className="table">
@@ -47,6 +47,7 @@ const Usertable = () => {
                 </table>
                 </Scrollbars>
             </div>
+        </div>
         </div>
         </div>
     );

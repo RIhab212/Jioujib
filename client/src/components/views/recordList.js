@@ -10,7 +10,7 @@ import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-he
 import io from 'socket.io-client';
 import {storage} from "../../firebase.config";
 import {v4} from "uuid";
-
+import iconecount from './iconecount.png';
 const socket = io.connect('https://jiujib.onrender.com');
 
 const RecordList = ({record}) => {
@@ -75,15 +75,15 @@ const RecordList = ({record}) => {
       console.error(errorMessage);
       return;
     }
-    socket.emit('confirmation');
-    record = {...record, Notif: undefined};
+
   };
 
 
   return (
-
+      <div>
+       <h1 className="orders">Orders</h1>
       <div className="record-details-admin">
-        {record.Notif ? <img src='' className='img-notif'></img> : <></>}
+        {record.Notif ? <img src={iconecount}  className='img-notif'></img> : <></>}
 
         <h4 className="productName">{record.productName}</h4>
 
@@ -97,7 +97,8 @@ const RecordList = ({record}) => {
 
             <AccordionBody>
               <h4 className="location">
-                <strong>Localisation : </strong> {record.location}
+                <strong>Localisation : </strong>
+                  {record.location}
               </h4>
               <h4 className="description">
                 <strong>description : </strong>
@@ -117,7 +118,7 @@ const RecordList = ({record}) => {
           </AccordionItem>
         </Accordion>
       </div>
-
+      </div>
   );
 };
 

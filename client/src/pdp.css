@@ -133,7 +133,7 @@ img {
   text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 786px) {
   .row{
     display: flex;
     justify-content: space-around;
@@ -141,22 +141,23 @@ img {
     margin-right: 05%;
   }
 
-  img{
-    width: 20%;
-    height: 25%;
-    margin-left: 10%;
-    margin-top: 03%;
+  .jiwjiblogo1{
+    width: 11%;
+    height: 15%;
+    margin-left: -85%;
+    margin-top: 02%;
     object-fit: cover;
   }
   .jiwjiblogo{
-    width: 20%;
-    height: 20%;
-    margin-top: 10px;
+    width: 10%;
+    height: 10%;
+    margin-top: 15px;
+    margin-left: -800px;
   }
   .notification-logo{
     color: white;
     margin-top: 25px;
-    font-size: 55%;
+    margin-left:-5px;
   }
   .notifications {
     position: relative;
@@ -166,11 +167,28 @@ img {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 10%;
+    font-size: 240%;
     position: relative;
     color: #ffffff;
-    margin-top: 25px;
+    margin-top: 35px;
+    margin-left: -299px;
 
+  }
+  .notification-box {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-height: 300px;
+    overflow-y: auto;
+    position: absolute;
+    top: 3rem;
+    width: 250px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    margin-top: 38px;
+    margin-right:90px;
   }
 
   .notification-count {
@@ -189,23 +207,12 @@ img {
     margin-right: 9px;
   }
 
-  .notification-box {
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-height: 200px;
-    overflow-y: auto;
-    position: absolute;
-    top: 3rem;
-    width: 05%;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    margin-top: 38px;
-    margin-right:-190%;
-  }
-
+.main{
+  width:50px;
+  height: 50px;
+  position: absolute;
+  display: flex;
+}
   .notification-header {
     background-color: #f5f5f5;
     border-bottom: 1px solid #cccccc;
@@ -235,8 +242,8 @@ img {
     text-decoration: none;
   }
   .box-container {
-    width: 200%;
-    height: 100%;
+    width: 79%;
+    height: 700px;
     border-radius: 10px;
     box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
     0px 3px 4px 0px rgba(173, 42, 42, 0.14);
@@ -251,7 +258,7 @@ img {
 
   .card-body{
     background-color: #ED8F00;
-    width: 105%;
+    width: 60%;
     height: 115px;
     border-radius: 44px;
     margin-top: 10px;
@@ -260,18 +267,19 @@ img {
     margin-left: -04px;
   }
   .card-title {
-    margin-top: -80px;
+    margin-top: -66px;
     margin-left: 18%;
     font-size: 19px;
     color: white;
   }
   .card-text {
-    margin-top :-30px;
+    margin-top :-28px;
     margin-left: 18%;
     font-size: 15px;
     color: black
 
   }
+
   .card-body img{
     margin-left: 55% ;
     margin-top: -06%;
@@ -292,11 +300,15 @@ img {
     margin-left: -50%;
 
   }
+  #locationn::placeholder {
+    width: 90%;
+    font-size: 15px;
+  }
   .icon{
     color:#ba4747;
     width: 21px;
     height: 21px;
-    margin-top: -48px;
+    margin-top: -00px;
     margin-left: -70px;
     cursor: pointer;
   }
@@ -329,10 +341,14 @@ img {
   .success-message{
     font-size: 10px;
     color: #1d8613;
+    margin-top:33px;
+
   }
   .error-message{
     font-size: 10px;
-    color: #601414;
+    margin-top:33px;
+    color: #da2626;
   }
+
 
 }

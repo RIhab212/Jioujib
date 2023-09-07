@@ -280,6 +280,8 @@
     /* Styles for the opened sidebar on mobile */
     .sidebar-open {
         left: 0; /* Slide the sidebar in from the left on mobile */
+        z-index: 2;
+
     }
 
     .icone-css4 {

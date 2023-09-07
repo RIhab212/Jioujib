@@ -13,18 +13,18 @@ let orderPlacedCount = 0;
 let orderAcceptedCount = 0;
 let pickupOrderCount = 0;
 let orderDeliveredCount = 0;
-
-router.get("/", async(req, res) => {
+router.get("/", async (req, res
+) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     try {
-        const products = await Product.find({ isConfirmed : false })
-        return res.json(products)
+        const products = await Product.find({ isConfirmed: false })
+            .sort({ createdAt: -1 });
+
+        return res.json(products);
     } catch (error) {
-        return res.status(400).json({message : error})
+        return res.status(400).json({ message: error });
     }
-
 });
-
 
 router.put("/confirm", async(req ,res) => {
     try {

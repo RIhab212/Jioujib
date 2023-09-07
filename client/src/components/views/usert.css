@@ -4,6 +4,7 @@
     margin-left: 340px;
     margin-top: -620px;
 
+
 }
 
 table {
@@ -70,6 +71,7 @@ tbody::-webkit-scrollbar-thumb:hover {
 .scrollbars-custom {
     position: relative;
     overflow: hidden;
+
 }
 
 /* Style personnalisé pour la piste */
@@ -118,4 +120,136 @@ tbody::-webkit-scrollbar-thumb:hover {
 
 .scrollbars-custom .ScrollbarsCustom-Thumb.horizontal {
     height: 100%;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+
+    .table-wrapper {
+        width: 600%;
+        margin-left: 10px;
+        margin-top: 240px;
+        height: 600px;
+        z-index: 2;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        margin-bottom: -555px;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 9px;
+        z-index: 2;
+
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+    .H{
+        color: #ED8F00;
+        margin-left: 305px;
+        margin-top: -228px;
+
+    }
+    th {
+        background-color: #ED8F00;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        color:#FFFFFF;
+
+    }
+
+    tbody::-webkit-scrollbar {
+        width: 8px;
+        background-color: rgba(245, 245, 245, 0.85);
+    }
+
+    tbody::-webkit-scrollbar-thumb {
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+    }
+    tbody {
+        background-color: rgba(245, 245, 245, 0.85) !important;
+    }
+
+    tbody::-webkit-scrollbar-thumb {
+        background-color: #ffffff !important;
+        box-shadow: #131111 !important;
+        border-radius: 70px !important;
+    }
+    tbody::-webkit-scrollbar-thumb:hover {
+        background-color: rgb(255, 255, 255);
+    }
+
+
+
+
+
+    .scrollbars-custom {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Style personnalisé pour la piste */
+    .scrollbars-custom .ScrollbarsCustom-Track {
+        position: absolute;
+        top: 6px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 20px;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    /* Style personnalisé pour la piste lorsqu'elle est survolée */
+    .scrollbars-custom:hover .ScrollbarsCustom-Track {
+        opacity: 1;
+    }
+
+    /* Style personnalisé pour la poignée */
+    .scrollbars-custom .ScrollbarsCustom-Thumb {
+        position: relative;
+        display: block;
+        background-color: #888;
+        border-radius: 4px;
+    }
+
+    /* Style personnalisé pour la poignée lorsqu'elle est survolée */
+    .scrollbars-custom .ScrollbarsCustom-Track:hover .ScrollbarsCustom-Thumb {
+        background-color: #555;
+    }
+
+    /* Style personnalisé pour la poignée active */
+    .scrollbars-custom .ScrollbarsCustom-Thumb:active {
+        background-color: #333;
+    }
+
+
+    .scrollbars-custom .ScrollbarsCustom-Thumb.vertical {
+        width: 100%;
+    }
+
+
+    .scrollbars-custom .ScrollbarsCustom-Thumb.horizontal {
+        height: 100%;
+    }
+
+
 }

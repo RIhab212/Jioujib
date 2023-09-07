@@ -91,7 +91,7 @@ body {
     opacity: 1; /* Opacité à 1 pour l'effet hover */
 }
 
-.icone {
+.icone2{
     position: absolute;
     top: 10px;
     left: 10px;
@@ -201,7 +201,7 @@ body {
         top: 94px; /* Adjust this value to position the box vertically */
         left: 45px; /* Adjust this value to position the box horizontally */
         width: 80vw;
-        height: 10vh;
+        height: 13vh;
         border-radius: 0;
     }
 
@@ -334,6 +334,7 @@ body {
     .status-chart {
         margin-left: 10vw;
     }
+
 
 
 }

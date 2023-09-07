@@ -97,3 +97,107 @@ h4{
     width: 49Px;
     height: 66px;
 }
+
+
+@media screen and (max-width: 786px) {
+
+    .modal {
+        position: fixed;
+        top: 120px;
+        left: 130px;
+        width: 70%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .l{
+        text-align: center; /* Centrer le texte horizontalement */
+        line-height: 8px;
+    }
+    .icon{
+        color:#ba4747;
+        width: 21px;
+        position: absolute;
+        height: 21px;
+        top:-40px;
+        left: 10px;
+        cursor: pointer;
+    }
+    .modal-content {
+        background-color: #fff;
+        width: 1000px;
+        height: 1300px;
+        position: relative;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: #FFFFFF;
+
+    }
+
+    .close-button {
+        position: absolute;
+        top: 160px;
+        left: 470px;
+        font-size: 40px;
+        cursor: pointer;
+        color: #B73E3E;
+    }
+
+
+    .red-button {
+        background-color: #ED8F00;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 13px;
+        width: 175px;
+        margin-top: 90px;
+    }
+    .map-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        width: 600px;
+        margin-left: -50px;
+        margin-top: 294px;
+
+
+    }
+    map-icon{
+        margin-top: 50Px;
+    }
+    h4{
+        font-size: 30px;
+        margin-left: 50px;
+        margin-bottom: 80px;
+        color: #ED8F00;
+        margin-top: 150px;
+
+    }
+
+    .imgLoc{
+        width: 26px;
+        height: 26px;
+        margin-top: 40px;
+    }
+    .input-with-icon {
+        position: relative;
+    }
+
+    .icone {
+        position: absolute;
+        top: 0%;
+        right: 430px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    .location{
+        width: 49Px;
+        height: 66px;
+    }
+}

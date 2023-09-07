@@ -377,8 +377,8 @@ AccordionItem{
     }
     .goback-icon{
         position: absolute;
-        top: 106px;
-        left: 50px;
+        top: 109px;
+        left: 80px;
         cursor: pointer;
         width: 60px;
         height: 60px;
@@ -408,8 +408,28 @@ AccordionItem{
         font-size: 15px;
         line-height: 24px;
         opacity: 0.5;
-          bottom:5%;
         text-transform: capitalize;
     }
+    .circle-5{
+        width:60px;
+        height: 60px;;
+        margin-left: 1px;
+        margin-top:100px;
+        opacity: 100%;
 
+    }   .circle-6{
+        width:60px;
+        height: 60px;;
+        margin-left: 1px;
+        margin-top:100px;
+        opacity: 100%;
+
+    }
+    .circle{
+        width:60px;
+        height: 60px;
+        margin-top:10px;
+        margin-left: 2px;
+        opacity: 100%;
+    }
 }

@@ -25,7 +25,6 @@ const FormC = () => {
     const [showPhoneDiv, setShowPhoneDiv] = useState(window.innerWidth < 800);
     const [isIconClicked, setIsIconClicked] = useState(false);
     const userId = JSON.parse(localStorage.getItem("user")).id;
-    const email = JSON.parse(localStorage.getItem("email"));
 
     const [data, setData] = React.useState({
         location: "",
@@ -88,8 +87,10 @@ const FormC = () => {
             formData.append('description', data.description);
             formData.append('status', "ORDER_PLACED");
             formData.append('userId', userId)
-            formData.append('email', email)
+            const user = JSON.parse(localStorage.getItem("user"));
+            const email = user.email;
 
+            formData.append('email', email);
             if (imageUpload) {
                 const imageRef = ref(storage,`images/${imageUpload.name + v4()}`);
                 await uploadBytes(imageRef, imageUpload);
@@ -171,7 +172,7 @@ const FormC = () => {
                             <div className="input-with-icon">
                                 <input
                                     type="text"
-                                    id="location"
+                                    id="locationn"
                                     value={data.location}
                                     onChange={handleChange}
                                     placeholder="                        Location"

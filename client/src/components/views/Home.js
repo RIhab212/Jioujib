@@ -160,13 +160,13 @@ const Home = () => {
                         <div className={"mobile-wrapper"}>
                         <Link to="/Usertable" className="link-no-underline" >
                             <button className="big-button">
-                                <span className="icone"><i className="fas fa-user"></i></span>
+                                <span className="icone2"><i className="fas fa-user"></i></span>
                                 Users Details
                             </button>
                         </Link>
                         <Link to="/OrdersTab" className="link-no-underline" >
                             <button className="big-button big-button2 second-big-button">
-                                <span className="icone">&#xf09d;</span>
+                                <span className="icone2">&#xf09d;</span>
                                 Orders Details
                             </button>
                         </Link>
