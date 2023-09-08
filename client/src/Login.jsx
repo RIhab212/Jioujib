@@ -57,7 +57,7 @@ const Login = () => {
 			window.localStorage.setItem("user", JSON.stringify(user));
 			if (status === "admin logged in") {
 
-				navigate("/adminInterface");
+				navigate("/Home");
 			} else if (status === "user logged in") {
 
 				navigate("/FormC");

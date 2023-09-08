@@ -175,7 +175,7 @@ const FormC = () => {
                                     id="locationn"
                                     value={data.location}
                                     onChange={handleChange}
-                                    placeholder="                        Location"
+                                    placeholder="Location"
                                     className="locationn"
                                 />
                                 <MapButton updateLocation={updateLocation} />

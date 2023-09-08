@@ -131,7 +131,8 @@ body {
     font-weight: bold;
     font-size: 16px;
     font-family: Arial, sans-serif;
-    transform: translate(3.5vh,-10vw);
+    transform: translate(3.9vh,-3vw);
+
 }
 
 .status-rate {
